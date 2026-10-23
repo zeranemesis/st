@@ -182,3 +182,16 @@ The [seventh-function matching patch, PR #9](https://github.com/zeranemesis/st/p
 Re-compiled all **500 fifth-batch C bodies** with Clang ARMv5TE `-O2 -ffunction-sections` and verified each original byte span against the owner's SHA1-matched EUR1 ROM. **All 500 compile, all original span hashes check, and matching improved from 26 to 33 byte-exact functions**, with **138 same-size instruction mismatches** and **329 size mismatches**. The seven new exact functions reproduce **120 additional ARM instruction bytes**; the full 33 Clang-exact fifth-batch snippets cover **620 instruction bytes**.
 
 See [matching audit](research/eur1/batches/arm9_leaf500/MATCHING_REWRITES_7.md), updated source shards, the 500-entry manifest and CI smoke verifier. No original **CodeWarrior** matching has been established for the seven revised implementations, and none have been integrated into official game C++ or objdiff. These are **not seven new ROM addresses**, nor proof of seven complete gameplay subsystems; the fifth batch still has **467 nonmatching provisional C bodies**.
+
+
+## 23 Oct 2026 — Sixth batch: 100 additional directly-called ARM9 C reconstructions (PR #10)
+
+Merged [PR #10](https://github.com/zeranemesis/st/pull/10), adding **100 C function bodies** with **at least one direct original same-module ARM BL call** per original address, distinct from all previously published research batches (including the additional overlay-0 165). Covers **28 code modules and 2,080 original instruction bytes** from the owner's SHA1-verified European Rev 1 BKIP ROM.
+
+- **100/100 C bodies compiled** under Clang ARMv5TE `-O2 -ffunction-sections`, and **100/100 original instruction spans have validated SHA256 fingerprints**.
+- **37/100 standalone Clang exact machine-code matches**, covering **428 bytes**. Of these, **17 are newly reconstructed readable typed C routines** (multiple field initializers, ordered byte/word stores), plus 20 simpler short C return/accessor bodies.
+- Remaining **63/100 are provisional** register-oriented instruction-to-C translations: **21 same-size, different-instructions** and **42 different-size**. They are **not proven C semantic equivalents** and require correction.
+- [Two 50-function C source shards, 100-entry original-hash manifest, and Windows original-CodeWarrior verifier](research/eur1/batches/arm9_new100/) are published. The original CodeWarrior standalone verifier has **not yet run** for this batch; no original C++ classes/translation units or official DS build have been integrated.
+- No copyrighted ROM bytes, original game assets or proprietary compilers are committed. No PC port was started.
+
+The next step for this sixth batch is running the Windows CodeWarrior ARM dsi/1.2p1 standalone verifier, examining per-symbol mismatches, reconstructing 63 provisional C implementations accurately, and eventually validating them in their actual Nintendo DS C++ source units using `objdiff`.
