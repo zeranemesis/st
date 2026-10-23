@@ -195,3 +195,12 @@ Merged [PR #10](https://github.com/zeranemesis/st/pull/10), adding **100 C funct
 - No copyrighted ROM bytes, original game assets or proprietary compilers are committed. No PC port was started.
 
 The next step for this sixth batch is running the Windows CodeWarrior ARM dsi/1.2p1 standalone verifier, examining per-symbol mismatches, reconstructing 63 provisional C implementations accurately, and eventually validating them in their actual Nintendo DS C++ source units using `objdiff`.
+
+
+## 23 Oct 2026 — Sixth research batch: 100 more BL-referenced ARM9 C interpretations (PR #11)
+
+[PR #11](https://github.com/zeranemesis/st/pull/11) adds **100 additional C reconstruction bodies**, each selected from same-module direct ARM `BL` targets and excluded from the 2,600 prior research addresses. The owner's SHA1-validated EUR Rev 1 ROM was decoded to extract 114 overlays and the ARM9 main module, then 100 eligible short leaf-code starts were reconstructed as compilable C in [`new100.c`](research/eur1/batches/new100/new100.c).
+
+Local Clang ARMv5TE `-O2 -ffunction-sections` and exact original ROM byte checking returned **17/100 byte-exact**, **30/100 same size but different instructions**, and **53/100 different size**. The batch covers **2,320 original instruction bytes across 37 ARM9 code modules**. All 100 C bodies compile and all recorded original instruction-span SHA-256 fingerprints match the owner's original decoded module bytes. See [full manifest](research/eur1/batches/new100/manifest_new100.json), [verification script](research/eur1/batches/new100/verify_new100.py), and [reproduction instructions](research/eur1/batches/new100/README.md).
+
+**Important**: the other **83 are provisional register-oriented low-level C translations**, not independent behavior-proven or compiler-matching source functions. **CodeWarrior: NOT TESTED. Original C++ object/translation-unit ownership: NOT VERIFIED. DS build / objdiff matching: NOT INTEGRATED.** This is decompilation-only research and no native PC port was performed.
