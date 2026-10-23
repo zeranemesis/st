@@ -131,23 +131,23 @@ uint32_t st_arm9_02028390(uint32_t value) {
     return value ? (uint32_t)__builtin_clz(value) : 32u;
 }
 /* [042] overlay_000 0x0205B1CC size=12 sha256=7e15c0fa7a7662f1b51ea6aa1aaca160ab766bf5401298ca840d3cc6b28f5c36 */
-void st_ov000_0205B1CC(volatile uint32_t *dst, uint32_t first, uint32_t second) {
+void st_ov000_0205B1CC(uint32_t *dst, uint32_t first, uint32_t second) {
     dst[0] = first;
-    dst[0] = first;
-    dst[1] = second;
+    dst[1] = first;
+    dst[2] = second;
 }
 /* [043] overlay_023 0x020EF9A4 size=12 sha256=a95fb179d42f835b33c255b0a333526fb0a2c8d5db2caefba50dad3d81e633c3 */
-void st_ov023_020EF9A4(volatile uint32_t *dst, uint32_t a, uint32_t b, uint32_t c) {
-    dst[0] = a;
-    dst[1] = b;
+void st_ov023_020EF9A4(uint32_t *dst, uint32_t a, uint32_t b, uint32_t c) {
+    dst[1] = a;
+    dst[2] = b;
     dst[3] = c;
 }
 /* [044] overlay_032 0x0211DA50 size=16 sha256=16f093abc76889994f68f477d47f7a59ae121a35ba597d643c9e0be2927270da */
-void st_ov032_0211DA50(volatile uint32_t *dst) {
+void st_ov032_0211DA50(uint32_t *dst) {
     const uint32_t previous4 = dst[1];
     const uint32_t previous8 = dst[2];
-    dst[0] = previous8;
-    dst[1] = previous4;
+    dst[1] = previous8;
+    dst[2] = previous4;
 }
 /* [045] overlay_000 0x02072FF0 size=20 sha256=2380258467c76cb9787820ab2c0374d89847e531dda76a3ad5e85c7eff45c6ee */
 uint32_t st_ov000_02072FF0(volatile uint8_t *base, uint32_t index, uint32_t value) {
