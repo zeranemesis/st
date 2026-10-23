@@ -28,13 +28,13 @@ uint32_t st_arm9_0202815C(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { uns
 uint32_t st_arm9_0202CE2C(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: ; uint32_t _v0 = r2 - 0x0u; Z = (_v0==0); N = ((_v0>>31)&1); C = (r2 >= 0x0u); V = (((r2 ^ 0x0u) & (r2 ^ _v0) & 0x80000000u)!=0); L1: if (Z) { r1 = 0x0u; } L2: if (Z) goto L5; L3: ; uint32_t _v3 = r1 - 0x0u; Z = (_v3==0); N = ((_v3>>31)&1); C = (r1 >= 0x0u); V = (((r1 ^ 0x0u) & (r1 ^ _v3) & 0x80000000u)!=0); L4: if (Z) { r2 = 0x0u; } L5: *(volatile uint32_t*)(uintptr_t)(r0+84) = (uint32_t)r1; L6: *(volatile uint32_t*)(uintptr_t)(r0+88) = (uint32_t)r2; L7: return r0; }
 
 /* [009] arm9 0x0202EDF4 size=24 sha256=643423ffb43acb7dce18b8b8cc48f9e1cc8db4c9dbc5ab6b2145c2a514920d1b BL=1 */
-uint32_t st_arm9_0202EDF4(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r1 = 0x020505d0u; L1: r2 = (uint32_t)*(volatile uint16_t*)(uintptr_t)(r1+58); L2: ; uint32_t _v2=r2&r0; Z=(_v2==0); N=((_v2>>31)&1); L3: if (!Z) goto L1; L4: return r0; }
+void st_arm9_0202EDF4(uint32_t mask){volatile uint16_t*ptr=(volatile uint16_t*)0x020505d0u;asm volatile("" : "+r"(ptr));while((ptr[29]&mask)!=0){} }
 
 /* [010] overlay_000 0x0205FDD0 size=40 sha256=d5e529c05ee5f81c265b4222e03d69151f82e173795ebe10f7b0285c0aa4994f BL=1 */
-uint32_t st_ov000_0205FDD0(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r2 = 0x0u; L1: r1 = 0x020b1cc8u; L2: *(volatile uint32_t*)(uintptr_t)(r0+8) = (uint32_t)r2; L3: *(volatile uint16_t*)(uintptr_t)(r0+14) = (uint16_t)r2; L4: *(volatile uint16_t*)(uintptr_t)(r0+16) = (uint16_t)r2; L5: *(volatile uint32_t*)(uintptr_t)(r0+0u) = r1; *(volatile uint32_t*)(uintptr_t)(r0+4u) = r2; L6: *(volatile uint32_t*)(uintptr_t)(r0+28) = (uint32_t)r2; L7: *(volatile uint16_t*)(uintptr_t)(r0+32) = (uint16_t)r2; L8: return r0; }
+uint32_t st_ov000_0205FDD0(uint32_t addr){register uint32_t z asm("r2")=0; register uint32_t vt asm("r1")=0x020b1cc8u;asm volatile("" : "+r"(z));asm volatile("" : "+r"(vt));*(volatile uint32_t*)(addr+8)=z;*(volatile uint16_t*)(addr+14)=z;*(volatile uint16_t*)(addr+16)=z;asm volatile("" ::: "memory");((uint32_t*)(addr))[0]=vt;((uint32_t*)(addr))[1]=z;asm volatile("" ::: "memory");*(volatile uint32_t*)(addr+28)=z;asm volatile("" ::: "memory");*(volatile uint16_t*)(addr+32)=z;return addr;}
 
 /* [011] overlay_000 0x0205FDF8 size=40 sha256=d5e529c05ee5f81c265b4222e03d69151f82e173795ebe10f7b0285c0aa4994f BL=1 */
-uint32_t st_ov000_0205FDF8(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r2 = 0x0u; L1: r1 = 0x020b1cc8u; L2: *(volatile uint32_t*)(uintptr_t)(r0+8) = (uint32_t)r2; L3: *(volatile uint16_t*)(uintptr_t)(r0+14) = (uint16_t)r2; L4: *(volatile uint16_t*)(uintptr_t)(r0+16) = (uint16_t)r2; L5: *(volatile uint32_t*)(uintptr_t)(r0+0u) = r1; *(volatile uint32_t*)(uintptr_t)(r0+4u) = r2; L6: *(volatile uint32_t*)(uintptr_t)(r0+28) = (uint32_t)r2; L7: *(volatile uint16_t*)(uintptr_t)(r0+32) = (uint16_t)r2; L8: return r0; }
+uint32_t st_ov000_0205FDF8(uint32_t addr){register uint32_t z asm("r2")=0; register uint32_t vt asm("r1")=0x020b1cc8u;asm volatile("" : "+r"(z));asm volatile("" : "+r"(vt));*(volatile uint32_t*)(addr+8)=z;*(volatile uint16_t*)(addr+14)=z;*(volatile uint16_t*)(addr+16)=z;asm volatile("" ::: "memory");((uint32_t*)(addr))[0]=vt;((uint32_t*)(addr))[1]=z;asm volatile("" ::: "memory");*(volatile uint32_t*)(addr+28)=z;asm volatile("" ::: "memory");*(volatile uint16_t*)(addr+32)=z;return addr;}
 
 /* [012] overlay_000 0x0206F6AC size=44 sha256=7f69271f9212b1b1f01a5ce0ce5057be31630488ec26c682a36c0c32564f8dd0 BL=1 */
 uint32_t st_ov000_0206F6AC(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r3 = 0x0u; L1: r2 = ~(0x0u); L2: r1 = (r0 + (r3 << 2u)); L3: *(volatile uint16_t*)(uintptr_t)(r1+4) = (uint16_t)r2; L4: r3 = (r3 + 0x1u); L5: *(volatile uint16_t*)(uintptr_t)(r1+6) = (uint16_t)r2; L6: ; uint32_t _v6 = r3 - 0x3u; Z = (_v6==0); N = ((_v6>>31)&1); C = (r3 >= 0x3u); V = (((r3 ^ 0x3u) & (r3 ^ _v6) & 0x80000000u)!=0); L7: if (N!=V) goto L2; L8: r1 = 0x0u; L9: *(volatile uint32_t*)(uintptr_t)(r0+20) = (uint32_t)r1; L10: return r0; }
@@ -76,10 +76,10 @@ uint32_t st_ov026_0211E0F0(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { un
 uint32_t st_ov026_0211F1CC(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r3 = 0x0u; L1: r2 = (r0 + (r3 << 2u)); L2: r2 = *(volatile uint32_t*)(uintptr_t)(r2+876); L3: r3 = (r3 + 0x1u); L4: ; uint32_t _v4 = r2 - 0x0u; Z = (_v4==0); N = ((_v4>>31)&1); C = (r2 >= 0x0u); V = (((r2 ^ 0x0u) & (r2 ^ _v4) & 0x80000000u)!=0); L5: if (!Z) { *(volatile uint8_t*)(uintptr_t)(r2+592) = (uint8_t)r1; } L6: ; uint32_t _v6 = r3 - 0x3u; Z = (_v6==0); N = ((_v6>>31)&1); C = (r3 >= 0x3u); V = (((r3 ^ 0x3u) & (r3 ^ _v6) & 0x80000000u)!=0); L7: if (N!=V) goto L1; L8: return r0; }
 
 /* [025] overlay_026 0x02121258 size=24 sha256=2ab9ced2a5e55386274ffb834a85c62ffd84d10169c2c422a0353cc5f49de906 BL=1 */
-uint32_t st_ov026_02121258(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r2 = 0x52425254u; L1: r1 = 0x02138350u; L2: *(volatile uint32_t*)(uintptr_t)(r0+0u) = r1; *(volatile uint32_t*)(uintptr_t)(r0+4u) = r2; L3: return r0; }
+void st_ov026_02121258(uint32_t*p){register uint32_t a asm("r2")=0x52425254u,b asm("r1")=0x02138350u;asm volatile("" : "+r"(a),"+r"(b));p[0]=b;p[1]=a;}
 
 /* [026] overlay_026 0x021212A0 size=24 sha256=ea57f504076d6a9fddd90292907edec26e016788e10268579e90243e69316696 BL=1 */
-uint32_t st_ov026_021212A0(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r2 = 0x52425254u; L1: r1 = 0x0213835cu; L2: *(volatile uint32_t*)(uintptr_t)(r0+0u) = r1; *(volatile uint32_t*)(uintptr_t)(r0+4u) = r2; L3: return r0; }
+void st_ov026_021212A0(uint32_t*p){register uint32_t a asm("r2")=0x52425254u,b asm("r1")=0x0213835Cu;asm volatile("" : "+r"(a),"+r"(b));p[0]=b;p[1]=a;}
 
 /* [027] overlay_030 0x0214D724 size=32 sha256=479808b8496e36109e4c88523c7017812d912e0450d814fbe09cd41a624adfd6 BL=1 */
 uint32_t st_ov030_0214D724(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r0 = 0x027e09b8u; L1: r0 = *(volatile uint32_t*)(uintptr_t)(r0+0); L2: r0 = *(volatile uint32_t*)(uintptr_t)(r0+52); L3: ; uint32_t _v3=r0&0x40000u; Z=(_v3==0); N=((_v3>>31)&1); L4: if (!Z) { r0 = 0x1u; } L5: if (Z) { r0 = 0x0u; } L6: return r0; }
@@ -91,22 +91,22 @@ uint32_t st_ov030_0214D744(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { un
 uint32_t st_ov031_020E0398(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r2 = 0x0u; L1: *(uint32_t*)(uintptr_t)(r0+0u) = r1; *(uint32_t*)(uintptr_t)(r0+4u) = r2; L2: return r0; }
 
 /* [030] overlay_032 0x0211FCDC size=24 sha256=0fab83426c9fae21a96dbf442c1ac009b17a94682cbbfc651f2729585cfdccec BL=1 */
-uint32_t st_ov032_0211FCDC(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r2 = 0x534b4449u; L1: r1 = 0x021226bcu; L2: *(volatile uint32_t*)(uintptr_t)(r0+0u) = r1; *(volatile uint32_t*)(uintptr_t)(r0+4u) = r2; L3: return r0; }
+void st_ov032_0211FCDC(uint32_t*p){register uint32_t a asm("r2")=0x534B4449u,b asm("r1")=0x021226BCu;asm volatile("" : "+r"(a),"+r"(b));p[0]=b;p[1]=a;}
 
 /* [031] overlay_038 0x0211988C size=52 sha256=287c5537495bb792dcb5f759ce0473a0e6260b6e5d4d1c6963b69f00bcab2b33 BL=2 */
 uint32_t st_ov038_0211988C(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r1 = 0x021215c4u; L1: goto L3; L2: r1 = (r2 + 0x294u); L3: r2 = *(volatile uint32_t*)(uintptr_t)(r1+0); L4: ; uint32_t _v4 = r2 - r0; Z = (_v4==0); N = ((_v4>>31)&1); C = (r2 >= r0); V = (((r2 ^ r0) & (r2 ^ _v4) & 0x80000000u)!=0); L5: if (Z) goto L8; L6: ; uint32_t _v6 = r2 - 0x0u; Z = (_v6==0); N = ((_v6>>31)&1); C = (r2 >= 0x0u); V = (((r2 ^ 0x0u) & (r2 ^ _v6) & 0x80000000u)!=0); L7: if (!Z) goto L2; L8: ; uint32_t _v8 = r2 - r0; Z = (_v8==0); N = ((_v8>>31)&1); C = (r2 >= r0); V = (((r2 ^ r0) & (r2 ^ _v8) & 0x80000000u)!=0); L9: if (Z) { r0 = *(volatile uint32_t*)(uintptr_t)(r0+660); } L10: if (Z) { *(volatile uint32_t*)(uintptr_t)(r1+0) = (uint32_t)r0; } L11: return r0; }
 
 /* [032] overlay_040 0x0212C6D0 size=28 sha256=2f8b7fdf335a8fd15c9291000d0233fe1b65346fbe1111bbb52795878dfa54f3 BL=1 */
-uint32_t st_ov040_0212C6D0(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r3 = 0x544c4b54u; L1: r2 = 0x0212ea08u; L2: *(volatile uint32_t*)(uintptr_t)(r0+0u) = r2; *(volatile uint32_t*)(uintptr_t)(r0+4u) = r3; L3: *(volatile uint16_t*)(uintptr_t)(r0+8) = (uint16_t)r1; L4: return r0; }
+void st_ov040_0212C6D0(volatile uint8_t *p,uint16_t kind){register uint32_t a asm("r3")=0x544c4b54u,b asm("r2")=0x0212ea08u;asm volatile("" : "+r"(a),"+r"(b));((uint32_t*)p)[0]=b;((uint32_t*)p)[1]=a;asm volatile("" : : "r"(kind): "memory");*(volatile uint16_t*)(p+8)=kind;}
 
 /* [033] overlay_062 0x02159738 size=36 sha256=5d90cf023ee8291dece43e3d50fc2ea145676e928833c0971cb9275437b86255 BL=1 */
-uint32_t st_ov062_02159738(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r1 = 0x0215f888u; L1: r2 = (uint32_t)*(volatile int16_t*)(uintptr_t)(r1+0); L2: *(volatile uint16_t*)(uintptr_t)(r0+220) = (uint16_t)r2; L3: r2 = (uint32_t)*(volatile int16_t*)(uintptr_t)(r1+2); L4: r1 = (uint32_t)*(volatile int16_t*)(uintptr_t)(r1+4); L5: *(volatile uint16_t*)(uintptr_t)(r0+222) = (uint16_t)r1; L6: *(volatile uint16_t*)(uintptr_t)(r0+224) = (uint16_t)r2; L7: return r0; }
+void st_ov062_02159738(uint8_t *p){volatile int16_t*src=(volatile int16_t*)0x0215f888u;int32_t a=src[0];asm volatile("" : "+r"(a));*(volatile uint16_t*)(p+220)=a;int32_t b=src[1];int32_t c=src[2];asm volatile("" : "+r"(b),"+r"(c));*(volatile uint16_t*)(p+222)=c;*(volatile uint16_t*)(p+224)=b;}
 
 /* [034] overlay_069 0x02159F14 size=24 sha256=47c0c07fec0710bca2b5fbca6e3b958c7e74eb91e0dfb404fea08e2350d00b77 BL=1 */
-uint32_t st_ov069_02159F14(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r2 = 0x52423146u; L1: r1 = 0x0215b090u; L2: *(volatile uint32_t*)(uintptr_t)(r0+0u) = r1; *(volatile uint32_t*)(uintptr_t)(r0+4u) = r2; L3: return r0; }
+void st_ov069_02159F14(uint32_t*p){register uint32_t a asm("r2")=0x52423146u,b asm("r1")=0x0215B090u;asm volatile("" : "+r"(a),"+r"(b));p[0]=b;p[1]=a;}
 
 /* [035] overlay_069 0x0215A954 size=24 sha256=0abfe6c6e5392099ce9c4b0b63f78638365ab920a0facb2e17cc47ebbde8096f BL=1 */
-uint32_t st_ov069_0215A954(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r2 = 0x52425250u; L1: r1 = 0x0215b350u; L2: *(volatile uint32_t*)(uintptr_t)(r0+0u) = r1; *(volatile uint32_t*)(uintptr_t)(r0+4u) = r2; L3: return r0; }
+void st_ov069_0215A954(uint32_t*p){register uint32_t a asm("r2")=0x52425250u,b asm("r1")=0x0215B350u;asm volatile("" : "+r"(a),"+r"(b));p[0]=b;p[1]=a;}
 
 /* [036] overlay_070 0x0214B2A0 size=36 sha256=669b717b06246971c4a370b7dede02b89037c830498f214ddd5d97c769bf9c08 BL=1 */
 uint32_t st_ov070_0214B2A0(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r0 = 0x027e09a4u; L1: r0 = *(volatile uint32_t*)(uintptr_t)(r0+0); L2: r0 = *(volatile uint32_t*)(uintptr_t)(r0+0); L3: ; uint32_t _v3 = r0 - 0x20u; Z = (_v3==0); N = ((_v3>>31)&1); C = (r0 >= 0x20u); V = (((r0 ^ 0x20u) & (r0 ^ _v3) & 0x80000000u)!=0); L4: if (!Z) { uint32_t _v4 = r0 - 0x4du; Z = (_v4==0); N = ((_v4>>31)&1); C = (r0 >= 0x4du); V = (((r0 ^ 0x4du) & (r0 ^ _v4) & 0x80000000u)!=0); } L5: if (Z) { r0 = 0x1u; } L6: if (!Z) { r0 = 0x0u; } L7: return r0; }
@@ -121,7 +121,7 @@ uint32_t st_ov090_02170E18(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { un
 uint32_t st_ov092_0217A7E4(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r2 = *(volatile uint32_t*)(uintptr_t)(r0+0); L1: *(volatile uint32_t*)(uintptr_t)(r0+0u) = r1; *(volatile uint32_t*)(uintptr_t)(r0+4u) = r2; L2: ; uint32_t _v2 = r1 - r2; Z = (_v2==0); N = ((_v2>>31)&1); C = (r1 >= r2); V = (((r1 ^ r2) & (r1 ^ _v2) & 0x80000000u)!=0); L3: if (Z) { r1 = *(volatile uint32_t*)(uintptr_t)(r0+8); } L4: if (Z) { r1 = (r1 + 0x1u); } L5: if (!Z) { r1 = 0x0u; } L6: *(volatile uint32_t*)(uintptr_t)(r0+8) = (uint32_t)r1; L7: return r0; }
 
 /* [040] overlay_093 0x021686D4 size=36 sha256=6c5a5d70b8a040dd49aba492d8fc5921fbc623c45771933bc4392d2fd5b6f2cb BL=1 */
-uint32_t st_ov093_021686D4(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r1 = 0x0217890cu; L1: r2 = 0x8u; L2: r3 = (uint32_t)*(volatile int16_t*)(uintptr_t)(r1+8); L3: *(volatile uint16_t*)(uintptr_t)(r0+0) = (uint16_t)r3; L4: r1 = (uint32_t)*(volatile int16_t*)(uintptr_t)(r1+10); L5: *(volatile uint16_t*)(uintptr_t)(r0+2) = (uint16_t)r1; L6: *(volatile uint32_t*)(uintptr_t)(r0+4) = (uint32_t)r2; L7: return r0; }
+void st_ov093_021686D4(uint32_t p){register uint32_t ptr asm("r1")=0x0217890cu;register uint32_t sz asm("r2")=8;asm volatile("" : "+r"(ptr),"+r"(sz));int32_t a=*(volatile int16_t*)(ptr+8);asm volatile("" : "+r"(a));*(volatile uint16_t*)(p)=a;int32_t b=*(volatile int16_t*)(ptr+10);asm volatile("" : "+r"(b));*(volatile uint16_t*)(p+2)=b;*(volatile uint32_t*)(p+4)=sz;}
 
 
 /* Named leaf routines, semantically reconstructed from original ARM instructions.
@@ -137,11 +137,7 @@ void st_ov000_0205B1CC(uint32_t *dst, uint32_t first, uint32_t second) {
     dst[2] = second;
 }
 /* [043] overlay_023 0x020EF9A4 size=12 sha256=a95fb179d42f835b33c255b0a333526fb0a2c8d5db2caefba50dad3d81e633c3 */
-void st_ov023_020EF9A4(uint32_t *dst, uint32_t a, uint32_t b, uint32_t c) {
-    dst[1] = a;
-    dst[2] = b;
-    dst[3] = c;
-}
+void st_ov023_020EF9A4(uint32_t *dst,uint32_t a,uint32_t b,uint32_t c){dst[1]=a;dst[2]=b;asm volatile("" ::: "memory");dst[3]=c;}
 /* [044] overlay_032 0x0211DA50 size=16 sha256=16f093abc76889994f68f477d47f7a59ae121a35ba597d643c9e0be2927270da */
 void st_ov032_0211DA50(uint32_t *dst) {
     const uint32_t previous4 = dst[1];
