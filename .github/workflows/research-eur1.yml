@@ -104,3 +104,10 @@ jobs:
           for i in 1 2 3 4 5; do clang --target=armv5te-none-eabi -march=armv5te -marm -O2 -w -ffreestanding -fomit-frame-pointer -ffunction-sections -c research/eur1/batches/arm9_leaf500/arm9_leaf_500_part${i}.c -o /tmp/st-leaf500-${i}.o; done
           python3 -m py_compile research/eur1/batches/arm9_leaf500/verify_fifth500.py
           python3 -c 'import json; d=json.load(open("research/eur1/batches/arm9_leaf500/manifest_fifth500.json")); assert len(d["functions"]) == 500 and d["summary"]["standalone_clang_exact"]==26 and d["summary"]["standalone_clang_nonmatching"]==474; assert len({(x["module"],x["address"]) for x in d["functions"]})==500'
+
+      - name: Audit fifth-batch CodeWarrior verifier using Clang smoke backend (ROM-free)
+        run: |
+          python3 -m py_compile research/eur1/batches/arm9_leaf500/verify_codewarrior_fifth500.py
+          clang --target=armv5te-none-eabi -march=armv5te -marm -O2 -ffreestanding -c research/eur1/batches/arm9_leaf500/semantic_refactors_3.c -o /tmp/st-semantic-refactors.o
+          python3 research/eur1/batches/arm9_leaf500/verify_codewarrior_fifth500.py --backend clang --batch-size 100 --out /tmp/st-cw-fifth-smoke.json
+          python3 -c 'import json; j=json.load(open("/tmp/st-cw-fifth-smoke.json")); assert j["backend"]=="clang" and j["functions_checked"]==500; assert j["counts"]=={"exact_clang_smoke":26,"different_size":329,"different_instructions":145}'

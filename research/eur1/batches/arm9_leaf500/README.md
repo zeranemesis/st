@@ -40,3 +40,34 @@ The `working_code` directory must contain your local `arm9.bin` and the `overlay
 3. Move confirmed functions to their correct original source files and use `ninja arm9_eur1 report_eur1 check_eur1`, `ninja changes_eur1`, and `objdiff` to establish actual decompilation progress.
 
 This is research to make later native PC porting feasible; no native PC port was started.
+
+
+## Original CodeWarrior verification tool (added 2026-10-23)
+
+The new [`verify_codewarrior_fifth500.py`](verify_codewarrior_fifth500.py)
+recompiles the 500 research C bodies using your Windows-installed
+**CodeWarrior ARM dsi/1.2p1**, and compares ELF symbol bytes to the
+original-code SHA256 fingerprints already stored in the manifest. It splits
+failed batches automatically so one compiler error does not hide the other
+functions' results. It leaves the Nintendo DS build and ROM untouched.
+
+Run from `C:\st` in PowerShell:
+
+```powershell
+git pull --ff-only origin main
+python research/eur1/batches/arm9_leaf500/verify_codewarrior_fifth500.py
+```
+
+Result: `C:\st\build\eur1\codewarrior_fifth500.json`.
+
+For reproducibility, `--backend clang` runs only a Clang regression smoke
+check. That mode has already been tested against all 500 C functions and
+returned **26 exact, 145 different-instruction, and 329 different-size** results;
+it is **not** an original CodeWarrior comparison. No CodeWarrior match count
+has been observed for this fifth batch yet.
+
+[Matching priorities and audit](CODEWARRIOR_NEXT_STEPS.md) includes a list
+of ten high-call-count same-size mismatches. The separate
+[`semantic_refactors_3.c`](semantic_refactors_3.c) contains three
+human-readable C interpretations of ARM disassembly, **not verified matching
+implementations or integrated game functions**.
