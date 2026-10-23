@@ -137,3 +137,17 @@ The [third additional-500 batch](research/eur1/batches/overlay_next500/) was mer
 - **CodeWarrior standalone: NOT TESTED** for these 500; **official DS build integration: NOT DONE**. The previous 98/100 original-compiler result remains specific to the earlier 100-function batch. No native PC port work was performed.
 
 The substantive matching milestone is finding correct C++ class/member ownership, integrating into the existing CodeWarrior target build, and matching through objdiff; a standalone Clang-exact result alone is **not** integrated or official matching progress.
+
+## 23 Oct 2026 — 1,000 more ARM9 Clang-exact **candidate code spans** (fourth batch)
+
+The [new research batch](research/eur1/batches/overlay_candidates_1000/) was merged via [PR #6](https://github.com/zeranemesis/st/pull/6). It contains **1,000 C source bodies** with no `(overlay,address)` overlap against the previously published three research batches (100 + 500 + 500). All C snippets independently compile under Clang ARMv5TE `-O2 -ffunction-sections`, with **1,000/1,000 emitted sections byte-for-byte equal to the local EUR Rev 1 ARM9 original code**, totaling **7,412 reproduced instruction bytes** across **89 overlays**. Recheck using [the ROM-backed verifier](research/eur1/batches/overlay_candidates_1000/verify_candidates_1000.py) and original ROM-derived SHA-1/SHA-256 values in [the manifest](research/eur1/batches/overlay_candidates_1000/manifest_candidates_1000.json).
+
+**CRITICAL: these are 1,000 byte-identical code spans, not 1,000 proven independent decompiled functions.** The entrypoint audit currently distinguishes:
+- **63** original entries with corresponding upstream symbols,
+- **260** additional entrypoints referenced by a function pointer inside the same overlay,
+- **358** starts directly after a `BX LR` which may or may not be independent entrypoints,
+- **319** possible short return blocks/epilogues whose independent function boundaries are unconfirmed.
+
+The **677 uncertain entries must not be counted as genuine completed game functions** until each is established by symbols, caller/callee traces or other corroboration. Matching instruction bytes alone is insufficient to establish original C++ semantics or original translation-unit membership.
+
+**No new CodeWarrior matching was tested for this fourth batch.** The original game build/objdiff reference, C++ source integration, and future native PC port are unchanged. No Nintendo ROM, overlay binaries or assets were committed.
