@@ -4,10 +4,10 @@
   "rom_sha1": "dcb221a89acb894503a461c2c7d4cfdad9a06b68",
   "summary": {
     "count": 50,
-    "exact": 2,
-    "nonmatching": 48,
+    "exact": 5,
+    "nonmatching": 45,
     "original_bytes": 1528,
-    "exact_bytes": 44
+    "exact_bytes": 76
   },
   "limitations": "Standalone Clang verified only; C++/CodeWarrior ABI, DS build and runtime unverified",
   "functions": [
@@ -152,7 +152,7 @@
       "original_sha256": "e914998634460875fd1a377db48d15e7c81028e5ca10010ddd1d06599caca06c",
       "refs": 2,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 14,
@@ -229,7 +229,7 @@
       "original_sha256": "ae5cd4653b8d552cc544515329f444c0365b59788fe1c12c58171d8a19fac68d",
       "refs": 2,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 21,
@@ -328,7 +328,7 @@
       "original_sha256": "535c93f237a12b181253c514cde0e14b31722760549b652944cd83a115838ec7",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 30,
