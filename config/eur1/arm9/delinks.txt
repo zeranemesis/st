@@ -24,6 +24,13 @@ src/Main/System/SysFault.cpp:
 src/Main/Game/Game.cpp:
     .text       start:0x02013370 end:0x0201373c
 
+# Recovered ARM9 input routines (no CodeWarrior matching claim).
+src/Main/Player/Input.cpp:
+    .text       start:0x02013b10 end:0x02013b24
+
+src/Main/Player/InputClearEdges.cpp:
+    .text       start:0x02013b88 end:0x02013b98
+
 src/Main/Player/TouchControl.cpp:
     .text       start:0x02014124 end:0x020144a0
 
