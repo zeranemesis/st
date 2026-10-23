@@ -87,6 +87,6 @@ if __name__=='__main__':
         print('PASS: 500/500 C bodies compile; 500/500 original SHA256 spans match')
         print('Exact Clang ARMv5TE instruction matches:',results['byte_exact'],'/500')
         print('Compiles but emitted instructions differ:',results['c_compiles_not_byte_exact'],'/500')
-        print('CAUTION: the 474 nonmatching functions require semantic/CFG review; no CodeWarrior or DS integration is claimed')
+        print('CAUTION:',results['c_compiles_not_byte_exact'],'nonmatching functions still require semantic/CFG review; no CodeWarrior or DS integration is claimed')
     except (OSError,ValueError,RuntimeError) as e:
         p.exit(1,'FAIL: '+str(e)+'\n')
