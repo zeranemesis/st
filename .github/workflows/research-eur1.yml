@@ -111,3 +111,9 @@ jobs:
           clang --target=armv5te-none-eabi -march=armv5te -marm -O2 -ffreestanding -c research/eur1/batches/arm9_leaf500/semantic_refactors_3.c -o /tmp/st-semantic-refactors.o
           python3 research/eur1/batches/arm9_leaf500/verify_codewarrior_fifth500.py --backend clang --batch-size 100 --out /tmp/st-cw-fifth-smoke.json
           python3 -c 'import json; j=json.load(open("/tmp/st-cw-fifth-smoke.json")); assert j["backend"]=="clang" and j["functions_checked"]==500; assert j["counts"]=={"exact_clang_smoke":33,"different_size":329,"different_instructions":138}'
+
+      - name: Compile sixth batch of 100 new ARM9 functions and regression-check exact Clang code
+        run: |
+          python3 -m py_compile research/eur1/batches/arm9_new100/verify_new100.py research/eur1/batches/arm9_new100/verify_codewarrior_new100.py
+          python3 research/eur1/batches/arm9_new100/verify_codewarrior_new100.py --backend clang --batch-size 50 --out /tmp/st-new100-smoke.json
+          python3 -c 'import json; m=json.load(open("research/eur1/batches/arm9_new100/manifest_new100.json")); r=json.load(open("/tmp/st-new100-smoke.json")); assert len(m["functions"]) == 100 and m["summary"]["clang_exact_count"]==37; assert m["summary"]["new_typed_exact_functions"]==17; assert r["functions_checked"]==100 and r["counts"] == {"exact_clang_smoke":37,"different_instructions":21,"different_size":42}'
