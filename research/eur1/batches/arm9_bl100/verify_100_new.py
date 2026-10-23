@@ -99,7 +99,7 @@ def main():
     a.out.parent.mkdir(parents=True,exist_ok=True)
     a.out.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     print(f'PASS 100/100 originals authenticated; {result["clang_exact"]}/100 Clang ARM exact; {result["original_code_bytes"]} original instruction bytes')
-    print('50 provisional nonmatching C bodies remain research, NOT Nintendo CodeWarrior matching')
+    print(f'{100-result["clang_exact"]} provisional nonmatching C bodies remain research, NOT Nintendo CodeWarrior matching')
     print('Report:',a.out)
     return 0
 
