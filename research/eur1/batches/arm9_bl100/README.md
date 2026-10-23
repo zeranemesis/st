@@ -73,3 +73,23 @@ checks succeeded, **not** that all 100 original source functions are matched.
    `ninja ... check_eur1` build.
 
 No normal DS game source file is modified in this research batch.
+
+
+## Original CodeWarrior standalone verification (Windows)
+
+The optional [`verify_codewarrior_100_new.py`](verify_codewarrior_100_new.py)
+uses the same original **Nintendo-target CodeWarrior dsi/1.2p1** and working
+compiler flags as the previously successful first-100 verifier. It reads
+the original EUR1 instruction SHA-256 from this batch manifest and does
+not need a ROM during the test.
+
+```powershell
+cd C:\st
+git pull --ff-only origin main
+python research/eur1/batches/arm9_bl100/verify_codewarrior_100_new.py
+```
+
+It will write `C:\st\build\eur1\codewarrior_bl100_new.json`. **No
+CodeWarrior matching result has been obtained for these new 100 yet.** The
+verified 50/100 number above is from Clang, not CodeWarrior. The game
+C++ build and objdiff baseline remain unchanged.
