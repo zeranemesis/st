@@ -82,3 +82,7 @@ candidate code span*. It does **not** prove that all 1,000 code spans begin
 independent DS source functions, or that any candidate is correctly integrated
 into the Nintendo DS game's original C++ translation unit. The 677
 unconfirmed entries remain unconfirmed even if CodeWarrior emits equal bytes.
+
+## User-run CodeWarrior verification results (2026-10-23)
+
+The user's Windows `dsi/1.2p1` report reports **1,000/1,000 byte-identical isolated CodeWarrior C code spans (7,412 bytes, no relocations)** across 89 overlays. The histogram is 213 four-byte, 721 eight-byte, 66 twelve-byte sections (126 distinct machine-code patterns). **Do not count this as 1,000 newly matched Nintendo DS C++ source functions**: 677 may be fragments; only 63 starts are upstream-symbolized and 260 more have pointer-reference evidence. None are integrated into the normal CodeWarrior game build. Details: [CODEWARRIOR_RESULTS.md](CODEWARRIOR_RESULTS.md).
