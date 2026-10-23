@@ -30,7 +30,11 @@ uint32_t st_ov091_0216F1B4(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 
 /* original module: 91, addr: 0x02175828, 12 bytes, BL refs: 2 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov091_02175828(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; *((uint32_t*)(uintptr_t)(r0 + (112u))) = (uint32_t)r1; *((uint32_t*)(uintptr_t)(r0 + (120u))) = (uint32_t)r2; return r0; }
+void st_ov091_02175828(volatile unsigned int *obj,
+                             unsigned int first, unsigned int second) {
+    obj[28] = first;
+    obj[30] = second;
+}
 
 /* original module: 92, addr: 0x02168B54, 20 bytes, BL refs: 4 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
