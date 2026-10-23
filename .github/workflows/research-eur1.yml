@@ -133,5 +133,5 @@ jobs:
       - name: Compile 100 new BL-backed ARM9 C research functions (no ROM)
         run: |
           clang --target=armv5te-none-eabi -march=armv5te -marm -O2 -ffreestanding -fomit-frame-pointer -ffunction-sections -w -c research/eur1/batches/arm9_bl100/reconstructed_100_new.c -o /tmp/st-100-bl-leaf.o
-          python3 -m py_compile research/eur1/batches/arm9_bl100/verify_100_new.py
+          python3 -m py_compile research/eur1/batches/arm9_bl100/verify_100_new.py research/eur1/batches/arm9_bl100/verify_codewarrior_100_new.py
           python3 -c 'import json; m=json.load(open("research/eur1/batches/arm9_bl100/manifest_100_new.json")); f=m["functions"]; assert len(f)==100 and len({(x["overlay"],x["address"]) for x in f})==100; assert sum(x["clang_armv5te_exact"] for x in f)==50; assert sum(len(x["direct_BL_call_sites"]) for x in f)==149; assert m["summary"]["original_code_bytes"]==1924'
