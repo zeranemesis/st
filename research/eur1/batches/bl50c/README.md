@@ -12,16 +12,16 @@ ROM, SHA-1 `dcb221a89acb894503a461c2c7d4cfdad9a06b68`.
 | --- | ---: |
 | New source C function bodies | **50** |
 | Original ARM spans verified by SHA-256 | **1,528 bytes** |
-| Standalone Clang ARMv5TE code byte-exact | **1 / 50** |
-| Matched code bytes | **32 bytes** |
-| Provisional, nonmatching C interpretations | **49 / 50** |
+| Standalone Clang ARMv5TE code byte-exact | **2 / 50** |
+| Matched code bytes | **44 bytes** |
+| Provisional, nonmatching C interpretations | **48 / 50** |
 | Register-level C interpretations | **40** |
 | Human-readable C functions | **10** |
 | Standalone CodeWarrior or game objdiff verified | **No** |
 | Original Nintendo DS ROM rebuilt/tested | **No** |
 
-The single Clang byte-identical function is **ARM9 `0x02002EB8`**.
-The 49 other functions compile to ARMv5TE but **do not** reproduce the
+Two Clang byte-identical functions are **ARM9 `0x02002EB8`** (32 bytes) and **overlay 0 `0x0205B1CC`** (12 bytes).
+The 48 other functions compile to ARMv5TE but **do not** reproduce the
 reference instruction bytes. They are research hypotheses, not verified
 runtime-equivalent implementations. Original source structure, C++ owner,
 ABI, function boundaries, and symbol linkage still require investigation.
@@ -49,7 +49,7 @@ python research/eur1/batches/bl50c/verify_50.py --working-code research/eur1/wor
 The `working_code` directory may have been created elsewhere; supply its
 actual location. Required: `clang` with the ARMv5TE target and Python 3.
 
-Expected: `PASS: 1 Clang-exact and 49 nonmatching functions; 50 source bodies`.
+Expected: `PASS: 2 Clang-exact and 48 nonmatching functions; 50 source bodies`.
 This check has been repeated successfully with locally extracted EUR1 code.
 
 ## Next
@@ -63,3 +63,7 @@ This check has been repeated successfully with locally extracted EUR1 code.
 
 Research function count alone does **not** change the official decompilation
 percentage, and the ROM cannot run from these sources alone.
+
+## Corrections additionnelles
+
+Des erreurs d'offset de mémoire ont été corrigées dans les fonctions des overlays 0, 23 et 32 aux adresses `0x0205B1CC`, `0x020EF9A4` et `0x0211DA50`. La première est maintenant reproduite octet pour octet avec Clang ARMv5TE. Ces modifications ont été revalidées sur la ROM EUR1 originale (2/50 matching Clang isolés); les deux autres corrections sont sémantiques seulement et restent non matching. La signature C++ originale et CodeWarrior ne sont toujours pas validés.
