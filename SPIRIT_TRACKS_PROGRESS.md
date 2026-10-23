@@ -215,3 +215,35 @@ Merged [PR #12](https://github.com/zeranemesis/st/pull/12): [research batch `arm
 **66 further distinct original ARM9 `BL`-referenced addresses are only a documented analysis queue**. They are NOT decompiled C functions, NOT matched, and should NOT count as progress. The [100-record manifest](research/eur1/batches/arm9_new34/manifest_100_targets.json) distinguishes the two statuses; the [ROM-backed verifier](research/eur1/batches/arm9_new34/verify_exact_34.py) confirms exactly 34 C sources and the [Windows CodeWarrior verifier](research/eur1/batches/arm9_new34/verify_codewarrior_34.py) prepares the next compiler-specific check.
 
 **Original CodeWarrior standalone: NOT YET TESTED for these 34. Original DS game C++ build: NOT INTEGRATED.** The research C is not a port, and no copyrighted ROM or overlays were published.
+
+
+## 23 Oct 2026 — 100 truly new ARM9 BL-referenced C reconstructions (PR #14)
+
+Merged [PR #14](https://github.com/zeranemesis/st/pull/14), adding
+[`research/eur1/batches/arm9_bl100/`](research/eur1/batches/arm9_bl100/).
+**100 additional C function bodies**, disjoint in `(module,address)` from
+the original research batches of 100+500+500+1000+500, the more recent
+[`new100`](research/eur1/batches/new100/) and
+[`arm9_new34`](research/eur1/batches/arm9_new34/) catalogs (185 further unique addresses),
+and the separate 165-function overlay-0 batch.
+
+- All **100 C bodies compile** under standalone Clang ARMv5TE with `-O2`,
+  `-ffunction-sections`. All original machine-code SHA256 fingerprints
+  checked against the owner's decoded Europe Rev 1 ROM (ROM SHA1
+  `dcb221a89acb894503a461c2c7d4cfdad9a06b68`).
+- **16/100 Clang-exact** isolated C function sections, **260 matching bytes**.
+  **84/100 C reconstructions remain provisional and nonmatching**; their
+  runtime semantics are not independently validated.
+- **123 original direct ARM BL caller sites** for 100 targeted entries,
+  covering ARM9 main and 27 overlays, a total of **2,144 original bytes**
+  independently authenticated.
+- The [source](research/eur1/batches/arm9_bl100/reconstructed_100_new.c),
+  [100-row function and caller manifest](research/eur1/batches/arm9_bl100/manifest_100_new.json),
+  [ROM-backed Clang verifier](research/eur1/batches/arm9_bl100/verify_100_new.py)
+  and [Windows original CodeWarrior standalone verifier](research/eur1/batches/arm9_bl100/verify_codewarrior_100_new.py)
+  are published without copyrighted game binaries or assets.
+
+**Original CodeWarrior matching of these 100: NOT TESTED. Official DS C++ game
+build and objdiff integration: ZERO.** Direct BL references support original
+entrypoints but do not by themselves establish complete source-level C++
+signature, ABI or owning translation unit. No PC-native port work has begun.
