@@ -4,10 +4,10 @@
   "rom_sha1": "dcb221a89acb894503a461c2c7d4cfdad9a06b68",
   "summary": {
     "count": 50,
-    "exact": 17,
-    "nonmatching": 33,
+    "exact": 20,
+    "nonmatching": 30,
     "original_bytes": 1528,
-    "exact_bytes": 412
+    "exact_bytes": 448
   },
   "limitations": "Standalone Clang verified only; C++/CodeWarrior ABI, DS build and runtime unverified",
   "functions": [
@@ -86,7 +86,8 @@
       "original_sha256": "f7e146ee9e88c39b1758c3dd337d6e4d5cf4bb336b965a5f72911e6bd4a17587",
       "refs": 10,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "source_limitations": "Uses __builtin_usub_overflow + an empty GNU asm constraint to reproduce carry flag loop; not portable to Nintendo CodeWarrior."
     },
     {
       "index": 8,
@@ -460,7 +461,8 @@
       "original_sha256": "060682c80d3a37098de575f51eabcbe853bedcd07c00051f839c558df4b37d67",
       "refs": null,
       "source_kind": "human_readable_reconstruction",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "source_limitations": "__builtin_assume(x != 0) is compiler-specific and is NOT proof the original C source excluded zero; the compiled ARM CLZ still returns 32 for zero."
     },
     {
       "index": 42,
@@ -493,7 +495,8 @@
       "original_sha256": "16f093abc76889994f68f477d47f7a59ae121a35ba597d643c9e0be2927270da",
       "refs": null,
       "source_kind": "human_readable_reconstruction",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "source_limitations": "Uses fixed ARM register annotations and empty GNU asm constraints for signed pointer loading sequence; CodeWarrior unsupported."
     },
     {
       "index": 45,
