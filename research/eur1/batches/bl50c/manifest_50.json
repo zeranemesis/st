@@ -4,10 +4,10 @@
   "rom_sha1": "dcb221a89acb894503a461c2c7d4cfdad9a06b68",
   "summary": {
     "count": 50,
-    "exact": 23,
-    "nonmatching": 27,
+    "exact": 24,
+    "nonmatching": 26,
     "original_bytes": 1528,
-    "exact_bytes": 548
+    "exact_bytes": 584
   },
   "limitations": "Standalone Clang verified only; C++/CodeWarrior ABI, DS build and runtime unverified",
   "functions": [
@@ -277,7 +277,8 @@
       "original_sha256": "760384a0f7c21cc345243c74226ef2e53bd45a40e3010e95dbf176f92864579f",
       "refs": 2,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "matching_note": "Clang ARMv5TE byte-identical following indirect-memory input compiler constraint to order pointer load before induction increment; no CodeWarrior matching."
     },
     {
       "index": 25,
