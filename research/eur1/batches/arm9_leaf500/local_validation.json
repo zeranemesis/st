@@ -1,0 +1,9 @@
+{
+  "compiler": "Clang ARMv5TE -O2",
+  "total_C_compile": 500,
+  "original_span_sha256_checked": 500,
+  "standalone_exact": 26,
+  "standalone_not_exact": 474,
+  "rom_sha1": "dcb221a89acb894503a461c2c7d4cfdad9a06b68",
+  "note": "These local results are not CodeWarrior matching or integrated C++ game build."
+}
