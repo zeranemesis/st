@@ -4,10 +4,10 @@
   "rom_sha1": "dcb221a89acb894503a461c2c7d4cfdad9a06b68",
   "summary": {
     "count": 50,
-    "exact": 5,
-    "nonmatching": 45,
+    "exact": 17,
+    "nonmatching": 33,
     "original_bytes": 1528,
-    "exact_bytes": 76
+    "exact_bytes": 412
   },
   "limitations": "Standalone Clang verified only; C++/CodeWarrior ABI, DS build and runtime unverified",
   "functions": [
@@ -108,7 +108,7 @@
       "original_sha256": "643423ffb43acb7dce18b8b8cc48f9e1cc8db4c9dbc5ab6b2145c2a514920d1b",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 10,
@@ -119,7 +119,7 @@
       "original_sha256": "d5e529c05ee5f81c265b4222e03d69151f82e173795ebe10f7b0285c0aa4994f",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 11,
@@ -130,7 +130,7 @@
       "original_sha256": "d5e529c05ee5f81c265b4222e03d69151f82e173795ebe10f7b0285c0aa4994f",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 12,
@@ -284,7 +284,7 @@
       "original_sha256": "2ab9ced2a5e55386274ffb834a85c62ffd84d10169c2c422a0353cc5f49de906",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 26,
@@ -295,7 +295,7 @@
       "original_sha256": "ea57f504076d6a9fddd90292907edec26e016788e10268579e90243e69316696",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 27,
@@ -339,7 +339,7 @@
       "original_sha256": "0fab83426c9fae21a96dbf442c1ac009b17a94682cbbfc651f2729585cfdccec",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 31,
@@ -361,7 +361,7 @@
       "original_sha256": "2f8b7fdf335a8fd15c9291000d0233fe1b65346fbe1111bbb52795878dfa54f3",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 33,
@@ -372,7 +372,7 @@
       "original_sha256": "5d90cf023ee8291dece43e3d50fc2ea145676e928833c0971cb9275437b86255",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 34,
@@ -383,7 +383,7 @@
       "original_sha256": "47c0c07fec0710bca2b5fbca6e3b958c7e74eb91e0dfb404fea08e2350d00b77",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 35,
@@ -394,7 +394,7 @@
       "original_sha256": "0abfe6c6e5392099ce9c4b0b63f78638365ab920a0facb2e17cc47ebbde8096f",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 36,
@@ -449,7 +449,7 @@
       "original_sha256": "6c5a5d70b8a040dd49aba492d8fc5921fbc623c45771933bc4392d2fd5b6f2cb",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 41,
@@ -482,7 +482,7 @@
       "original_sha256": "a95fb179d42f835b33c255b0a333526fb0a2c8d5db2caefba50dad3d81e633c3",
       "refs": null,
       "source_kind": "human_readable_reconstruction",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 44,
@@ -561,5 +561,12 @@
       "source_kind": "human_readable_reconstruction",
       "clang_byte_exact": false
     }
-  ]
+  ],
+  "methodology": {
+    "compiler": "Clang 17.0.0 ARMv5TE -marm -O2 -ffreestanding -fomit-frame-pointer -ffunction-sections",
+    "matching": "byte-for-byte original ROM span vs individual ARM ELF function .text sections",
+    "compiler_barriers": "Empty GNU extended-asm constraints used for ordering and register allocation; no original instructions hardcoded in asm",
+    "nintendo_codewarrior": "NOT TESTED",
+    "DS_integrated": "NO"
+  }
 }
