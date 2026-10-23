@@ -7,5 +7,6 @@
 // CodeWarrior and full DS game-build matching have not been measured.
 extern "C" void func_02013b88(Input *input) {
     input->press = 0;
-    input->release = 0;
+    // Keep the original +2 then +4 store order for binary matching.
+    *(volatile u16 *) &input->release = 0;
 }
