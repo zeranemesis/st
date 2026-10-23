@@ -151,3 +151,9 @@ The [new research batch](research/eur1/batches/overlay_candidates_1000/) was mer
 The **677 uncertain entries must not be counted as genuine completed game functions** until each is established by symbols, caller/callee traces or other corroboration. Matching instruction bytes alone is insufficient to establish original C++ semantics or original translation-unit membership.
 
 **No new CodeWarrior matching was tested for this fourth batch.** The original game build/objdiff reference, C++ source integration, and future native PC port are unchanged. No Nintendo ROM, overlay binaries or assets were committed.
+
+## 23 Oct 2026 — Owner-run original CodeWarrior validates 1,000/1,000 candidate code spans
+
+The owner supplied the local output of `verify_codewarrior_candidates_1000.py`. All **1,000/1,000** standalone C functions emit CodeWarrior ARM dsi/1.2p1 instruction code matching the recorded original code SHA-256, totaling **7,412 bytes** across **89 ARM9 overlays**, with no function-span relocations and matching sizes. The set contains **213 4-byte, 721 8-byte, and 66 12-byte snippets**, corresponding to **126 distinct original machine-code SHA-256 patterns**.
+
+Evidence: **63** known upstream symbol starts, **260** same-overlay pointer references, **358** post-return candidates, and **319** possible epilogues. **677 boundaries still unconfirmed**; isolated binary equality does not establish genuine independent source functions or gameplay completion. No new source integrated into the official Nintendo DS C++ CodeWarrior build: **0 official matching units established by this research batch**. More at [the results report](research/eur1/batches/overlay_candidates_1000/CODEWARRIOR_RESULTS.md).
