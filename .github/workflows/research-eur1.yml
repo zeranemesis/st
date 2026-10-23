@@ -117,3 +117,9 @@ jobs:
           python3 -m py_compile research/eur1/batches/arm9_new100/verify_new100.py research/eur1/batches/arm9_new100/verify_codewarrior_new100.py
           python3 research/eur1/batches/arm9_new100/verify_codewarrior_new100.py --backend clang --batch-size 50 --out /tmp/st-new100-smoke.json
           python3 -c 'import json; m=json.load(open("research/eur1/batches/arm9_new100/manifest_new100.json")); r=json.load(open("/tmp/st-new100-smoke.json")); assert len(m["functions"]) == 100 and m["summary"]["clang_exact_count"]==37; assert m["summary"]["new_typed_exact_functions"]==17; assert r["functions_checked"]==100 and r["counts"] == {"exact_clang_smoke":37,"different_instructions":21,"different_size":42}'
+
+      - name: Compile sixth 100 ARM9 BL-referenced C reconstructions (ROM-free smoke)
+        run: |
+          clang --target=armv5te-none-eabi -march=armv5te -marm -O2 -ffreestanding -ffunction-sections -w -c research/eur1/batches/new100/new100.c -o /tmp/st-new100.o
+          python3 -m py_compile research/eur1/batches/new100/verify_new100.py
+          python3 -c 'import json; d=json.load(open("research/eur1/batches/new100/manifest_new100.json")); assert len(d["functions"])==100 and d["summary"]["clang_exact"]==17 and d["summary"]["clang_not_exact"]==83'
