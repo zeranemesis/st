@@ -1,0 +1,1902 @@
+{
+  "schema": "st.eur1.arm9_research_100.v1",
+  "rom_sha1": "dcb221a89acb894503a461c2c7d4cfdad9a06b68",
+  "compiler": "Clang v17 --target=armv5te-none-eabi -march=armv5te -marm -O2 -ffreestanding -fomit-frame-pointer -ffunction-sections",
+  "summary": {
+    "new_bl_target_functions": 100,
+    "original_code_bytes": 2144,
+    "clang_byte_exact": 16,
+    "clang_provisional": 84,
+    "nintendo_DS_build_integrated": 0,
+    "CodeWarrior_tested": 0,
+    "genuine_start_evidence": "at least one direct same-module ARM BL into each candidate address",
+    "distinct_from_prior_2600_research_addresses": true,
+    "distinct_from_additional_new100_and_arm9_new34_catalog_entries": true,
+    "distinct_from_ov000_165_catalog": true
+  },
+  "overlay_ram_base": {
+    "0": "0x02051AE0",
+    "24": "0x020C4880",
+    "26": "0x020D8840",
+    "74": "0x02150D80",
+    "31": "0x020D8840",
+    "30": "0x02141B00",
+    "89": "0x02165A20",
+    "93": "0x02165A20",
+    "37": "0x02119100",
+    "29": "0x02141B00",
+    "23": "0x020E9A80",
+    "90": "0x02165A20",
+    "20": "0x020C4880",
+    "16": "0x020B6560",
+    "63": "0x02157FC0",
+    "36": "0x02119100",
+    "94": "0x02165A20",
+    "77": "0x02153020",
+    "71": "0x02150D80",
+    "64": "0x02157FC0",
+    "28": "0x02141B00",
+    "58": "0x0213F0E0",
+    "88": "0x02165A20",
+    "80": "0x02150D80",
+    "42": "0x02123600",
+    "84": "0x02150D80",
+    "92": "0x02165A20"
+  },
+  "overlay_sha1": {
+    "0": "94a5cc04665bd7687a50dc26011e3e604faf3092",
+    "16": "24678457c16221a24fc99d2d9f0637985b587f06",
+    "20": "536c7a70106e91c25934b36284bc66617d7e4637",
+    "23": "d52331659b7cb9d4c66ee533717976327e669f82",
+    "24": "966d1c45978d5a74f6112970e38e854de5696077",
+    "26": "2ca9fe707abc82f6445b5082d152a825002b80c6",
+    "28": "ad0b1a63911ff4da7a1331fe46b19acca6b5ef39",
+    "29": "edc7146db17fc769787a0c20a4945eb6dde31b5c",
+    "30": "740d4b85cf0ecb60629f12559b9bd4b9846964a9",
+    "31": "30bc11d7e006715219a6b86ecbdfd6b8759ab7de",
+    "36": "fc756b467832433ad94c664665a7661f38569b09",
+    "37": "a9406bddbdf1bbe4c28855181b68b9462ca139f5",
+    "42": "990a4419e893cf3842eea479c5aed8454c5b8004",
+    "58": "b3bfebc03b5e5c4aed18a1c1ac5a788474ca3a28",
+    "63": "eb65ed64dbb11014006f506a34d1579d5d0fe59f",
+    "64": "e6b6841e77d7cb30ed8acdcd0d348934e9b6a659",
+    "71": "d49cd260d12cc4cb4af1c08f542ee45a2ed53cb2",
+    "74": "4fd44f1b54619b9b278baba8fc890ddd08058cdb",
+    "77": "bf19c42a11378e58c08cb206288ed4dedff6ba46",
+    "80": "d42cf9db14e39d02d95bf0c77840ed43688630f0",
+    "84": "5412ece15fa0a91fd71ef3b65babaddf6018ecbb",
+    "88": "580fc9e3b67bac6d2482329b236fff847d368158",
+    "89": "138903b67cdd54c2b1cfa80ea32e9434f35298b4",
+    "90": "f6eddd02e589cabde7a7d313a7c1b53ce61fa18f",
+    "92": "379b507011d3a1786e790ea656ff2601fe899dc5",
+    "93": "fe6ef48ec395ec80536f3311f4c6f39ad805fdf0",
+    "94": "6b6b011d91bff7af081703d2328868abad2d1bb5"
+  },
+  "arm9_base": "0x02000000",
+  "arm9_sha1": "650ea160271b2297bfdea0ff3b97e9fa335d7f73",
+  "functions": [
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02001F30",
+      "size_bytes": 24,
+      "direct_BL_references": 3,
+      "original_span_sha256": "b6548b836af49d7bb40b7df7c578cfae0102824296b5a766c78b132b03ac2c7a",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02001BDC",
+        "0x02003418",
+        "0x02005330"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x020273C8",
+      "size_bytes": 24,
+      "direct_BL_references": 3,
+      "original_span_sha256": "3f2e5226a9d05c5f762c3152071fe71dc625174c05dd73370534a830617effcb",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02004D98",
+        "0x02005674",
+        "0x0202A850"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x020075E0",
+      "size_bytes": 12,
+      "direct_BL_references": 2,
+      "original_span_sha256": "db96bc622a6983b4e8cce683e8a7ddc14ef7ac8a72fcc870f6faefc8caa11842",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02007878",
+        "0x02007880"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x020092EC",
+      "size_bytes": 12,
+      "direct_BL_references": 1,
+      "original_span_sha256": "79be843949fc8c48306cba7ccc189b0ea7ce46927e0418fb9e6e49e68965a162",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02009818"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x0201667C",
+      "size_bytes": 12,
+      "direct_BL_references": 2,
+      "original_span_sha256": "ad92397b7845f20a6943778793b74913e3328f3e70ea67bd9e8e973ddc608725",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0201BA48",
+        "0x0201BA74"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x0201BE20",
+      "size_bytes": 12,
+      "direct_BL_references": 1,
+      "original_span_sha256": "6f2b80de7dbd6084018e24105257669143d468d5fd17398ad244000305b4433e",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0201D210"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_000",
+      "overlay": 0,
+      "address": "0x0209C938",
+      "size_bytes": 8,
+      "direct_BL_references": 2,
+      "original_span_sha256": "98d9677eadd459d448608a7d6e589b5029201c7b57c430fe292a65a5d4054ffc",
+      "clang_v17_generated_bytes": 8,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0209D69C",
+        "0x0209D6E4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_024",
+      "overlay": 24,
+      "address": "0x020D4674",
+      "size_bytes": 16,
+      "direct_BL_references": 1,
+      "original_span_sha256": "76ff71ef6c2930e10707a3a2863c4a446463b264710716885207efabd9581550",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020D440C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_026",
+      "overlay": 26,
+      "address": "0x0211E804",
+      "size_bytes": 12,
+      "direct_BL_references": 1,
+      "original_span_sha256": "a34de76eae10808e04a37cea40b47429442aa92d7b8e3659eaead93cd52ab1c4",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0211F3EC"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02007350",
+      "size_bytes": 16,
+      "direct_BL_references": 2,
+      "original_span_sha256": "017c0e7c777bc02020a6766f5f68cb2ea169e781c98cb2adf9f9ea86f338307d",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020073DC",
+        "0x02007410"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02007360",
+      "size_bytes": 16,
+      "direct_BL_references": 1,
+      "original_span_sha256": "3ba0c8795fc25907165c80b5bf0d67fb74843d71fe8cbd45731211f63820008c",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02007460"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_024",
+      "overlay": 24,
+      "address": "0x020C52E8",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "e484b5d99458a2bb5ce8e576384a143e59888785662e22700492d3e6b07287be",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020C64FC"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x0200B5D0",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "0650a4d9a2e3f7fb384767f5b56f0a642eeb5619cc59fb425ef98989f9ab82fc",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0200E61C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_000",
+      "overlay": 0,
+      "address": "0x02083484",
+      "size_bytes": 12,
+      "direct_BL_references": 1,
+      "original_span_sha256": "8bbe7c675029e856d8d8637e33a0e5bfc0d4dd8a55ded1f611c2ef0d8d311ff8",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02089024"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02019514",
+      "size_bytes": 20,
+      "direct_BL_references": 2,
+      "original_span_sha256": "8c4e9eac45f106f903a89bf6fcb9c442e0c4f4e10d603ca302cf962894ae2fd4",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02013510",
+        "0x02013580"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02020DF8",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "98e95ab0518569872f4a16f8e4b1a25c8e13d66f50587b805cb3f97fbdfbd0c8",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": true,
+      "C_status": "byte_exact_under_clang",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02020B90"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x0201EAA0",
+      "size_bytes": 20,
+      "direct_BL_references": 3,
+      "original_span_sha256": "fbc9dc4a6243384be443aec3e9914fbc02c19356dbaab4e41ae0c19c1345a570",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02020A44",
+        "0x02020A88",
+        "0x02021BD0"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_000",
+      "overlay": 0,
+      "address": "0x020984E0",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "31d30b932324fe50a794f62852913aa655c908240e8c6ae20b730fbbc1dbb7b1",
+      "clang_v17_generated_bytes": 28,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020984AC"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02001FA4",
+      "size_bytes": 24,
+      "direct_BL_references": 3,
+      "original_span_sha256": "6e7a40448ce513d4e18c0a8c74819af778bc9cbd57b0483457305ea8d2f4d5c8",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02001848",
+        "0x02003144",
+        "0x020050CC"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02001FBC",
+      "size_bytes": 24,
+      "direct_BL_references": 3,
+      "original_span_sha256": "2b109d3c46edc7a91bb7ab3e591fbaa2a607210dce3dc2cda9803a8fe581ce09",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0200185C",
+        "0x020031D4",
+        "0x02005134"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_024",
+      "overlay": 24,
+      "address": "0x020C790C",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "78d8a4ac62ed23c3b063ca30aa24f0d552a5d2824b234690b438382368ae723a",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020C777C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_000",
+      "overlay": 0,
+      "address": "0x02062E5C",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "28a8d308f998a83307abde36f7371a30d133ea4785771c1cfaac9f8187a1c890",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02063C24"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_074",
+      "overlay": 74,
+      "address": "0x02155B30",
+      "size_bytes": 16,
+      "direct_BL_references": 1,
+      "original_span_sha256": "ac1e22a010f62c3dc9c737c7c99c3d9fdc218e894449f0e5e3b5c3d7045b0d51",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02155B4C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_031",
+      "overlay": 31,
+      "address": "0x020F23A0",
+      "size_bytes": 16,
+      "direct_BL_references": 1,
+      "original_span_sha256": "0af0d68698030e8dd78990cc0ee46ec116ad1019d604b00c5a4bf238c260ea2a",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020F1BCC"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_030",
+      "overlay": 30,
+      "address": "0x0214BE94",
+      "size_bytes": 16,
+      "direct_BL_references": 1,
+      "original_span_sha256": "ec8cabc4f4b6604fbce411d9ea043efec3634e09b87c1ddac6b8c7284b802cee",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02146FD0"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_089",
+      "overlay": 89,
+      "address": "0x0216BFB0",
+      "size_bytes": 16,
+      "direct_BL_references": 1,
+      "original_span_sha256": "82dde1e9644afbea6db30321bd0bd2c81f65577eca4707316faea141ece7e7c4",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0216AE7C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02013E18",
+      "size_bytes": 28,
+      "direct_BL_references": 3,
+      "original_span_sha256": "a5974dcaa4ff573a8b767a11db69a2756bb92b11c297c40df766c6f44c2b46b8",
+      "clang_v17_generated_bytes": 56,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02013678",
+        "0x020136BC",
+        "0x02013DF8"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x020070C4",
+      "size_bytes": 24,
+      "direct_BL_references": 2,
+      "original_span_sha256": "7e0d26922f778cffca839483ad82820f975b8ce7c6f9d0510ceda3318d398151",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0200731C",
+        "0x0200744C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_093",
+      "overlay": 93,
+      "address": "0x0217415C",
+      "size_bytes": 12,
+      "direct_BL_references": 1,
+      "original_span_sha256": "abdb5a1437cfa24b7f90d61b01c316301b73fa4eceb7807cb28192535f0d9248",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02172D1C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_037",
+      "overlay": 37,
+      "address": "0x021205B8",
+      "size_bytes": 12,
+      "direct_BL_references": 1,
+      "original_span_sha256": "dfa20b2a6904eabf99a83bbd89abfa14e445ec6b91609bd08e65c154a0d6b920",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02120E80"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_029",
+      "overlay": 29,
+      "address": "0x02147568",
+      "size_bytes": 12,
+      "direct_BL_references": 1,
+      "original_span_sha256": "d3c1fcdd0c5a3d9e93cda8538033aec87c3b93af58f11ba51e9cfb8d8d4aeb93",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02147F74"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_023",
+      "overlay": 23,
+      "address": "0x020EECE0",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "47152ddce8d297aa356a3d91472543c38f8b57fce1f84bbc68114d2c6386dfbb",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020ED358"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02002D88",
+      "size_bytes": 20,
+      "direct_BL_references": 2,
+      "original_span_sha256": "6a749938769b76b683028604ab52d1c898e1affdab20e2e720a3f9ecd2068672",
+      "clang_v17_generated_bytes": 48,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02004C3C",
+        "0x02004D00"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_090",
+      "overlay": 90,
+      "address": "0x0216F364",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "c7f80a25d0564b59a3db796bd5b3d09367dba54cebbcffb7c58e8b07fca22391",
+      "clang_v17_generated_bytes": 28,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02169560"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_031",
+      "overlay": 31,
+      "address": "0x020FB318",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "3d0cbbbdcb8b3ffa0ea3b70e45d3813dfe9e7df837ab03928f534d63f371742b",
+      "clang_v17_generated_bytes": 32,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020D9470"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_020",
+      "overlay": 20,
+      "address": "0x020D26B0",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "f06232916a02d0bf1e8c3bd9c3d6fd7bbf461731c1e0de0c30ed0151dcf36f37",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020D1E3C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_024",
+      "overlay": 24,
+      "address": "0x020C4DD4",
+      "size_bytes": 20,
+      "direct_BL_references": 2,
+      "original_span_sha256": "3ea609806066e8e80743a8252bd350e1775beb9c985b18163a6712f24a217b38",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020CA8B0",
+        "0x020CA940"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_089",
+      "overlay": 89,
+      "address": "0x0216DC1C",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "7a5d75c2b045572bb17ceb4a8722d547316af69c2cb91ad23edbf652450589de",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0216DAA4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x0201BE08",
+      "size_bytes": 24,
+      "direct_BL_references": 2,
+      "original_span_sha256": "e115fb6d43992cf95dffd343ebf72ddf044ebbb4cf0586cfc4c00857013f6d8b",
+      "clang_v17_generated_bytes": 32,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0201CF1C",
+        "0x0201CF74"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_000",
+      "overlay": 0,
+      "address": "0x0208116C",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "a5768561970dc93dbc712101956c7dc8d94645d8b01e3c3bd747117af1aea051",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02081D54"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02019340",
+      "size_bytes": 16,
+      "direct_BL_references": 1,
+      "original_span_sha256": "56da7a101dd2a72e2e3c458b2c9969ba7848fd408412ba6fe38c7ebfb6279312",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02019434"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_000",
+      "overlay": 0,
+      "address": "0x02060B50",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "500ed34a6047455f8f3f7521c1b19298f3959672533d1d127c98462ddc8e9a2c",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02060A18"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_000",
+      "overlay": 0,
+      "address": "0x020A9CE4",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "7e05b6ba12c1d2b7cfacefdcc0b1c139ae431728a4f657c22071691cb9a0dc0b",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020A9CFC"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_000",
+      "overlay": 0,
+      "address": "0x020A4384",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "15c16b35aba680e7e1644fe711e395c31c0c0a0196b2469f83bf15fef6d2227d",
+      "clang_v17_generated_bytes": 36,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020A43D0"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_016",
+      "overlay": 16,
+      "address": "0x020B7974",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "ffcc1b893e4599d774169a126c3748f635a914b0c03892787235fe001bcf3a16",
+      "clang_v17_generated_bytes": 36,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020B7528"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_000",
+      "overlay": 0,
+      "address": "0x02065E88",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "a7b08982763e101e38179ce074157d91804556cbabb0fc4cd1eefa161bf2f8cf",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02071024"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02018C78",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "6c56ec6fb66d1e884f01c31b686cdb7bd91bd62a48efaa7f1daf89e7c891f7f3",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0201337C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_063",
+      "overlay": 63,
+      "address": "0x0215C988",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "053dacdc91e5c0eda5e72cc6570f3f4dd326092dcbc4c52bafb2c15e4e4c2dfc",
+      "clang_v17_generated_bytes": 28,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0215D714"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x0203BC54",
+      "size_bytes": 28,
+      "direct_BL_references": 2,
+      "original_span_sha256": "2efcbf24937db3165ed89bc13b8e477163b51075652df51c3893a038aabbbaf8",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0203C800",
+        "0x0203CAEC"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_036",
+      "overlay": 36,
+      "address": "0x0211D8B8",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "5cac9ba9f014213940aad2b43b7cbeb33ab15766098dacd9d2d82cca0f340740",
+      "clang_v17_generated_bytes": 8,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0211A630"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_024",
+      "overlay": 24,
+      "address": "0x020D5460",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "772fa2d1e38ceff508999b30598d8f6733633dbd130c13ef43eda335cc87215e",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020D0028"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_094",
+      "overlay": 94,
+      "address": "0x0217485C",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "a477a59a72e36f6f9bc9f872407320a50742cd8f60f9d6518dddd9f3458cc53d",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0217488C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_077",
+      "overlay": 77,
+      "address": "0x02158BBC",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "9b6fc5cf111f4c811d1f8efcd1ce38072ba2721ee29db96b28ac4329cdf11591",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02157EF4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_071",
+      "overlay": 71,
+      "address": "0x021561E4",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "edf896a8a5adffd31c3f51425896293901c7a61d244745242adc395dd6955a90",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0215630C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x0200503C",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "b7f7ad514507542a6319e4cf8c17267ca67dda8143bd5a2d58c0e6cdf3b5c4a7",
+      "clang_v17_generated_bytes": 36,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0200517C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_031",
+      "overlay": 31,
+      "address": "0x020D9834",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "00a1cda9805600a0556f666dedee93567652f36e866ed9f75d42427c23e82178",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020E6EE8"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_024",
+      "overlay": 24,
+      "address": "0x020CEA70",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "1a8b5848413932ff30fe4558fd2c25122409c790c4598420a2335982fd65f49f",
+      "clang_v17_generated_bytes": 28,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020CD3D4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_064",
+      "overlay": 64,
+      "address": "0x02158BB8",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "0db6db5e00ef18ff12d2507a3fd4586134e9804c13ea7b13f1c6bb0f35917e49",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02159CBC"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_064",
+      "overlay": 64,
+      "address": "0x02158BA4",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "b932c6a4291cf0d1f7319756a548fd853530a7b14a2344899cf0fb119eec5d73",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02159CA4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_028",
+      "overlay": 28,
+      "address": "0x02142D7C",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "4156d1d280e5b0efd6d78e8686c29cdf26cd6d44d37ec08bb3ec504114051d79",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02141E24"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_026",
+      "overlay": 26,
+      "address": "0x02121DF4",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "4156d1d280e5b0efd6d78e8686c29cdf26cd6d44d37ec08bb3ec504114051d79",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02121864"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_077",
+      "overlay": 77,
+      "address": "0x02156A64",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "a88e3d1cbe2c5290123a25244956b57c2a31e3d8320748488caf63a844955b92",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x021539C4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_093",
+      "overlay": 93,
+      "address": "0x02175560",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "0d42ad80c58db96de7cb2692123b5873d591045b0141c8224fa667e3e980ad8d",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02172D58"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_064",
+      "overlay": 64,
+      "address": "0x02159230",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "5708396b502dbbc6c1e8b9e2378b9709fdd79db02f081223bee9b6d268f8e4a8",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02159110"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_024",
+      "overlay": 24,
+      "address": "0x020C516C",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "5708396b502dbbc6c1e8b9e2378b9709fdd79db02f081223bee9b6d268f8e4a8",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020C507C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_016",
+      "overlay": 16,
+      "address": "0x020B81A0",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "5708396b502dbbc6c1e8b9e2378b9709fdd79db02f081223bee9b6d268f8e4a8",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020B7FAC"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_016",
+      "overlay": 16,
+      "address": "0x020B7B68",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "5708396b502dbbc6c1e8b9e2378b9709fdd79db02f081223bee9b6d268f8e4a8",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020B7A08"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x020070DC",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "42e5c4a26c2198ed376137d8315103c27df868cd6c74b338fb94da1852137274",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02007378"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_058",
+      "overlay": 58,
+      "address": "0x0214F0D8",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "6494a9fa4548ba3ae739b5247a9b3c6dc47bb7bf877024050a3e7ea6693eefcc",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0214EE88"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_026",
+      "overlay": 26,
+      "address": "0x020F2A2C",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "c4c150d139ae38b6c1b5c1f84ba0b3a3032ecff3971277c2dc1cdc87f4696854",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020E8F30"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_024",
+      "overlay": 24,
+      "address": "0x020CB8EC",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "293c3f4b25e13d76db65165da3b8f26d6d4a80e96b2f1833544fba6f8bb7311b",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020CC780"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x020338D4",
+      "size_bytes": 12,
+      "direct_BL_references": 1,
+      "original_span_sha256": "80aae25b9769bbeff356ba7ce911312a07ee21fd441f65a045a117b9def48fd0",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02007628"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_000",
+      "overlay": 0,
+      "address": "0x02067BE0",
+      "size_bytes": 16,
+      "direct_BL_references": 1,
+      "original_span_sha256": "b3e1f137a560d5eaf70cfb6f1dc1a289df570175bc16ce5665d9a91ba1a7e0a6",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020682D4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_037",
+      "overlay": 37,
+      "address": "0x021201EC",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "387322b65fb5a9fa6dbac88d756ee06d3cc7f2ce2e90bd363132bf6a6f0e5ba8",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x021213F8"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_000",
+      "overlay": 0,
+      "address": "0x02057EE0",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "d7a996e4dc93f5b0a71fa7b6b116a236595ad57662f5d9fbb35494827c9bd43b",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02057EF8"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x0202D674",
+      "size_bytes": 28,
+      "direct_BL_references": 2,
+      "original_span_sha256": "7233a85365cc481f4d5f8981237e236974b10a07f4da0e0678d5bf78da73ab61",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0202D938",
+        "0x0202DA1C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_031",
+      "overlay": 31,
+      "address": "0x020D9D0C",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "97edd3c149d6ce2783dc8f583653f0b026c12ffac6ad48116ee66834f511457c",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020E5FC0"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_031",
+      "overlay": 31,
+      "address": "0x020D9878",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "2bae9ae2e2f874c6ea5d17aa8962f97a7d6be12abed876a41d3c19e264ab58df",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020E43A4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_088",
+      "overlay": 88,
+      "address": "0x02169B7C",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "d9e8c22d69bd04b3f122f0a819eceb420ee1ea743179f8141b440c959d49114f",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02169A18"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_080",
+      "overlay": 80,
+      "address": "0x0215C320",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "59ddef52c7c08cee5efc755895fd3408e1f8e867c8f9d872142afb967678b0bf",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0215C448"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_023",
+      "overlay": 23,
+      "address": "0x020EF6AC",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "6a10825aa8fca2f74fcac00be0e4fd26aba21767f41d961e707f32fbc96f0f62",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020EFB10"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02009EC4",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "5f3bc972db47dcff31ca67535c2b33a8bb6bbcea76ade7cb9504a0d410a5f78f",
+      "clang_v17_generated_bytes": 28,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020078E4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_042",
+      "overlay": 42,
+      "address": "0x0212B264",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "32995af61f116cfae68196dc250ada98cb999dfe22702dfd278b73fbb610233b",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02128E4C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_036",
+      "overlay": 36,
+      "address": "0x0211D8A0",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "1768e66d4a3737be46acf3831d52ce101360cf37f6b2c3ac26d12c2e533d9a53",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02119934"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_031",
+      "overlay": 31,
+      "address": "0x0210A938",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "340572b047da8b66df7c3f6455cbf29916cc6ae99f4309c0795b3eb528b02a24",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0210A65C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x0200B69C",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "a03f8e77cd8f8941ddb0b61cc7992bb661dd5816f22c02e22fb2cc2a46ef2323",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0200E50C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x0200B5BC",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "b5d2824e09ff0edafd0e32b1b190140fe8d74f741d48e4a7e8a5ec0449a59029",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0200E500"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x0200B5A8",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "fb9b2cc357a83e94257ca12ce94e62f9683c6e093928bb8929c33ac2a5da6652",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0200E4F4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02002C8C",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "f33bc4fefde9979f2f0ae50c237fe27a625622dfab2e4f167ea20c970777ffc2",
+      "clang_v17_generated_bytes": 36,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02003244"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_084",
+      "overlay": 84,
+      "address": "0x0215C050",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "ffb3b373c555a3c0c03a0c7c0b85bcd7477dcd15c1634b864829fd941c2e7299",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0215CD1C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_089",
+      "overlay": 89,
+      "address": "0x021670BC",
+      "size_bytes": 20,
+      "direct_BL_references": 1,
+      "original_span_sha256": "8f6b69bbfcf270c53406ec6b86b73e595d7cfaeb6b1303e5131dcf33826b6dbb",
+      "clang_v17_generated_bytes": 20,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0216BAC4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "arm9",
+      "overlay": -1,
+      "address": "0x02009EA4",
+      "size_bytes": 32,
+      "direct_BL_references": 1,
+      "original_span_sha256": "22c88ab55570a1fbf59f7b610c062b14f2bf9f29a9fe84e377ec8392808b3c1c",
+      "clang_v17_generated_bytes": 36,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020078F4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_088",
+      "overlay": 88,
+      "address": "0x02169B0C",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "f9005e57197f337231dd0be835f029915651463494416588379db9037688f578",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x021699E4"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_026",
+      "overlay": 26,
+      "address": "0x020EAE28",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "9d9bd57e632ed2b53864944da84d59b4df4238533139ba0abfddc9ad2d746e14",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020F7164"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_093",
+      "overlay": 93,
+      "address": "0x02171F1C",
+      "size_bytes": 24,
+      "direct_BL_references": 1,
+      "original_span_sha256": "6665212d5cc64d6837cb8a8978edd1b252f51c60dcb7fef0fcdca39b3711a432",
+      "clang_v17_generated_bytes": 16,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x02170FD8"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_026",
+      "overlay": 26,
+      "address": "0x020EAFBC",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "a9fe9b7f05015da8cc752521ad4315a16e8c4bdd4e7a7eab7e186cc183a31b3e",
+      "clang_v17_generated_bytes": 12,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x020F7374"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_092",
+      "overlay": 92,
+      "address": "0x02166428",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "50bfd1189eee3355507628fb06055d8ca2939a4cc14e95c6f71f856dd46a7fe8",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x021663B8"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_036",
+      "overlay": 36,
+      "address": "0x0211D398",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "4761129a4b212662333ebc1619f0837de64ab68da764b91a6ffbd9f17ed3dce8",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0211996C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_036",
+      "overlay": 36,
+      "address": "0x0211D3D0",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "d4c711d3202bf57d1d0550664b3237026d297534879a549e32bbe1a164328f65",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x021199C0"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    },
+    {
+      "module": "overlay_036",
+      "overlay": 36,
+      "address": "0x0211D3B4",
+      "size_bytes": 28,
+      "direct_BL_references": 1,
+      "original_span_sha256": "0bcee85cd9c385cd727263577c691a60d82d60a648e7fd2c091fa1118c8d45b5",
+      "clang_v17_generated_bytes": 24,
+      "clang_armv5te_exact": false,
+      "C_status": "provisional_C_reconstruction",
+      "CodeWarrior_standalone": "not_tested",
+      "nintendo_DS_build_integrated": false,
+      "semantic_runtime_verified": false,
+      "direct_BL_call_sites": [
+        "0x0211998C"
+      ],
+      "entrypoint_evidence": "direct ARM BL call sites at recorded addresses; original source ownership and full bounds not yet independently established"
+    }
+  ]
+}
