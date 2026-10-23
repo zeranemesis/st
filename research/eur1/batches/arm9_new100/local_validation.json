@@ -1,0 +1,13 @@
+{
+  "method": "Clang ARMv5TE -O2, isolated function ELF section vs SHA1-verified EUR Rev1 original ROM machine bytes",
+  "counts": {
+    "different_size": 42,
+    "different_instructions": 21,
+    "exact_original_machine_bytes": 37
+  },
+  "bytes_original": 2080,
+  "bytes_exact": 428,
+  "sources_compiled": 100,
+  "rom_sha1": "dcb221a89acb894503a461c2c7d4cfdad9a06b68",
+  "explicit_limits": "Provisional C semantics not runtime-validated. No CodeWarrior or integrated Nintendo DS C++ matching established."
+}
