@@ -12,16 +12,16 @@ ROM, SHA-1 `dcb221a89acb894503a461c2c7d4cfdad9a06b68`.
 | --- | ---: |
 | New source C function bodies | **50** |
 | Original ARM spans verified by SHA-256 | **1,528 bytes** |
-| Standalone Clang ARMv5TE code byte-exact | **5 / 50** |
-| Matched code bytes | **76 bytes** |
-| Provisional, nonmatching C interpretations | **45 / 50** |
+| Standalone Clang ARMv5TE code byte-exact | **17 / 50** |
+| Matched code bytes | **412 bytes** |
+| Provisional, nonmatching C interpretations | **33 / 50** |
 | Register-level C interpretations | **40** |
 | Human-readable C functions | **10** |
 | Standalone CodeWarrior or game objdiff verified | **No** |
 | Original Nintendo DS ROM rebuilt/tested | **No** |
 
 Five Clang byte-identical functions are ARM9 `0x02002EB8` (32 bytes), overlay 0 `0x0205B1CC` (12 bytes), overlay 0 `0x020A6C60` (12 bytes), overlay 26 `0x020F7A3C` (8 bytes) and overlay 31 `0x020E0398` (12 bytes).
-The 45 other functions compile to ARMv5TE but **do not** reproduce the
+The 33 other functions compile to ARMv5TE but **do not** reproduce the
 reference instruction bytes. They are research hypotheses, not verified
 runtime-equivalent implementations. Original source structure, C++ owner,
 ABI, function boundaries, and symbol linkage still require investigation.
@@ -49,7 +49,7 @@ python research/eur1/batches/bl50c/verify_50.py --working-code research/eur1/wor
 The `working_code` directory may have been created elsewhere; supply its
 actual location. Required: `clang` with the ARMv5TE target and Python 3.
 
-Expected: `PASS: 5 Clang-exact and 45 nonmatching functions; 50 source bodies`.
+Expected: `PASS: 17 Clang-exact and 33 nonmatching functions; 50 source bodies`.
 This check has been repeated successfully with locally extracted EUR1 code.
 
 ## Next
@@ -69,3 +69,9 @@ percentage, and the ROM cannot run from these sources alone.
 Des erreurs d'offset de mémoire ont été corrigées dans les fonctions des overlays 0, 23 et 32 aux adresses `0x0205B1CC`, `0x020EF9A4` et `0x0211DA50`. La première est maintenant reproduite octet pour octet avec Clang ARMv5TE. Ces modifications ont été revalidées sur la ROM EUR1 originale (2/50 matching Clang isolés); les deux autres corrections sont sémantiques seulement et restent non matching. La signature C++ originale et CodeWarrior ne sont toujours pas validés.
 
 Trois reconstructions de stockage multiple ARM supplémentaires (`0x020A6C60`, `0x020F7A3C`, `0x020E0398`) reproduisent désormais les octets de la ROM avec Clang après correction du type de pointeur. Cette équivalence Clang ne vaut pas confirmation de l'ABI et des signatures CodeWarrior.
+
+## Matching round 2 (23 October 2026)
+
+The full research unit has been recompiled and compared against the owner's SHA-1 checked EUR1 ARM9/overlay code: **17/50 isolated Clang matches, 412 exact bytes out of 1,528**. This adds twelve byte-identical C implementations in module/address slots #9, #10, #11, #25, #26, #30, #32, #33, #34, #35, #40 and #43. New exact addresses: `0x0202EDF4`, `0x0205FDD0`, `0x0205FDF8`, `0x02121258`, `0x021212A0`, `0x0211FCDC`, `0x0212C6D0`, `0x02159738`, `0x02159F14`, `0x0215A954`, `0x021686D4` and `0x020EF9A4` (module identity matters). See `MATCHING_ROUND2.md` for limitations and source details.
+
+**Important:** To control Clang allocation and optimization, several corrected C functions use empty GNU extended assembly (`asm volatile(\"\" ...)`) barriers or register constraints. These emit **no original machine instructions** but are compiler-specific. They do **not** mean verified matching with Nintendo CodeWarrior, original C++ signatures, or game rebuild.
