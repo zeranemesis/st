@@ -4,10 +4,10 @@
   "rom_sha1": "dcb221a89acb894503a461c2c7d4cfdad9a06b68",
   "summary": {
     "count": 50,
-    "exact": 20,
-    "nonmatching": 30,
+    "exact": 23,
+    "nonmatching": 27,
     "original_bytes": 1528,
-    "exact_bytes": 448
+    "exact_bytes": 548
   },
   "limitations": "Standalone Clang verified only; C++/CodeWarrior ABI, DS build and runtime unverified",
   "functions": [
@@ -42,7 +42,8 @@
       "original_sha256": "0d5de6620ef028cf8c82fe77eee6a0589003b63886eb2e22fa93ebb5360254fa",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "matching_note": "Clang ARMv5TE byte-exact after placing loop induction value in original ARM registers and using empty GNU compiler barriers. Original CodeWarrior matching unverified."
     },
     {
       "index": 4,
@@ -208,7 +209,8 @@
       "original_sha256": "d5793257b43c178719ee5f713439753e76a3c19ae90f3cdf4176dae8b02b52df",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "matching_note": "Clang ARMv5TE byte-exact after placing loop induction value in original ARM registers and using empty GNU compiler barriers. Original CodeWarrior matching unverified."
     },
     {
       "index": 19,
@@ -219,7 +221,8 @@
       "original_sha256": "1cc311f5f96d045709f220016a511571b1974f77d9319d3a0c2e2fb2cf533fbf",
       "refs": 2,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "matching_note": "Clang ARMv5TE byte-exact after placing loop induction value in original ARM registers and using empty GNU compiler barriers. Original CodeWarrior matching unverified."
     },
     {
       "index": 20,
