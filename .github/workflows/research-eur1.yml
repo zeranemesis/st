@@ -123,3 +123,9 @@ jobs:
           clang --target=armv5te-none-eabi -march=armv5te -marm -O2 -ffreestanding -ffunction-sections -w -c research/eur1/batches/new100/new100.c -o /tmp/st-new100.o
           python3 -m py_compile research/eur1/batches/new100/verify_new100.py
           python3 -c 'import json; d=json.load(open("research/eur1/batches/new100/manifest_new100.json")); assert len(d["functions"])==100 and d["summary"]["clang_exact"]==17 and d["summary"]["clang_not_exact"]==83'
+
+      - name: Compile 34 newly matched ARM9 C functions and audit 100 target statuses (ROM-free)
+        run: |
+          clang --target=armv5te-none-eabi -march=armv5te -marm -O2 -ffreestanding -fomit-frame-pointer -ffunction-sections -c research/eur1/batches/arm9_new34/recovered_exact_34.c -o /tmp/st-new34.o
+          python3 -m py_compile research/eur1/batches/arm9_new34/verify_exact_34.py research/eur1/batches/arm9_new34/verify_codewarrior_34.py
+          python3 -c 'import json; d=json.load(open("research/eur1/batches/arm9_new34/manifest_100_targets.json")); f=d["functions"]; assert len(f)==100 and len({(x["module"],x["address"]) for x in f})==100; assert sum(x["status"]=="clang_armv5te_byte_identical" for x in f)==34; assert sum(x["status"]=="BL_target_queued_no_C_reconstruction" for x in f)==66; assert sum(x["size_bytes"] for x in f[:34])==536'
