@@ -4,10 +4,10 @@
   "rom_sha1": "dcb221a89acb894503a461c2c7d4cfdad9a06b68",
   "summary": {
     "count": 50,
-    "exact": 1,
-    "nonmatching": 49,
+    "exact": 2,
+    "nonmatching": 48,
     "original_bytes": 1528,
-    "exact_bytes": 32
+    "exact_bytes": 44
   },
   "limitations": "Standalone Clang verified only; C++/CodeWarrior ABI, DS build and runtime unverified",
   "functions": [
@@ -471,7 +471,7 @@
       "original_sha256": "7e15c0fa7a7662f1b51ea6aa1aaca160ab766bf5401298ca840d3cc6b28f5c36",
       "refs": null,
       "source_kind": "human_readable_reconstruction",
-      "clang_byte_exact": false
+      "clang_byte_exact": true
     },
     {
       "index": 43,
