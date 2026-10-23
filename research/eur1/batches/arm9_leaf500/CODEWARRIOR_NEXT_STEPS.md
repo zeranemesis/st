@@ -11,12 +11,12 @@ hashes. Of these:
 
 | Status | Count | Description |
 | --- | ---: | --- |
-| `exact_clang_smoke` | **26** | Full instruction bytes identical to original |
-| `different_instructions` | **145** | Compiled byte count agrees, instructions differ |
+| `exact_clang_smoke` | **33** | Full instruction bytes identical to original |
+| `different_instructions` | **138** | Compiled byte count agrees, instructions differ |
 | `different_size` | **329** | Source emits different code length |
 | **Total** | **500** | 15,092 original instruction bytes across 74 modules |
 
-The 474 C implementations without byte matching require *real algorithm and
+The 467 C implementations without byte matching require *real algorithm and
 control-flow verification*. There is no evidence that they are semantically
 equivalent simply because they compile. None have been integrated in official
 Nintendo DS source files. **Original CodeWarrior results for this fifth batch
@@ -92,3 +92,7 @@ signatures, observable register side effects, pointer aliases, and runtime
 behavior must be independently checked before substituting in game code.
 They are separate research functions with distinct names, preventing any
 accidental modification of the real DS build.
+
+## Matching follow-up: seven Clang-exact typed C functions
+
+[The seven-function matching audit](MATCHING_REWRITES_7.md) describes typed C fixes for original overlays 0, 26, 66, 89 and 91. They are already applied to the fifth-batch source and manifest; the full Clang test reports **33/500 exact**. They are **not** counted as CodeWarrior-exact or Nintendo DS C++ build-integrated until separately verified.
