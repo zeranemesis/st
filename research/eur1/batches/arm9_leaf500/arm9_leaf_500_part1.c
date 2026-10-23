@@ -190,7 +190,11 @@ uint32_t st_ov000_02078EA0(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 
 /* original module: 0, addr: 0x0207901C, 20 bytes, BL refs: 2 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov000_0207901C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r1 = (0x0u); *((uint16_t*)(uintptr_t)(r0 + 16u)) = (uint16_t)r1; *((uint16_t*)(uintptr_t)(r0 + 18u)) = (uint16_t)r1; *((uint32_t*)(uintptr_t)(r0 + (20u))) = (uint32_t)r1; return r0; }
+void st_ov000_0207901C(volatile unsigned char *obj) {
+    *(volatile unsigned short *)(obj + 16u) = 0u;
+    *(volatile unsigned short *)(obj + 18u) = 0u;
+    *(volatile unsigned int *)(obj + 20u) = 0u;
+}
 
 /* original module: 0, addr: 0x02079304, 28 bytes, BL refs: 7 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
@@ -274,7 +278,11 @@ uint32_t st_ov000_020872E4(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 
 /* original module: 0, addr: 0x02087DE0, 20 bytes, BL refs: 4 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov000_02087DE0(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = (0x0u); *((uint32_t*)(uintptr_t)(r0 + (0u))) = (uint32_t)r2; *((uint16_t*)(uintptr_t)(r0 + 4u)) = (uint16_t)r1; *((uint16_t*)(uintptr_t)(r0 + 6u)) = (uint16_t)r2; return r0; }
+void st_ov000_02087DE0(volatile unsigned char *obj, unsigned int value) {
+    *(volatile unsigned int *)(obj + 0u) = 0u;
+    *(volatile unsigned short *)(obj + 4u) = (unsigned short)value;
+    *(volatile unsigned short *)(obj + 6u) = 0u;
+}
 
 /* original module: 0, addr: 0x02088E20, 32 bytes, BL refs: 5 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */

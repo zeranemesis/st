@@ -165,7 +165,7 @@ def main():
   'backend':args.backend,'standalone_only':True,
   'compiler':str(compiler),'flags':CW_FLAGS if args.backend=='codewarrior' else CLANG_FLAGS,
   'functions_checked':len(results),'counts':dict(sorted(counts.items())),
-  'warning':'Standalone matching does not verify C semantics, function C++ ownership or original game build integration; 474 original Clang mismatches must be analyzed carefully.',
+  'warning':'Standalone matching does not verify C semantics, function C++ ownership or original game build integration; Remaining nonmatching C reconstructions require careful semantic and CFG review.',
   'functions':results}
  outfile.parent.mkdir(parents=True,exist_ok=True)
  outfile.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
