@@ -99,7 +99,7 @@ def main():
         result.append({'module':mod,'address':f['address'],'symbol':f['symbol'],
                        'original_size':len(orig),'compiled_size':len(obj),'clang_exact':match})
     exact=sum(r['clang_exact'] for r in result)
-    if exact!=28 or sum(r['original_size'] for r in result)!=1528 or sum(r['original_size'] for r in result if r['clang_exact'])!=748:
+    if exact!=30 or sum(r['original_size'] for r in result)!=1528 or sum(r['original_size'] for r in result if r['clang_exact'])!=848:
         raise ValueError('Aggregate validation mismatch')
     report={'summary':{'clang_exact':exact,'provisional':50-exact},
             'functions':result,'limitations':'Standalone Clang, not CodeWarrior or DS source integration'}
