@@ -11,7 +11,7 @@ void func_02011da0(void);
 void CallStaticInitializers(void);
 
 void func_02000a78(void);
-void *func_0200093c(unk32, u32 *, unk32);
+u32 func_0200093c(u32, u32 *, u32);
 void func_020009fc(void);
 void func_02000950(unk32 *);
 void func_01ffbd70(void);
@@ -89,15 +89,19 @@ extern "C" void Entry(void) {
     main();
 }
 
-// non-matching
-void *func_0200093c(unk32 param1, uint *param2, unk32 param3) {
-    u32 *p = param2 + param3;
+// ARM9 0x0200093C (20 bytes): byte-counted fill, not a word count.
+// Research disassembly: ADD ip,r1,r2; CMP r1,ip; STMLT r1!,{r0}; BLT; BX lr.
+// The original returns r0 (the fill value), not the destination pointer.
+// The loop writes one full u32 for any nonzero trailing byte count.
+// Rebuilt CodeWarrior matching still needs to be measured locally.
+u32 func_0200093c(u32 value, u32 *dst, u32 byteCount) {
+    u8 *end = (u8 *) dst + byteCount;
 
-    while (param2 < p) {
-        *p++ = param1;
+    while ((u8 *) dst < end) {
+        *dst++ = value;
     }
 
-    return param2;
+    return value;
 }
 
 extern "C" void AutoloadCallback(void) {}
