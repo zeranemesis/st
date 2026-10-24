@@ -103,7 +103,7 @@ def load_actual_method() -> str:
 
 def compiled_arm_text(obj: bytes) -> bytes:
     """Return only the actual C++ function section, rejecting relocations."""
-    if len(obj) < 52 or obj[:6] != b"\\x7fELF\\x01\\x01":
+    if len(obj) < 52 or obj[:6] != b"\x7fELF\x01\x01":
         raise ValueError("Not a little-endian ARM ELF32 object")
     h = struct.unpack_from("<16sHHIIIIIHHHHHH", obj)
     if h[1] != 1 or h[2] != 40 or h[11] != 40:
@@ -118,7 +118,7 @@ def compiled_arm_text(obj: bytes) -> bytes:
     for i, row in enumerate(rows):
         if row[0] >= len(names):
             continue
-        last = names.find(b"\\0", row[0])
+        last = names.find(b"\0", row[0])
         if last < 0:
             continue
         label = names[row[0]:last]
