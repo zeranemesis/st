@@ -51,7 +51,9 @@ décrites dans la traduction du cinquième lot :
 5. `mUnk_8C = param2`
 6. `mUnk_90 = 2`
 
-Le test a aussi comparé l'empreinte des instructions générées par Clang C++ ARMv5TE à la référence du manifeste : **32 octets générés contre 36 octets originaux**, donc **NON MATCHING** avec ce backend isolé. Cela ne préjuge pas du résultat CodeWarrior original.\n\nLe script `research/eur1/tests/test_ui_counter_6590c_integration.py`
+Le test a aussi comparé l'empreinte des instructions générées par Clang C++ ARMv5TE à la référence du manifeste : **32 octets générés contre 36 octets originaux**, donc **NON MATCHING** avec ce backend isolé. Cela ne préjuge pas du résultat CodeWarrior original.
+
+Le script `research/eur1/tests/test_ui_counter_6590c_integration.py`
 extrait la **définition réelle** (pas une copie de la fonction), teste
 la signature du header, compile la fonction comme C++ ARMv5TE avec un
 shim réduit des champs de classe, vérifie les offsets 0x04, 0x80, 0x8C,
