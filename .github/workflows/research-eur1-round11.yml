@@ -5,6 +5,7 @@ on:
     paths:
       - 'research/eur1/batches/arm9_leaf500/semantic_refactors_round11.c'
       - 'research/eur1/batches/arm9_leaf500/verify_semantic_round11.py'
+      - 'research/eur1/batches/arm9_leaf500/verify_codewarrior_round11.py'
       - 'research/eur1/batches/arm9_leaf500/test_semantic_round11.c'
       - 'research/eur1/batches/arm9_leaf500/manifest_fifth500.json'
       - '.github/workflows/research-eur1-round11.yml'
@@ -12,6 +13,7 @@ on:
     paths:
       - 'research/eur1/batches/arm9_leaf500/semantic_refactors_round11.c'
       - 'research/eur1/batches/arm9_leaf500/verify_semantic_round11.py'
+      - 'research/eur1/batches/arm9_leaf500/verify_codewarrior_round11.py'
       - 'research/eur1/batches/arm9_leaf500/test_semantic_round11.c'
       - 'research/eur1/batches/arm9_leaf500/manifest_fifth500.json'
       - '.github/workflows/research-eur1-round11.yml'
@@ -29,6 +31,11 @@ jobs:
         run: |
           python3 -m py_compile research/eur1/batches/arm9_leaf500/verify_semantic_round11.py
           python3 research/eur1/batches/arm9_leaf500/verify_semantic_round11.py --out /tmp/round11-hash-results.json
+      - name: Smoke-test original-compiler harness using portable Clang backend (NOT CodeWarrior)
+        run: |
+          python3 -m py_compile research/eur1/batches/arm9_leaf500/verify_codewarrior_round11.py
+          python3 research/eur1/batches/arm9_leaf500/verify_codewarrior_round11.py --backend clang --out /tmp/round11-clang-smoke.json
+          python3 -c 'import json; j=json.load(open("/tmp/round11-clang-smoke.json")); assert j["backend"]=="clang" and j["functions_checked"]==10 and sum(j["counts"].values())==10'
       - name: Test nine host semantic function groups with sanitizers
         run: |
           clang -std=c11 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Werror research/eur1/batches/arm9_leaf500/test_semantic_round11.c -o /tmp/round11-semantic-tests
