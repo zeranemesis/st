@@ -4,10 +4,10 @@
   "rom_sha1": "dcb221a89acb894503a461c2c7d4cfdad9a06b68",
   "summary": {
     "count": 50,
-    "exact": 24,
-    "nonmatching": 26,
+    "exact": 28,
+    "nonmatching": 22,
     "original_bytes": 1528,
-    "exact_bytes": 584
+    "exact_bytes": 748
   },
   "limitations": "Standalone Clang verified only; C++/CodeWarrior ABI, DS build and runtime unverified",
   "functions": [
@@ -143,7 +143,8 @@
       "original_sha256": "7f69271f9212b1b1f01a5ce0ce5057be31630488ec26c682a36c0c32564f8dd0",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "matching_note": "Clang ARMv5TE -O2 whole-translation-unit verified exact original bytes; GNU empty inline assembly/compiler register constraints needed; original Nintendo CodeWarrior and DS objdiff not tested."
     },
     {
       "index": 13,
@@ -198,7 +199,8 @@
       "original_sha256": "36d33628ea479ea63880bfabb94066b70f8ab151ed211baa9e614efac44c0b6e",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "matching_note": "Clang ARMv5TE -O2 whole-translation-unit verified exact original bytes; GNU empty inline assembly/compiler register constraints needed; original Nintendo CodeWarrior and DS objdiff not tested."
     },
     {
       "index": 18,
@@ -255,7 +257,8 @@
       "original_sha256": "f5f7d3e085dc1d107b844c2cbe02ddf3458cd5c90659d89040a309e2956a3c67",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "matching_note": "Clang ARMv5TE -O2 whole-translation-unit verified exact original bytes; GNU empty inline assembly/compiler register constraints needed; original Nintendo CodeWarrior and DS objdiff not tested."
     },
     {
       "index": 23,
@@ -421,7 +424,8 @@
       "original_sha256": "0847310c83c7acf0e7c38c0e841ed540b77f8593525082699177169bda33a2a4",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "matching_note": "Clang ARMv5TE -O2 whole-translation-unit verified exact original bytes; GNU empty inline assembly/compiler register constraints needed; original Nintendo CodeWarrior and DS objdiff not tested."
     },
     {
       "index": 38,
