@@ -4,10 +4,10 @@
   "rom_sha1": "dcb221a89acb894503a461c2c7d4cfdad9a06b68",
   "summary": {
     "count": 50,
-    "exact": 28,
-    "nonmatching": 22,
+    "exact": 30,
+    "nonmatching": 20,
     "original_bytes": 1528,
-    "exact_bytes": 748
+    "exact_bytes": 848
   },
   "limitations": "Standalone Clang verified only; C++/CodeWarrior ABI, DS build and runtime unverified",
   "functions": [
@@ -177,7 +177,8 @@
       "original_sha256": "9f5e7c2ea09f8c6aece1fdd1c41fd52a38cf50c6ccb40857133a4d0fee747700",
       "refs": 1,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "matching_note": "Full fifty-function Clang ARMv5TE -O2 matching exact against SHA1-authenticated original overlay; GNU register constraints/empty asm, original CodeWarrior unverified."
     },
     {
       "index": 16,
@@ -188,7 +189,8 @@
       "original_sha256": "a8c501a2c24066b3c8a8cc5d374472854508cbaf2eb86e266f5c5a2e69cebe0c",
       "refs": 2,
       "source_kind": "register_level_provisional",
-      "clang_byte_exact": false
+      "clang_byte_exact": true,
+      "matching_note": "Full fifty-function Clang ARMv5TE -O2 matching exact against SHA1-authenticated original overlay; GNU register constraints/empty asm, original CodeWarrior unverified."
     },
     {
       "index": 17,
