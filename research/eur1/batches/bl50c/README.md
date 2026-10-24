@@ -12,16 +12,16 @@ ROM, SHA-1 `dcb221a89acb894503a461c2c7d4cfdad9a06b68`.
 | --- | ---: |
 | New source C function bodies | **50** |
 | Original ARM spans verified by SHA-256 | **1,528 bytes** |
-| Standalone Clang ARMv5TE code byte-exact | **24 / 50** |
-| Matched code bytes | **584 bytes** |
-| Provisional, nonmatching C interpretations | **26 / 50** |
+| Standalone Clang ARMv5TE code byte-exact | **28 / 50** |
+| Matched code bytes | **748 bytes** |
+| Provisional, nonmatching C interpretations | **22 / 50** |
 | Register-level C interpretations | **40** |
 | Human-readable C functions | **10** |
 | Standalone CodeWarrior or game objdiff verified | **No** |
 | Original Nintendo DS ROM rebuilt/tested | **No** |
 
 Five Clang byte-identical functions are ARM9 `0x02002EB8` (32 bytes), overlay 0 `0x0205B1CC` (12 bytes), overlay 0 `0x020A6C60` (12 bytes), overlay 26 `0x020F7A3C` (8 bytes) and overlay 31 `0x020E0398` (12 bytes).
-The 26 other functions compile to ARMv5TE but **do not** reproduce the
+The 22 other functions compile to ARMv5TE but **do not** reproduce the
 reference instruction bytes. They are research hypotheses, not verified
 runtime-equivalent implementations. Original source structure, C++ owner,
 ABI, function boundaries, and symbol linkage still require investigation.
@@ -49,7 +49,7 @@ python research/eur1/batches/bl50c/verify_50.py --working-code research/eur1/wor
 The `working_code` directory may have been created elsewhere; supply its
 actual location. Required: `clang` with the ARMv5TE target and Python 3.
 
-Expected: `PASS: 24 Clang-exact and 26 nonmatching functions; 50 source bodies`.
+Expected: `PASS: 28 Clang-exact and 22 nonmatching functions; 50 source bodies`.
 This check has been repeated successfully with locally extracted EUR1 code.
 
 ## Next
@@ -109,3 +109,9 @@ These C implementations use GNU register binding and empty optimization barriers
 ## Matching round 5 — additional overlay-26 indirect-pointer loop
 
 After matching the three direct-write loops, we recovered the control flow of overlay 26 `0x0211F1CC` (36 bytes), which visits three object pointers and writes one byte to each non-null object. A GNU empty inline-assembly input constraint ensures Clang loads each pointer *before* advancing its loop register. The full 50-function Clang ARMv5TE verifier reports **24/50 byte-exact** and **584/1,528 identical original bytes**, with **26 functions still provisional**. This was compared against locally extracted EUR Rev 1 ROM and verified by original per-function SHA-256. Nintendo CodeWarrior and DS game integration remain untested.
+
+## Matching round 5 — four more exact C routines
+
+The full 50-function standalone ARMv5TE Clang regression was rerun against the owner's locally extracted EUR Rev 1 game images and reported **28/50 Clang byte-exact** (**748/1,528 original bytes**). Four additional C bodies were confirmed: overlay 000 `0x0206F6AC` (44 bytes), overlay 022 `0x020ED140` (48 bytes), overlay 026 `0x02106B34` (44 bytes), overlay 082 `0x021567B8` (28 bytes). The authoritative source-file Git blob is `b28ae51e705256ccec071df0dd45afb6eec1460d`, identical to the locally tested C file. **22 functions remain nonmatching.** Full list in [`MATCHING_ROUND5.md`](MATCHING_ROUND5.md).
+
+The verifier's stale 20-match threshold was fixed to explicitly expect 28 functions and 748 identical bytes. Clang matching alone does not count as original Nintendo CodeWarrior `dsi/1.2p1` or DS `objdiff` progress. Original signatures and runtime semantics require independent checks.
