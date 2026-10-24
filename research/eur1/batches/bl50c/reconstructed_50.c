@@ -37,7 +37,25 @@ uint32_t st_ov000_0205FDD0(uint32_t addr){register uint32_t z asm("r2")=0; regis
 uint32_t st_ov000_0205FDF8(uint32_t addr){register uint32_t z asm("r2")=0; register uint32_t vt asm("r1")=0x020b1cc8u;asm volatile("" : "+r"(z));asm volatile("" : "+r"(vt));*(volatile uint32_t*)(addr+8)=z;*(volatile uint16_t*)(addr+14)=z;*(volatile uint16_t*)(addr+16)=z;asm volatile("" ::: "memory");((uint32_t*)(addr))[0]=vt;((uint32_t*)(addr))[1]=z;asm volatile("" ::: "memory");*(volatile uint32_t*)(addr+28)=z;asm volatile("" ::: "memory");*(volatile uint16_t*)(addr+32)=z;return addr;}
 
 /* [012] overlay_000 0x0206F6AC size=44 sha256=7f69271f9212b1b1f01a5ce0ce5057be31630488ec26c682a36c0c32564f8dd0 BL=1 */
-uint32_t st_ov000_0206F6AC(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r3 = 0x0u; L1: r2 = ~(0x0u); L2: r1 = (r0 + (r3 << 2u)); L3: *(volatile uint16_t*)(uintptr_t)(r1+4) = (uint16_t)r2; L4: r3 = (r3 + 0x1u); L5: *(volatile uint16_t*)(uintptr_t)(r1+6) = (uint16_t)r2; L6: ; uint32_t _v6 = r3 - 0x3u; Z = (_v6==0); N = ((_v6>>31)&1); C = (r3 >= 0x3u); V = (((r3 ^ 0x3u) & (r3 ^ _v6) & 0x80000000u)!=0); L7: if (N!=V) goto L2; L8: r1 = 0x0u; L9: *(volatile uint32_t*)(uintptr_t)(r0+20) = (uint32_t)r1; L10: return r0; }
+void st_ov000_0206F6AC(uint32_t p) {
+    register uint32_t i asm("r3")=0;
+    register uint32_t v asm("r2")=~0u;
+    asm volatile("" : "+r"(i), "+r"(v));
+    do {
+        register uint32_t addr asm("r1")=p+(i<<2);
+        asm volatile("" : "+r"(addr));
+        *(volatile uint16_t*)(addr+4)=v;
+        asm volatile("" : "+r"(i) : "r"(addr) : "memory");
+        i++;
+        asm volatile("" : "+r"(addr) : "r"(i) : "memory");
+        *(volatile uint16_t*)(addr+6)=v;
+        asm volatile("" : "+r"(i));
+    } while ((int32_t)i<3);
+    register uint32_t zero asm("r1")=0;
+    asm volatile("" : "+r"(zero));
+    *(volatile uint32_t*)(p+20)=zero;
+}
+
 
 /* [013] overlay_000 0x020A6C60 size=12 sha256=e914998634460875fd1a377db48d15e7c81028e5ca10010ddd1d06599caca06c BL=2 */
 uint32_t st_ov000_020A6C60(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r3 = (r2 - r1); L1: *(uint32_t*)(uintptr_t)(r0+0u) = r1; *(uint32_t*)(uintptr_t)(r0+4u) = r2; *(uint32_t*)(uintptr_t)(r0+8u) = r3; L2: return r0; }
@@ -52,7 +70,28 @@ uint32_t st_ov007_020B7014(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { un
 uint32_t st_ov017_020BD6F8(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r1 = (uint32_t)*(volatile uint16_t*)(uintptr_t)(r0+64); L1: r2 = 0x0u; L2: ; uint32_t _v2 = r1 - 0x0u; Z = (_v2==0); N = ((_v2>>31)&1); C = (r1 >= 0x0u); V = (((r1 ^ 0x0u) & (r1 ^ _v2) & 0x80000000u)!=0); L3: if (!Z) goto L8; L4: r0 = *(volatile uint32_t*)(uintptr_t)(r0+160); L5: r0 = *(volatile uint32_t*)(uintptr_t)(r0+104); L6: ; uint32_t _v6 = r0 - 0x32u; Z = (_v6==0); N = ((_v6>>31)&1); C = (r0 >= 0x32u); V = (((r0 ^ 0x32u) & (r0 ^ _v6) & 0x80000000u)!=0); L7: if (!Z) { r2 = 0x1u; } L8: r0 = r2; L9: return r0; }
 
 /* [017] overlay_022 0x020ED140 size=48 sha256=36d33628ea479ea63880bfabb94066b70f8ab151ed211baa9e614efac44c0b6e BL=1 */
-uint32_t st_ov022_020ED140(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r1 = (r0 + 0xaf000u); L1: r3 = 0x0u; L2: *(volatile uint32_t*)(uintptr_t)(r1+40) = (uint32_t)r3; L3: *(volatile uint32_t*)(uintptr_t)(r1+44) = (uint32_t)r3; L4: r2 = ~(0x0u); L5: r1 = (r0 + (r3 << 2u)); L6: r1 = (r1 + 0xaf000u); L7: r3 = (r3 + 0x1u); L8: *(volatile uint32_t*)(uintptr_t)(r1+4) = (uint32_t)r2; L9: ; uint32_t _v9 = r3 - 0x3u; Z = (_v9==0); N = ((_v9>>31)&1); C = (r3 >= 0x3u); V = (((r3 ^ 0x3u) & (r3 ^ _v9) & 0x80000000u)!=0); L10: if (!C) goto L5; L11: return r0; }
+void st_ov022_020ED140(uint32_t p) {
+    register uint32_t addr asm("r1")=p+0xaf000u;
+    register uint32_t i asm("r3")=0;
+    asm volatile("" : "+r"(addr), "+r"(i));
+    *(volatile uint32_t*)(addr+40)=i;
+    *(volatile uint32_t*)(addr+44)=i;
+    asm volatile("" ::: "r2", "memory");
+    register uint32_t v asm("r2")=~0u;
+    asm volatile("" : "+r"(v));
+    do {
+        register uint32_t d asm("r1")=p+(i<<2);
+        asm volatile("" : "+r"(d));
+        d+=0xaf000u;
+        asm volatile("" : "+r"(d));
+        asm volatile("" : "+r"(i) : "r"(d) : "memory");
+        i++;
+        asm volatile("" : "+r"(i));
+        *(volatile uint32_t*)(d+4)=v;
+        asm volatile("" : "+r"(i));
+    } while (i<3);
+}
+
 
 /* [018] overlay_026 0x020EA81C size=36 sha256=d5793257b43c178719ee5f713439753e76a3c19ae90f3cdf4176dae8b02b52df BL=1 */
 void st_ov026_020EA81C(uint32_t p){register uint32_t i asm("r3")=0;asm volatile("":"+r"(i));register uint32_t value asm("r2")=i;do{register uint32_t dst asm("r1")=p+(i<<2);asm volatile("":"+r"(dst));i++;*(volatile uint32_t*)(dst+32)=value;asm volatile("":"+r"(i));}while((int32_t)i<8);*(volatile uint32_t*)(p+20)=value;}
@@ -67,7 +106,23 @@ uint32_t st_ov026_020F7A3C(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { un
 uint32_t st_ov026_020FC9C0(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: ; uint32_t _v0 = r1 - 0x4u; Z = (_v0==0); N = ((_v0>>31)&1); C = (r1 >= 0x4u); V = (((r1 ^ 0x4u) & (r1 ^ _v0) & 0x80000000u)!=0); L1: if (N!=V) { uint32_t _v1 = r1 - r2; Z = (_v1==0); N = ((_v1>>31)&1); C = (r1 >= r2); V = (((r1 ^ r2) & (r1 ^ _v1) & 0x80000000u)!=0); } L2: if (N==V) { r1 = 0x0u; } L3: if (N==V) goto L10; L4: ; uint32_t _v4 = r1 - 0x3u; Z = (_v4==0); N = ((_v4>>31)&1); C = (r1 >= 0x3u); V = (((r1 ^ 0x3u) & (r1 ^ _v4) & 0x80000000u)!=0); L5: if (Z) { r1 = 0x1u; } L6: if (Z) goto L10; L7: ; uint32_t _v7 = r1 - 0x2u; Z = (_v7==0); N = ((_v7>>31)&1); C = (r1 >= 0x2u); V = (((r1 ^ 0x2u) & (r1 ^ _v7) & 0x80000000u)!=0); L8: if (Z) { r1 = 0x2u; } L9: if (!Z) { r1 = 0x3u; } L10: *(volatile uint32_t*)(uintptr_t)(r0+0) = (uint32_t)r1; L11: return r0; }
 
 /* [022] overlay_026 0x02106B34 size=44 sha256=f5f7d3e085dc1d107b844c2cbe02ddf3458cd5c90659d89040a309e2956a3c67 BL=1 */
-uint32_t st_ov026_02106B34(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r3 = 0x0u; L1: *(volatile uint32_t*)(uintptr_t)(r0+0u) = r1; *(volatile uint32_t*)(uintptr_t)(r0+4u) = r3; L2: r2 = 0x7u; L3: *(volatile uint32_t*)(uintptr_t)(r0+8) = (uint32_t)r3; L4: *(volatile uint32_t*)(uintptr_t)(r0+12) = (uint32_t)r3; L5: *(volatile uint32_t*)(uintptr_t)(r0+16) = (uint32_t)r2; L6: *(volatile uint8_t*)(uintptr_t)(r0+20) = (uint8_t)r3; L7: *(volatile uint8_t*)(uintptr_t)(r0+21) = (uint8_t)r3; L8: *(volatile uint16_t*)(uintptr_t)(r0+22) = (uint16_t)r3; L9: *(volatile uint8_t*)(uintptr_t)(r0+24) = (uint8_t)r3; L10: return r0; }
+void st_ov026_02106B34(uint32_t p, uint32_t val) {
+    register uint32_t zero asm("r3")=0;
+    asm volatile("" : "+r"(zero));
+    ((uint32_t*)p)[0]=val;
+    ((uint32_t*)p)[1]=zero;
+    asm volatile("" ::: "r2", "memory");
+    register uint32_t v asm("r2")=7;
+    asm volatile("" : "+r"(v));
+    *(volatile uint32_t*)(p+8)=zero;
+    *(volatile uint32_t*)(p+12)=zero;
+    *(volatile uint32_t*)(p+16)=v;
+    *(volatile uint8_t*)(p+20)=zero;
+    *(volatile uint8_t*)(p+21)=zero;
+    *(volatile uint16_t*)(p+22)=zero;
+    *(volatile uint8_t*)(p+24)=zero;
+}
+
 
 /* [023] overlay_026 0x0211E0F0 size=32 sha256=1dccfffe735dd14b38f666627fd46c540910aac5bd517b09d4ab82230e21de76 BL=1 */
 uint32_t st_ov026_0211E0F0(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r0 = 0x027e09b8u; L1: r0 = *(volatile uint32_t*)(uintptr_t)(r0+0); L2: r0 = *(volatile uint32_t*)(uintptr_t)(r0+20); L3: ; uint32_t _v3=r0&0x20u; Z=(_v3==0); N=((_v3>>31)&1); L4: if (!Z) { r0 = 0x1u; } L5: if (Z) { r0 = 0x0u; } L6: return r0; }
@@ -112,7 +167,19 @@ void st_ov069_0215A954(uint32_t*p){register uint32_t a asm("r2")=0x52425250u,b a
 uint32_t st_ov070_0214B2A0(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r0 = 0x027e09a4u; L1: r0 = *(volatile uint32_t*)(uintptr_t)(r0+0); L2: r0 = *(volatile uint32_t*)(uintptr_t)(r0+0); L3: ; uint32_t _v3 = r0 - 0x20u; Z = (_v3==0); N = ((_v3>>31)&1); C = (r0 >= 0x20u); V = (((r0 ^ 0x20u) & (r0 ^ _v3) & 0x80000000u)!=0); L4: if (!Z) { uint32_t _v4 = r0 - 0x4du; Z = (_v4==0); N = ((_v4>>31)&1); C = (r0 >= 0x4du); V = (((r0 ^ 0x4du) & (r0 ^ _v4) & 0x80000000u)!=0); } L5: if (Z) { r0 = 0x1u; } L6: if (!Z) { r0 = 0x0u; } L7: return r0; }
 
 /* [037] overlay_082 0x021567B8 size=28 sha256=0847310c83c7acf0e7c38c0e841ed540b77f8593525082699177169bda33a2a4 BL=1 */
-uint32_t st_ov082_021567B8(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r3 = *(volatile uint32_t*)(uintptr_t)(r0+608); L1: r0 = *(volatile uint32_t*)(uintptr_t)(r1+0u); r2 = *(volatile uint32_t*)(uintptr_t)(r1+4u); L2: *(volatile uint32_t*)(uintptr_t)(r3+148) = (uint32_t)r0; L3: r0 = *(volatile uint32_t*)(uintptr_t)(r1+8); L4: *(volatile uint32_t*)(uintptr_t)(r3+152) = (uint32_t)r2; L5: *(volatile uint32_t*)(uintptr_t)(r3+156) = (uint32_t)r0; L6: return r0; }
+void st_ov082_021567B8(uint32_t obj, uint32_t src) {
+    register uint32_t dst asm("r3")=*(volatile uint32_t*)(obj+608);
+    asm volatile("" : "+r"(dst));
+    register uint32_t a asm("r0") = ((uint32_t*)src)[0];
+    register uint32_t b asm("r2") = ((uint32_t*)src)[1];
+    asm volatile("" : "+r"(a),"+r"(b));
+    *(volatile uint32_t*)(dst+148)=a;
+    a=*(volatile uint32_t*)(src+8);
+    asm volatile("" : "+r"(a));
+    *(volatile uint32_t*)(dst+152)=b;
+    *(volatile uint32_t*)(dst+156)=a;
+}
+
 
 /* [038] overlay_090 0x02170E18 size=48 sha256=fd25e5cc27ae7a349f0637a13f6234b76480d2b5983213b51684b7eb21a89cea BL=3 */
 uint32_t st_ov090_02170E18(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) { unsigned Z=0,N=0,C=0,V=0; L0: r1 = (uint32_t)*(volatile uint16_t*)(uintptr_t)(r0+108); L1: r2 = 0x1u; L2: ; uint32_t _v2 = r1 - 0x1u; Z = (_v2==0); N = ((_v2>>31)&1); C = (r1 >= 0x1u); V = (((r1 ^ 0x1u) & (r1 ^ _v2) & 0x80000000u)!=0); L3: if (Z) goto L10; L4: ; uint32_t _v4 = r1 - 0x2u; Z = (_v4==0); N = ((_v4>>31)&1); C = (r1 >= 0x2u); V = (((r1 ^ 0x2u) & (r1 ^ _v4) & 0x80000000u)!=0); L5: if (!Z) goto L9; L6: r0 = (uint32_t)*(volatile int16_t*)(uintptr_t)(r0+72); L7: ; uint32_t _v7 = r0 - 0x1u; Z = (_v7==0); N = ((_v7>>31)&1); C = (r0 >= 0x1u); V = (((r0 ^ 0x1u) & (r0 ^ _v7) & 0x80000000u)!=0); L8: if (Z||(N!=V)) goto L10; L9: r2 = 0x0u; L10: r0 = r2; L11: return r0; }
