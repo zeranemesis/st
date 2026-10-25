@@ -24,7 +24,6 @@ jobs:
       - name: Fold repeated ARM guards into C if-blocks and if-else patterns
         run: |
           python3 research/eur1/batches/arm9_leaf500/search_grouped_round16.py --out /tmp/st-round16-grouped.json
-            /tmp/st-round17-straight.json
           python3 -c 'import json; j=json.load(open("/tmp/st-round16-grouped.json")); assert j["compiled_variants"]>400 and j["eligible_original_functions"]>=50'
       - name: Explore unbranched ARM C alternatives and source qualifiers
         run: |
@@ -37,3 +36,4 @@ jobs:
           path: |
             /tmp/st-round16-conditional.json
             /tmp/st-round16-grouped.json
+            /tmp/st-round17-straight.json
