@@ -66,6 +66,8 @@ def extract_body(line: str) -> str | None:
     # (the targeted register translations use the r0 base as an address).
     if re.search(r"\br0\b(?!\s*\+)", body):
         return None
+    if re.search(r"\br(?:[1-9]|1[0-2])\s*=\s*\(\s*r0\s*\+", body):
+        return None
     if "{" in body or "}" in body:
         return None
     if re.search(r"\br(?:4|5|6|7|8|9|10|11)\b", body):
