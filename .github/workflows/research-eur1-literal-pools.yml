@@ -1,0 +1,34 @@
+name: Spirit Tracks EUR1 literal pool byte audit
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/audit_literal_pools_round20.py'
+      - 'research/eur1/batches/arm9_leaf500/manifest_fifth500.json'
+      - 'research/eur1/batches/arm9_leaf500/arm9_leaf_500_part*.c'
+      - '.github/workflows/research-eur1-literal-pools.yml'
+  pull_request:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/audit_literal_pools_round20.py'
+      - 'research/eur1/batches/arm9_leaf500/manifest_fifth500.json'
+      - 'research/eur1/batches/arm9_leaf500/arm9_leaf_500_part*.c'
+      - '.github/workflows/research-eur1-literal-pools.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  literal-pools:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare exact original ARM instruction prefixes and full ELF sections
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/audit_literal_pools_round20.py --out /tmp/st-literalpool-compare.json
+          python3 -c 'import json; j=json.load(open("/tmp/st-literalpool-compare.json")); assert j["strict_full_section_matches"]==54 and j["full_section_nonmatching"]==446'
+      - name: Preserve full source-backed evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: spirit-tracks-eur1-literal-pools
+          path: /tmp/st-literalpool-compare.json
