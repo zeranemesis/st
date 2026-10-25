@@ -3,7 +3,7 @@
 **2026-10-23.** This document describes the reproducible standalone compilation
 status, not normal game C++ source/objdiff integration.
 
-> **Mise à jour du 25 octobre 2026 :** le matching **Clang ARMv5TE isolé est à 52/500**, contre 33/500 lors de la rédaction initiale ci-dessous. Il reste **448 corps nonmatching**. Voir [le rapport de la passe 16](MATCHING_ROUND16.md). La table détaillée 33/138/329 ci-dessous est conservée comme **historique du 23 octobre**, pas comme état courant.
+> **Mise à jour du 25 octobre 2026 :** le matching **Clang ARMv5TE isolé est à 54/500**, contre 33/500 lors de la rédaction initiale ci-dessous. Il reste **446 corps nonmatching**. Voir [le rapport de la passe 20](MATCHING_ROUND20.md). La table détaillée 33/138/329 ci-dessous est conservée comme **historique du 23 octobre**, pas comme état courant.
 
 ## Confirmed baseline (local Clang ARMv5TE)
 
