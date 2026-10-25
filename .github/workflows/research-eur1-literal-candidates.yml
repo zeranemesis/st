@@ -1,0 +1,26 @@
+name: Spirit Tracks EUR1 opcode-prefix C candidate search
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/search_literal_candidates_round22.py'
+      - '.github/workflows/research-eur1-literal-candidates.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  candidate-search:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile source variants and check complete original ARM instruction SHA256
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/search_literal_candidates_round22.py --out /tmp/eur1-literal-candidates-round22.json
+          python3 -c 'import json; j=json.load(open("/tmp/eur1-literal-candidates-round22.json")); assert j["compiled_source_variants"]>=1000 and j["original_pending_opcode_functions_scanned"]>=100'
+      - name: Preserve evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: eur1-literal-candidates-round22
+          path: /tmp/eur1-literal-candidates-round22.json
