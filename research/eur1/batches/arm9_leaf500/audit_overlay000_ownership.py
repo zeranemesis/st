@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 import re
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[4]
 MANIFEST = ROOT / "research/eur1/batches/arm9_leaf500/manifest_fifth500.json"
 SYMBOLS = ROOT / "config/eur1/arm9/overlays/ov000/symbols.txt"
 DELINKS = ROOT / "config/eur1/arm9/overlays/ov000/delinks.txt"
