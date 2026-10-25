@@ -209,8 +209,11 @@ uint32_t st_ov000_0207995C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov000_0207C04C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r3 = (0x2u); r1 = (0x0u); r12 = 0x020b2894u; r2 = (r3 - (0x3u)); *((uint32_t*)(uintptr_t)(r0 + (0u))) = (uint32_t)r12; *((uint8_t*)(uintptr_t)(r0 + (4u))) = (uint8_t)r3; *((uint8_t*)(uintptr_t)(r0 + (5u))) = (uint8_t)r2; *((uint8_t*)(uintptr_t)(r0 + (6u))) = (uint8_t)r1; *((uint8_t*)(uintptr_t)(r0 + (7u))) = (uint8_t)r1; *((uint32_t*)(uintptr_t)(r0 + (8u))) = (uint32_t)r1; return r0; }
 
 /* original module: 0, addr: 0x0207E7A4, 40 bytes, BL refs: 2 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov000_0207E7A4(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r1 = (0x0u); *((uint16_t*)(uintptr_t)(r0 + 0u)) = (uint16_t)r1; *((uint16_t*)(uintptr_t)(r0 + 2u)) = (uint16_t)r1; *((uint32_t*)(uintptr_t)(r0 + (4u))) = (uint32_t)r1; *((uint32_t*)(uintptr_t)(r0 + (8u))) = (uint32_t)r1; *((uint32_t*)(uintptr_t)(r0 + (12u))) = (uint32_t)r1; *((uint32_t*)(uintptr_t)(r0 + (16u))) = (uint32_t)r1; *((uint16_t*)(uintptr_t)(r0 + 20u)) = (uint16_t)r1; *((uint16_t*)(uintptr_t)(r0 + 22u)) = (uint16_t)r1; return r0; }
+/* Clang ARMv5TE standalone: SHA256 BYTE-EXACT, round 15. */
+void st_ov000_0207E7A4(volatile uint8_t *object, uint32_t r1, uint32_t r2, uint32_t r3) {
+    uint32_t r12 = 0;
+    r1 = (0x0u); *((volatile uint16_t*)(uintptr_t)(object + 0u)) = (uint16_t)r1; *((volatile uint16_t*)(uintptr_t)(object + 2u)) = (uint16_t)r1; *((volatile uint32_t*)(uintptr_t)(object + (4u))) = (uint32_t)r1; *((volatile uint32_t*)(uintptr_t)(object + (8u))) = (uint32_t)r1; *((volatile uint32_t*)(uintptr_t)(object + (12u))) = (uint32_t)r1; *((volatile uint32_t*)(uintptr_t)(object + (16u))) = (uint32_t)r1; *((volatile uint16_t*)(uintptr_t)(object + 20u)) = (uint16_t)r1; *((volatile uint16_t*)(uintptr_t)(object + 22u)) = (uint16_t)r1;;
+}
 
 /* original module: 0, addr: 0x0208009C, 20 bytes, BL refs: 5 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
