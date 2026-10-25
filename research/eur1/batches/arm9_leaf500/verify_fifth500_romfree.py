@@ -86,7 +86,7 @@ def main() -> None:
             "clang_exact": exact,
         })
     counts = Counter("exact" if r["clang_exact"] else "not_exact" for r in results)
-    if counts["exact"] != 54 or counts["not_exact"] != 446:
+    if counts["exact"] != 77 or counts["not_exact"] != 423:
         raise ValueError("Unexpected revised fifth-batch exact count")
     report = {
         "scope": "Published fifth batch of 500 actual C functions",
@@ -101,7 +101,7 @@ def main() -> None:
     args.out.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(f"PASS: 500/500 original functions compiled; {counts['exact']}/500 "
           "machine-code SHA256-exact with standalone Clang")
-    print("Round 20: two more Clang ARM C functions promoted; 54/500 exact")
+    print("Round 23: 23 more Clang ARM C functions promoted; 77/500 strictly exact")
     print("Report:", args.out)
 
 
