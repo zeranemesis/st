@@ -165,8 +165,18 @@ uint32_t st_ov020_020CECE4(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov020_020CF180(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = 0x027fff96u; r1 = (uint32_t)(*((uint16_t*)(uintptr_t)(r2 + 0u))); { uint32_t z = r1 & (0x1u); Z = (z==0); N = (z>>31); } if (!Z) { r0 = 0x0000fffeu; } if (!Z) { r0 = (r1 & (r0)); } if (!Z) { *((uint16_t*)(uintptr_t)(r2 + 0u)) = (uint16_t)r0; } return r0; }
 
 /* original module: 20, addr: 0x020D3780, 32 bytes, BL refs: 1 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov020_020D3780(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r0 = 0x020e9868u; r1 = (0x0u); *((uint8_t*)(uintptr_t)(r0 + (37u))) = (uint8_t)r1; *((uint8_t*)(uintptr_t)(r0 + (38u))) = (uint8_t)r1; *((uint8_t*)(uintptr_t)(r0 + (39u))) = (uint8_t)r1; *((uint8_t*)(uintptr_t)(r0 + (40u))) = (uint8_t)r1; *((uint8_t*)(uintptr_t)(r0 + (41u))) = (uint8_t)r1; return r0; }
+/* Clang ARMv5TE standalone: round 22, ARM opcode prefix SHA256 exact; +4 Clang referenced literal; section NOT strictly exact. */
+uint32_t st_ov020_020D3780(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+    uint32_t r12=0;
+    r0 = 0x020e9868u;
+    r1 = (0x0u);
+    *((volatile uint8_t*)(uintptr_t)(r0 + (37u))) = (uint8_t)r1;
+    *((volatile uint8_t*)(uintptr_t)(r0 + (38u))) = (uint8_t)r1;
+    *((volatile uint8_t*)(uintptr_t)(r0 + (39u))) = (uint8_t)r1;
+    *((volatile uint8_t*)(uintptr_t)(r0 + (40u))) = (uint8_t)r1;
+    *((volatile uint8_t*)(uintptr_t)(r0 + (41u))) = (uint8_t)r1;
+    return r0;
+}
 
 /* original module: 20, addr: 0x020D3A80, 44 bytes, BL refs: 2 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
@@ -240,8 +250,15 @@ uint32_t st_ov021_020FE15C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov021_02105C50(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = (uint32_t)(*((uint16_t*)(uintptr_t)(r0 + 4u))); r12 = (0x0u); r3 = (0x1u); *((uint8_t*)(uintptr_t)(r0 + (11u))) = (uint8_t)r3; { uint64_t z = (uint64_t)r2 - (uint64_t)(0x0u); Z = ((uint32_t)z == 0); N = ((uint32_t)z >> 31); C = (r2 >= (0x0u)); V = (((r2 ^ (0x0u)) & (r2 ^ (uint32_t)z) & 0x80000000u) != 0); } *((uint8_t*)(uintptr_t)(r0 + (12u))) = (uint8_t)r12; *((uint16_t*)(uintptr_t)(r0 + 8u)) = (uint16_t)r1; *((uint8_t*)(uintptr_t)(r0 + (10u))) = (uint8_t)r12; if (Z) { *((uint8_t*)(uintptr_t)(r0 + (11u))) = (uint8_t)r12; } if (Z) { *((uint8_t*)(uintptr_t)(r0 + (12u))) = (uint8_t)r3; } return r0; }
 
 /* original module: 21, addr: 0x02106B1C, 24 bytes, BL refs: 2 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov021_02106B1C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r1 = 0x020431b8u; r2 = *((uint32_t*)(uintptr_t)(r1 + (0u))); r1 = *((uint32_t*)(uintptr_t)(r1 + (4u))); *((uint32_t*)(uintptr_t)(r0 + (44u))) = (uint32_t)r2; *((uint32_t*)(uintptr_t)(r0 + (48u))) = (uint32_t)r1; return r0; }
+/* Clang ARMv5TE standalone: round 22, ARM opcode prefix SHA256 exact; +4 Clang referenced literal; provisional void; section NOT strictly exact. */
+void st_ov021_02106B1C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+    uint32_t r12=0;
+    r1 = 0x020431b8u;
+    r2 = *((volatile uint32_t*)(uintptr_t)(r1 + (0u)));
+    r1 = *((volatile uint32_t*)(uintptr_t)(r1 + (4u)));
+    *((volatile uint32_t*)(uintptr_t)(r0 + (44u))) = (uint32_t)r2;
+    *((volatile uint32_t*)(uintptr_t)(r0 + (48u))) = (uint32_t)r1;
+}
 
 /* original module: 22, addr: 0x020EAB98, 12 bytes, BL refs: 8 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
