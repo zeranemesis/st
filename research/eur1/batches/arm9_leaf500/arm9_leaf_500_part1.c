@@ -360,8 +360,12 @@ uint32_t st_ov000_02097C40(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov000_0209F16C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r0 = *((uint32_t*)(uintptr_t)(r0 + (0u))); r0 = (uint32_t)(*((int16_t*)(uintptr_t)(r0 + 48u))); return r0; }
 
 /* original module: 0, addr: 0x020A2B0C, 12 bytes, BL refs: 2 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov000_020A2B0C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r0 = (r0 + (0x100u)); *((uint16_t*)(uintptr_t)(r0 + 112u)) = (uint16_t)r1; return r0; }
+/* Clang ARMv5TE standalone: SHA256 BYTE-EXACT (round 20). */
+uint32_t st_ov000_020A2B0C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+    uint8_t *subobject = (uint8_t *)(uintptr_t)(r0 + 0x100u);
+    *(uint16_t *)(subobject + 112u) = (uint16_t)r1;
+    return (uint32_t)(uintptr_t)subobject;
+}
 
 /* original module: 0, addr: 0x020A3950, 20 bytes, BL refs: 4 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
