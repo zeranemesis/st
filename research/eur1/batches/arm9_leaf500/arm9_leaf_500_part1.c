@@ -401,8 +401,7 @@ uint32_t st_ov000_020A61D0(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov000_020A62B8(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = *((uint32_t*)(uintptr_t)(r0 + (2048u))); r3 = (r2 - (r0)); r2 = (((uint32_t)((int32_t)r3 >> 1))); r2 = (r3 + ((r2 >> 30))); { uint64_t z = (uint64_t)r1 - (uint64_t)(((uint32_t)((int32_t)r2 >> 2))); Z = ((uint32_t)z == 0); N = ((uint32_t)z >> 31); C = (r1 >= (((uint32_t)((int32_t)r2 >> 2)))); V = (((r1 ^ (((uint32_t)((int32_t)r2 >> 2)))) & (r1 ^ (uint32_t)z) & 0x80000000u) != 0); } if (C) { r0 = (0x0u); } if (!C) { r0 = *((uint32_t*)(uintptr_t)(r0 + ((r1 << 2)))); } return r0; }
 
 /* original module: 0, addr: 0x020A6B70, 36 bytes, BL refs: 2 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-/* Clang ARMv5TE SHA256 byte-identical candidate confirmed in round 14. */
+/* Clang ARMv5TE standalone: COMPLETE SHA256 BYTE-EXACT (round 14). */
 uint32_t st_ov000_020A6B70(volatile uint8_t *object) {
     *(volatile uint32_t *)(object + 0) = 0u;
     *(volatile uint32_t *)(object + 4) = 0u;
