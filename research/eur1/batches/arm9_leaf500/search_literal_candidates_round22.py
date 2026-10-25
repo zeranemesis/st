@@ -156,8 +156,8 @@ def main() -> None:
     results=sorted(matches.values(),key=lambda x:x["name"])
     report={
         "kind":"Read-only C-variant search for exact original ARM instruction spans plus referenced Clang literal",
-        "baseline_strict_full_sections":54,
-        "baseline_already_verified_opcode_literal_prefixes":43,
+        "baseline_strict_full_sections":manifest["summary"]["standalone_clang_exact"],
+        "baseline_already_verified_opcode_literal_prefixes":manifest["summary"]["standalone_clang_exact_instruction_prefix_with_one_verified_literal"],
         "original_pending_opcode_functions_scanned":len(scanned),
         "compiled_source_variants":len(generated),
         "variants_by_family":families,
