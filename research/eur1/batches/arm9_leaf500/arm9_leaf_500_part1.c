@@ -396,8 +396,12 @@ uint32_t st_ov000_020A5688(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov000_020A56AC(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; { uint64_t z = (uint64_t)r0 - (uint64_t)(0x0u); Z = ((uint32_t)z == 0); N = ((uint32_t)z >> 31); C = (r0 >= (0x0u)); V = (((r0 ^ (0x0u)) & (r0 ^ (uint32_t)z) & 0x80000000u) != 0); } r0 = 0x027e09bcu; r1 = (0x1u); r0 = *((uint32_t*)(uintptr_t)(r0 + (0u))); if (Z) { r1 = (0x0u); } r0 = (r0 + ((r1 << 2))); r0 = *((uint32_t*)(uintptr_t)(r0 + (12u))); return r0; }
 
 /* original module: 0, addr: 0x020A61D0, 28 bytes, BL refs: 2 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov000_020A61D0(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = *((uint32_t*)(uintptr_t)(r0 + (2048u))); { uint64_t z = (uint64_t)r2 - (uint64_t)(0x0u); Z = ((uint32_t)z == 0); N = ((uint32_t)z >> 31); C = (r2 >= (0x0u)); V = (((r2 ^ (0x0u)) & (r2 ^ (uint32_t)z) & 0x80000000u) != 0); } if (!Z) { *((uint32_t*)(uintptr_t)(r2 + (0u))) = (uint32_t)r1; } r1 = *((uint32_t*)(uintptr_t)(r0 + (2048u))); r1 = (r1 + (0x4u)); *((uint32_t*)(uintptr_t)(r0 + (2048u))) = (uint32_t)r1; return r0; }
+/* Clang ARMv5TE standalone: SHA256 BYTE-EXACT (round 16). */
+uint32_t st_ov000_020A61D0(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+uint32_t r12 = 0;
+ r2 = *((volatile uint32_t*)(uintptr_t)(r0 + (2048u))); uint32_t cmp_lhs = r2, cmp_rhs = 0x0u; unsigned Z = (cmp_lhs == cmp_rhs); unsigned C = (cmp_lhs >= cmp_rhs); unsigned GE = ((int32_t)cmp_lhs >= (int32_t)cmp_rhs); if (!Z) { *((volatile uint32_t*)(uintptr_t)(r2 + (0u))) = (uint32_t)r1; } r1 = *((volatile uint32_t*)(uintptr_t)(r0 + (2048u))); r1 = (r1 + (0x4u)); *((volatile uint32_t*)(uintptr_t)(r0 + (2048u))) = (uint32_t)r1;
+return r0;
+}
 
 /* original module: 0, addr: 0x020A62B8, 32 bytes, BL refs: 1 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
