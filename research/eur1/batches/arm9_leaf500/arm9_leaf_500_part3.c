@@ -93,8 +93,16 @@ uint32_t st_ov026_021315C8(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov026_02131714(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r0 = 0x027e0ce0u; r0 = *((uint32_t*)(uintptr_t)(r0 + (0u))); r0 = *((uint32_t*)(uintptr_t)(r0 + (56u))); r0 = (r0 + (0x34u)); return r0; }
 
 /* original module: 26, addr: 0x0213179C, 24 bytes, BL refs: 9 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov026_0213179C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r1 = 0x027e0ce0u; r1 = *((uint32_t*)(uintptr_t)(r1 + (0u))); r1 = *((uint32_t*)(uintptr_t)(r1 + (56u))); r1 = (uint32_t)(*((int16_t*)(uintptr_t)(r1 + 86u))); *((uint16_t*)(uintptr_t)(r0 + 0u)) = (uint16_t)r1; return r0; }
+/* Clang ARMv5TE standalone: instruction SHA256 BYTE-EXACT, +4-byte PC-LDR literal (round 23); full section differs. */
+void st_ov026_0213179C(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) {
+uint32_t r12=0;
+r1 = 0x027e0ce0u;
+r1 = *((uint32_t*)(uintptr_t)(r1 + (0u)));
+r1 = *((uint32_t*)(uintptr_t)(r1 + (56u)));
+r1 = (uint32_t)(*((int16_t*)(uintptr_t)(r1 + 86u)));
+__asm__ __volatile__("" : "+r"(r1));
+*((uint16_t*)(uintptr_t)(r0 + 0u)) = (uint16_t)r1;
+}
 
 /* original module: 29, addr: 0x021443A8, 44 bytes, BL refs: 1 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
@@ -145,8 +153,20 @@ uint32_t st_ov031_020D8840(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov031_020D9044(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = 0x6bc04a00u; r12 = (0x0u); r1 = (r0 + (0x18u)); r3 = (0x3000u); *((uint32_t*)(uintptr_t)(r0 + (36u))) = (uint32_t)r12; *((uint32_t*)(uintptr_t)(r0 + (40u))) = (uint32_t)r12; *((uint32_t*)(uintptr_t)(r0 + (44u))) = (uint32_t)r12; *((uint32_t*)(uintptr_t)(r0 + (52u))) = (uint32_t)r3; *((uint32_t*)(uintptr_t)(r0 + (32u))) = (uint32_t)r2; *((uint32_t*)(uintptr_t)(r0 + (64u))) = (uint32_t)r0; *((uint32_t*)(uintptr_t)(r0 + (68u))) = (uint32_t)r1; return r0; }
 
 /* original module: 31, addr: 0x020DA70C, 36 bytes, BL refs: 8 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov031_020DA70C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r1 = (0x0u); r2 = (~(0x0u)); *((uint32_t*)(uintptr_t)(r0 + (8u))) = (uint32_t)r2; *((uint32_t*)(uintptr_t)(r0 + (12u))) = (uint32_t)r1; *((uint32_t*)(uintptr_t)(r0 + (16u))) = (uint32_t)r1; *((uint32_t*)(uintptr_t)(r0 + (20u))) = (uint32_t)r1; *((uint16_t*)(uintptr_t)(r0 + 24u)) = (uint16_t)r1; *((uint8_t*)(uintptr_t)(r0 + (26u))) = (uint8_t)r1; return r0; }
+/* Clang ARMv5TE standalone: SHA256 BYTE-EXACT, empty compiler-barrier C (round 23). */
+void st_ov031_020DA70C(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) {
+uint32_t r12=0;
+r1 = (0x0u);
+__asm__ __volatile__("" : "+r"(r1));
+r2 = (~(0x0u));
+__asm__ __volatile__("" : "+r"(r2));
+*((volatile uint32_t*)(uintptr_t)(r0 + (8u))) = (uint32_t)r2;
+*((volatile uint32_t*)(uintptr_t)(r0 + (12u))) = (uint32_t)r1;
+*((volatile uint32_t*)(uintptr_t)(r0 + (16u))) = (uint32_t)r1;
+*((volatile uint32_t*)(uintptr_t)(r0 + (20u))) = (uint32_t)r1;
+*((volatile uint16_t*)(uintptr_t)(r0 + 24u)) = (uint16_t)r1;
+*((volatile uint8_t*)(uintptr_t)(r0 + (26u))) = (uint8_t)r1;
+}
 
 /* original module: 31, addr: 0x020DB6D4, 32 bytes, BL refs: 4 */
 /* Clang ARMv5TE standalone: SHA256 BYTE-EXACT, round 15. */
@@ -187,8 +207,21 @@ uint32_t st_ov031_020EE9EC(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov031_020F1534(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r0 = 0x027e0ce0u; r0 = *((uint32_t*)(uintptr_t)(r0 + (0u))); r0 = *((uint32_t*)(uintptr_t)(r0 + (28u))); r0 = *((uint32_t*)(uintptr_t)(r0 + (12u))); return r0; }
 
 /* original module: 31, addr: 0x020F23B0, 28 bytes, BL refs: 4 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov031_020F23B0(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r0 = (r0 + (0x100u)); r1 = (uint32_t)(*((int16_t*)(uintptr_t)(r0 + 116u))); r1 = ((0x0u) - r1); r1 = (((r1 << 4)) - r1); r1 = (((uint32_t)((int32_t)r1 >> 4))); *((uint16_t*)(uintptr_t)(r0 + 116u)) = (uint16_t)r1; return r0; }
+/* Clang ARMv5TE standalone: SHA256 BYTE-EXACT, empty compiler-barrier C (round 23). */
+void st_ov031_020F23B0(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) {
+uint32_t r12=0;
+r0 = (r0 + (0x100u));
+__asm__ __volatile__("" : "+r"(r0));
+r1 = (uint32_t)(*((int16_t*)(uintptr_t)(r0 + 116u)));
+__asm__ __volatile__("" : "+r"(r1));
+r1 = ((0x0u) - r1);
+__asm__ __volatile__("" : "+r"(r1));
+r1 = (((r1 << 4)) - r1);
+__asm__ __volatile__("" : "+r"(r1));
+r1 = (((uint32_t)((int32_t)r1 >> 4)));
+__asm__ __volatile__("" : "+r"(r1));
+*((uint16_t*)(uintptr_t)(r0 + 116u)) = (uint16_t)r1;
+}
 
 /* original module: 31, addr: 0x020F75C4, 60 bytes, BL refs: 3 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
@@ -282,8 +315,14 @@ uint32_t st_ov037_021205C4(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov037_021205E0(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r0 = *((uint32_t*)(uintptr_t)(r0 + (764u))); { uint64_t z = (uint64_t)r0 - (uint64_t)(0x0u); Z = ((uint32_t)z == 0); N = ((uint32_t)z >> 31); C = (r0 >= (0x0u)); V = (((r0 ^ (0x0u)) & (r0 ^ (uint32_t)z) & 0x80000000u) != 0); } if (!Z) { r0 = (0x1u); } if (Z) { r0 = (0x0u); } return r0; }
 
 /* original module: 37, addr: 0x02120D94, 12 bytes, BL refs: 2 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov037_02120D94(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r0 = (r0 + (0xecu)); r0 = (r0 + ((r1 << 4))); return r0; }
+/* Clang ARMv5TE standalone: SHA256 BYTE-EXACT, empty compiler-barrier C (round 23). */
+uint32_t st_ov037_02120D94(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) {
+uint32_t r12=0;
+r0 = (r0 + (0xecu));
+__asm__ __volatile__("" : "+r"(r0));
+r0 = (r0 + ((r1 << 4)));
+return r0;
+}
 
 /* original module: 38, addr: 0x0211EAC0, 24 bytes, BL refs: 3 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
@@ -362,8 +401,14 @@ uint32_t st_ov050_02133244(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov050_02134AC8(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = *((uint32_t*)(uintptr_t)(r0 + (600u))); r1 = *((uint32_t*)(uintptr_t)(r2 + (4u))); *((uint32_t*)(uintptr_t)(r0 + (4u))) = (uint32_t)r1; r1 = *((uint32_t*)(uintptr_t)(r2 + (8u))); *((uint32_t*)(uintptr_t)(r0 + (8u))) = (uint32_t)r1; r2 = *((uint32_t*)(uintptr_t)(r2 + (12u))); r1 = (r1 + (0x1800u)); *((uint32_t*)(uintptr_t)(r0 + (12u))) = (uint32_t)r2; *((uint32_t*)(uintptr_t)(r0 + (8u))) = (uint32_t)r1; return r0; }
 
 /* original module: 50, addr: 0x02134AF0, 16 bytes, BL refs: 6 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov050_02134AF0(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r1 = *((uint32_t*)(uintptr_t)(r0 + (600u))); r1 = (uint32_t)(*((int16_t*)(uintptr_t)(r1 + 40u))); *((uint16_t*)(uintptr_t)(r0 + 40u)) = (uint16_t)r1; return r0; }
+/* Clang ARMv5TE standalone: SHA256 BYTE-EXACT, empty compiler-barrier C (round 23). */
+void st_ov050_02134AF0(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) {
+uint32_t r12=0;
+r1 = *((uint32_t*)(uintptr_t)(r0 + (600u)));
+r1 = (uint32_t)(*((int16_t*)(uintptr_t)(r1 + 40u)));
+__asm__ __volatile__("" : "+r"(r1));
+*((uint16_t*)(uintptr_t)(r0 + 40u)) = (uint16_t)r1;
+}
 
 /* original module: 51, addr: 0x02135908, 20 bytes, BL refs: 17 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
@@ -386,8 +431,18 @@ uint32_t st_ov053_0213B104(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov054_02139748(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = ((r1 << 16)); r3 = (r0 + (0x200u)); r12 = (0x0u); r2 = (((uint32_t)((int32_t)r2 >> 16))); *((uint32_t*)(uintptr_t)(r0 + (504u))) = (uint32_t)r1; *((uint16_t*)(uintptr_t)(r3 + 100u)) = (uint16_t)r12; *((uint16_t*)(uintptr_t)(r3 + 102u)) = (uint16_t)r2; *((uint16_t*)(uintptr_t)(r3 + 104u)) = (uint16_t)r12; *((uint16_t*)(uintptr_t)(r3 + 106u)) = (uint16_t)r12; *((uint16_t*)(uintptr_t)(r3 + 108u)) = (uint16_t)r2; *((uint16_t*)(uintptr_t)(r3 + 110u)) = (uint16_t)r12; return r0; }
 
 /* original module: 55, addr: 0x0213ABAC, 32 bytes, BL refs: 1 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov055_0213ABAC(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r1 = *((uint32_t*)(uintptr_t)(r0 + (32u))); r2 = (0x0u); r1 = (r1 + (0x124u)); r1 = (r1 + (0x800u)); *((uint32_t*)(uintptr_t)(r0 + (28u))) = (uint32_t)r2; *((uint32_t*)(uintptr_t)(r0 + (36u))) = (uint32_t)r2; *((uint32_t*)(uintptr_t)(r0 + (32u))) = (uint32_t)r1; return r0; }
+/* Clang ARMv5TE standalone: SHA256 BYTE-EXACT, empty compiler-barrier C (round 23). */
+void st_ov055_0213ABAC(uint32_t r0,uint32_t r1,uint32_t r2,uint32_t r3) {
+uint32_t r12=0;
+r1 = *((volatile uint32_t*)(uintptr_t)(r0 + (32u)));
+r2 = (0x0u);
+r1 = (r1 + (0x124u));
+r1 = (r1 + (0x800u));
+__asm__ __volatile__("" : "+r"(r1));
+*((volatile uint32_t*)(uintptr_t)(r0 + (28u))) = (uint32_t)r2;
+*((volatile uint32_t*)(uintptr_t)(r0 + (36u))) = (uint32_t)r2;
+*((volatile uint32_t*)(uintptr_t)(r0 + (32u))) = (uint32_t)r1;
+}
 
 /* original module: 58, addr: 0x02142830, 60 bytes, BL refs: 1 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
