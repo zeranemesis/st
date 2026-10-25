@@ -19,6 +19,7 @@ import json
 from pathlib import Path
 import subprocess
 import tempfile
+import struct
 
 from verify_fifth500 import FLAGS, elf32_sections
 
@@ -29,6 +30,37 @@ SOURCE = HERE / "manifest_fifth500.json"
 def symbol(rec: dict) -> str:
     mod = "arm9" if rec["module"] == "arm9" else f"ov{int(rec['module']):03d}"
     return f".text.st_{mod}_{int(rec['address'], 16):08X}"
+
+
+def arm_pc_literal_references(code: bytes, appended_start: int) -> list[dict]:
+    """Find concrete ARM-mode LDR pc-relative words targeting trailing data.
+
+    Instruction format must be immediate pre-indexed 32-bit LDR from Rn=PC
+    with writeback disabled. ARM PC is current instruction offset + 8.
+    This only validates Clang's local section layout, NOT the original
+    game's linker layout or the exact literal pool value.
+    """
+    refs = []
+    for instruction_offset in range(0, appended_start, 4):
+        word = struct.unpack_from("<I", code, instruction_offset)[0]
+        # ARM single-word transfer: bits27:26=01; I=0; P=1;
+        # byte=0, W=0, load=1, base Rn=PC (r15).
+        if ((word >> 26) & 3) != 1 or (word & (1 << 25)):
+            continue
+        if not (word & (1 << 24)) or (word & (1 << 22)) or (word & (1 << 21)):
+            continue
+        if not (word & (1 << 20)) or ((word >> 16) & 15) != 15:
+            continue
+        signed_offset = (word & 0xFFF) * (1 if (word & (1 << 23)) else -1)
+        target = instruction_offset + 8 + signed_offset
+        if appended_start <= target < len(code) and target % 4 == 0:
+            refs.append({
+                "instruction_offset": instruction_offset,
+                "literal_target_offset": target,
+                "literal_target_within_trailer": target-appended_start,
+                "destination_register": (word >> 12) & 15,
+            })
+    return refs
 
 
 def main() -> None:
@@ -84,6 +116,10 @@ def main() -> None:
         if len(trailing) % 4 != 0:
             raise ValueError("Unexpected unaligned trailing data: " + key)
         length = len(trailing)
+        literal_references = arm_pc_literal_references(full, needed)
+        is_single_word_literal = length == 4 and any(
+            ref["literal_target_offset"] == needed for ref in literal_references
+        )
         trailing_length_histogram[str(length)] = trailing_length_histogram.get(str(length), 0) + 1
         instruction_prefix_matches.append({
             "name": key.removeprefix(".text."),
@@ -96,16 +132,23 @@ def main() -> None:
             "original_instruction_sha256": reference,
             "code_prefix_sha256": hashlib.sha256(full[:needed]).hexdigest(),
             "strict_match": False,
-            "classification": "Exact original instruction prefix; appended bytes UNVERIFIED as literal pool",
+            "one_word_literal_pool_confirmed_in_clang_elf": is_single_word_literal,
+            "pc_literal_loads_targeting_trailer": literal_references,
+            "classification": ("Exact original ARM instruction prefix + referenced one-word Clang literal pool"
+                               if is_single_word_literal else "Exact original ARM instruction prefix; trailer not fully classified"),
         })
     if len(exact) != 54:
         raise ValueError(f"Current expected baseline of 54/500 lost: {len(exact)}")
     instruction_prefix_matches.sort(key=lambda x: (x["trailing_bytes"], x["name"]))
+    confirmed_literal = sum(x["one_word_literal_pool_confirmed_in_clang_elf"]
+                            for x in instruction_prefix_matches)
     out = {
         "scope": "500 real fifth-batch ARM C functions, no ROM, no CodeWarrior",
         "strict_full_section_matches": len(exact),
         "full_section_nonmatching": 500 - len(exact),
         "additional_instruction_prefix_matches": len(instruction_prefix_matches),
+        "confirmed_single_word_literal_pool_prefix_matches": confirmed_literal,
+        "unclassified_prefix_matches": len(instruction_prefix_matches) - confirmed_literal,
         "appended_data_length_histogram": trailing_length_histogram,
         "caution": "A matching code prefix proves original instructions identical, not full function section / literal pool identity. Inspect appended bytes before classifying.",
         "candidates": instruction_prefix_matches,
@@ -114,6 +157,7 @@ def main() -> None:
     args.out.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     print(f"PASS: 500 ARM source functions recompiled; {len(exact)} full-section SHA256 exact")
     print(f"ADDITIONAL_PREFIX_EXACT: {len(instruction_prefix_matches)} functions")
+    print(f"CONFIRMED_CLANG_ONE_WORD_LITERAL: {confirmed_literal} functions")
     for row in instruction_prefix_matches:
         print(f"PREFIX_EXACT: {row['name']} {row['original_instruction_span_size']}"
               f" ARM bytes, +{row['trailing_bytes']} extra bytes in Clang ELF")
