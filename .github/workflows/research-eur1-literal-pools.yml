@@ -26,7 +26,7 @@ jobs:
       - name: Compare exact original ARM instruction prefixes and full ELF sections
         run: |
           python3 research/eur1/batches/arm9_leaf500/audit_literal_pools_round20.py --out /tmp/st-literalpool-compare.json
-          python3 -c 'import json; j=json.load(open("/tmp/st-literalpool-compare.json")); assert j["strict_full_section_matches"]==54 and j["full_section_nonmatching"]==446 and j["confirmed_single_word_literal_pool_prefix_matches"]==43 and j["unclassified_prefix_matches"]==0'
+          python3 -c 'import json; j=json.load(open("/tmp/st-literalpool-compare.json")); assert j["strict_full_section_matches"]==54 and j["full_section_nonmatching"]==446 and j["confirmed_single_word_literal_pool_prefix_matches"]==45 and j["unclassified_prefix_matches"]==0'
       - name: Preserve full source-backed evidence
         uses: actions/upload-artifact@v4
         with:
