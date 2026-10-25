@@ -87,3 +87,7 @@ The previous register-simulation bodies at seven existing addresses were replace
 ## 25 October 2026 — round 16 / 17 matching follow-up
 
 [Matching round 16](MATCHING_ROUND16.md) adds **four SHA-256 byte-exact standalone Clang ARMv5TE** source rewrites (main ARM9, overlays 000, 019 and 071). The owner-ROM-reference based full-500 C rebuild confirms **52/500 byte-exact** (up from 48) and **448/500 still nonmatching**. Conditional, grouped-conditional, straight-line and ARM TST exploratory searches reported no further new matches after promotion. No original compiler or DS game/PC port integration is claimed.
+
+## 25 October 2026 — rounds 18/19: targeted experiments and instruction-level diagnostics
+
+[Matching investigation round 18](MATCHING_ROUND18.md) tests **3,952** additional standalone Clang ARMv5TE C variants across short functions, object mutations and 13 high-BL-reference typed-C reconstructions. **No new exact matches** were obtained: the verified baseline stays **52/500 exact, 448/500 nonmatching**. The newly added `rank_mismatches_round18.py` recompiles all 500 actual C shards and classifies mismatches into **122 identical-size/different-instruction** and **326 different-size** cases. It supports optional *local-only* authenticated EUR1 original ARM instruction-word comparisons, without using CodeWarrior or uploading the ROM.
