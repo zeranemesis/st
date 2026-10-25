@@ -76,6 +76,11 @@ def main() -> None:
                        else "different_instructions"),
         })
     exact = sum(row["clang_standalone_exact"] for row in rows)
+    for row in rows:
+        if row["clang_standalone_exact"]:
+            print("EXACT_CLANG:", row["symbol"],
+                  "original_size=", row["original_size"],
+                  "BL_refs=", row["direct_bl_references"])
     out = {
         "game": "Zelda Spirit Tracks", "revision": "EUR Rev1",
         "original_batch": "arm9_leaf500",
