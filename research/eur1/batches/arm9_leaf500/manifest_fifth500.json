@@ -9,8 +9,8 @@
     "new_direct_BL_backed_c_bodies": 500,
     "machine_instruction_bytes_in_original_spans": 15092,
     "distinct_code_modules": 74,
-    "standalone_clang_exact": 34,
-    "standalone_clang_nonmatching": 466,
+    "standalone_clang_exact": 48,
+    "standalone_clang_nonmatching": 452,
     "codewarrior_tested": 0,
     "game_cpp_integrated": 0,
     "min_function_size_bytes": 12,
@@ -56,7 +56,6 @@
     "53": "760740aeb3f8be911c40757be5977199f009e11f",
     "54": "d481b0a3833d5284cb058013369f9bc84b547568",
     "55": "7bafe5bf3a83361553bd9c95f6866aafdce90c0f",
-    "arm9": "650ea160271b2297bfdea0ff3b97e9fa335d7f73",
     "58": "b3bfebc03b5e5c4aed18a1c1ac5a788474ca3a28",
     "59": "c58bf206a765e8b4a9aac25e83d8ca7c6103a79d",
     "60": "84bf0f4d0f9b1ba1255bb684f92fd8251f235dc5",
@@ -91,7 +90,8 @@
     "105": "e9d9d05dcea0596cd74da0bcee5a7228e284b7b5",
     "107": "b51580a8c9e99e235cbe35ba569ebf3d90187465",
     "108": "4a445b27cd3bd753df4efa68c8403ae052991d16",
-    "111": "b5bd74b51afa83b315f6366af2af70d12f4883b8"
+    "111": "b5bd74b51afa83b315f6366af2af70d12f4883b8",
+    "arm9": "650ea160271b2297bfdea0ff3b97e9fa335d7f73"
   },
   "overlay_ram_base": {
     "0": "0x02051AE0",
@@ -132,7 +132,6 @@
     "53": "0x02138600",
     "54": "0x02138600",
     "55": "0x02138600",
-    "arm9": "0x02000000",
     "58": "0x0213F0E0",
     "59": "0x02157FC0",
     "60": "0x02157FC0",
@@ -167,7 +166,8 @@
     "105": "0x02184C40",
     "107": "0x02184C40",
     "108": "0x02184C40",
-    "111": "0x02184C40"
+    "111": "0x02184C40",
+    "arm9": "0x02000000"
   },
   "functions": [
     {
@@ -828,8 +828,8 @@
       "direct_BL_references": 2,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -1504,8 +1504,8 @@
       "direct_BL_references": 2,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -1517,8 +1517,8 @@
       "direct_BL_references": 1,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -1543,8 +1543,8 @@
       "direct_BL_references": 2,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -1699,8 +1699,8 @@
       "direct_BL_references": 2,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -2102,8 +2102,8 @@
       "direct_BL_references": 1,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -3246,8 +3246,8 @@
       "direct_BL_references": 4,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -3272,8 +3272,8 @@
       "direct_BL_references": 7,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -3454,8 +3454,8 @@
       "direct_BL_references": 1,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -4715,8 +4715,8 @@
       "direct_BL_references": 1,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -5248,8 +5248,8 @@
       "direct_BL_references": 2,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -5807,8 +5807,8 @@
       "direct_BL_references": 3,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -6418,8 +6418,8 @@
       "direct_BL_references": 1,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -6431,8 +6431,8 @@
       "direct_BL_references": 3,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "typed_C_straight_line_round15",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
