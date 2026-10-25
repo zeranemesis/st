@@ -1,0 +1,26 @@
+name: Spirit Tracks EUR1 conditional Clang matching search
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/search_conditional_round16.py'
+      - '.github/workflows/research-eur1-round16.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile and hash signed-condition and pointer-qualified C variants
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/search_conditional_round16.py --out /tmp/st-round16-conditional.json
+          python3 -c 'import json; j=json.load(open("/tmp/st-round16-conditional.json")); assert j["compiled_variants"]>100 and j["eligible_original_functions"]>=50'
+      - name: Publish candidate matches
+        uses: actions/upload-artifact@v4
+        with:
+          name: st-eur1-round16-conditional
+          path: /tmp/st-round16-conditional.json
