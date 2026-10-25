@@ -175,8 +175,8 @@ def main() -> None:
         "strict_new":sum(x["level"]=="strict" for x in ordered),
         "opcode_prefix_new":sum(x["level"]=="prefix" for x in ordered),
         "matches":ordered,
-        "baseline_strict":54,
-        "baseline_additional_opcode_literal":45,
+        "baseline_strict":m["summary"]["standalone_clang_exact"],
+        "baseline_additional_opcode_literal":m["summary"]["standalone_clang_exact_instruction_prefix_with_one_verified_literal"],
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8")
