@@ -9,6 +9,7 @@ on:
       - 'research/eur1/batches/arm9_leaf500/search_bit_tests_round17.py'
       - 'research/eur1/batches/arm9_leaf500/search_short_round18.py'
       - 'research/eur1/batches/arm9_leaf500/search_stores_round18.py'
+      - 'research/eur1/batches/arm9_leaf500/rank_mismatches_round18.py'
       - '.github/workflows/research-eur1-round16.yml'
   workflow_dispatch:
 
@@ -44,6 +45,10 @@ jobs:
         run: |
           python3 research/eur1/batches/arm9_leaf500/search_stores_round18.py --out /tmp/st-round18-stores.json
           python3 -c 'import json; j=json.load(open("/tmp/st-round18-stores.json")); assert j["compiled_variants"]>500'
+      - name: Rank 448 actual mismatching ARM functions for instruction diagnostics
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/rank_mismatches_round18.py --out /tmp/st-round18-ranked.json
+          python3 -c 'import json; j=json.load(open("/tmp/st-round18-ranked.json")); assert j["compiled_functions"]==500 and j["exact"]==52 and j["not_exact"]==448'
       - name: Publish candidate matches
         uses: actions/upload-artifact@v4
         with:
@@ -55,3 +60,4 @@ jobs:
             /tmp/st-round17-bits.json
             /tmp/st-round18-short.json
             /tmp/st-round18-stores.json
+            /tmp/st-round18-ranked.json
