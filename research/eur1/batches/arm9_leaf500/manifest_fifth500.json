@@ -15,7 +15,9 @@
     "game_cpp_integrated": 0,
     "min_function_size_bytes": 12,
     "nontrivial_at_least_16_bytes": 474,
-    "evidence": "at least one same-module BL call to each candidate address"
+    "evidence": "at least one same-module BL call to each candidate address",
+    "standalone_clang_exact_instruction_prefix_with_one_verified_literal": 43,
+    "standalone_clang_exact_original_instruction_spans_total": 97
   },
   "overlay_sha1": {
     "0": "94a5cc04665bd7687a50dc26011e3e604faf3092",
@@ -259,7 +261,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 0,
@@ -844,7 +847,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 0,
@@ -1481,7 +1485,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 0,
@@ -1598,7 +1603,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 16,
@@ -1624,7 +1630,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 17,
@@ -1741,7 +1748,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 20,
@@ -2092,7 +2100,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 21,
@@ -2144,7 +2153,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 21,
@@ -2196,7 +2206,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 22,
@@ -2417,7 +2428,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 26,
@@ -2430,7 +2442,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 26,
@@ -2833,7 +2846,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 26,
@@ -2885,7 +2899,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 26,
@@ -2898,7 +2913,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 26,
@@ -2976,7 +2992,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 26,
@@ -3015,7 +3032,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 26,
@@ -3028,7 +3046,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 26,
@@ -3041,7 +3060,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 26,
@@ -3054,7 +3074,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 26,
@@ -3093,7 +3114,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 29,
@@ -3145,7 +3167,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 30,
@@ -3184,7 +3207,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 30,
@@ -3197,7 +3221,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 31,
@@ -3340,7 +3365,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 31,
@@ -3873,7 +3899,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 50,
@@ -4029,7 +4056,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 58,
@@ -4055,7 +4083,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 58,
@@ -4068,7 +4097,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 58,
@@ -4094,7 +4124,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 59,
@@ -4185,7 +4216,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 63,
@@ -4588,7 +4620,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 73,
@@ -4679,7 +4712,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 75,
@@ -5030,7 +5064,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 84,
@@ -5212,7 +5247,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 88,
@@ -5238,7 +5274,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 88,
@@ -5329,7 +5366,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 89,
@@ -5355,7 +5393,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 90,
@@ -5433,7 +5472,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 91,
@@ -5446,7 +5486,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 91,
@@ -5511,7 +5552,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": 92,
@@ -5901,7 +5943,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": "arm9",
@@ -5953,7 +5996,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": "arm9",
@@ -6551,7 +6595,8 @@
       "c_translation": "arm_register_semantic_C_translation",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "clang_instruction_prefix_status": "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
     },
     {
       "module": "arm9",
