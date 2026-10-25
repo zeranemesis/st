@@ -108,6 +108,8 @@ def main() -> None:
         if is_exact != recorded:
             raise ValueError("Manifest mismatch: " + key)
         if is_exact:
+            if f.get("clang_instruction_prefix_status") is not None:
+                raise ValueError("Strict exact function must not be tagged as literal-prefix-only: " + key)
             exact.append(key)
             continue
         if len(full) <= needed or hashlib.sha256(full[:needed]).hexdigest() != reference:
@@ -120,6 +122,14 @@ def main() -> None:
         is_single_word_literal = length == 4 and any(
             ref["literal_target_offset"] == needed for ref in literal_references
         )
+        annotated = f.get("clang_instruction_prefix_status")
+        expected_annotation = (
+            "full_original_ARM_instruction_span_sha256_exact__clang_section_has_one_referenced_4byte_literal_pool"
+            if is_single_word_literal else None
+        )
+        if annotated != expected_annotation:
+            raise ValueError(f"Incorrect literal prefix classification in manifest: {key}")
+
         trailing_length_histogram[str(length)] = trailing_length_histogram.get(str(length), 0) + 1
         instruction_prefix_matches.append({
             "name": key.removeprefix(".text."),
@@ -139,9 +149,17 @@ def main() -> None:
         })
     if len(exact) != 54:
         raise ValueError(f"Current expected baseline of 54/500 lost: {len(exact)}")
+    tagged = sum(f.get("clang_instruction_prefix_status") is not None
+                 for f in records)
+    if tagged != 43:
+        raise ValueError(f"Expected 43 independently annotated instruction spans: {tagged}")
     instruction_prefix_matches.sort(key=lambda x: (x["trailing_bytes"], x["name"]))
     confirmed_literal = sum(x["one_word_literal_pool_confirmed_in_clang_elf"]
                             for x in instruction_prefix_matches)
+    if (confirmed_literal != manifest["summary"].get("standalone_clang_exact_instruction_prefix_with_one_verified_literal")
+            or len(exact) + confirmed_literal != manifest["summary"].get("standalone_clang_exact_original_instruction_spans_total")):
+        raise ValueError("Manifest instruction-span matching summary does not match independent code audit")
+
     out = {
         "scope": "500 real fifth-batch ARM C functions, no ROM, no CodeWarrior",
         "strict_full_section_matches": len(exact),
