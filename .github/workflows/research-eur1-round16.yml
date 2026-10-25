@@ -6,6 +6,7 @@ on:
       - 'research/eur1/batches/arm9_leaf500/search_conditional_round16.py'
       - 'research/eur1/batches/arm9_leaf500/search_grouped_round16.py'
       - 'research/eur1/batches/arm9_leaf500/search_straight_round17.py'
+      - 'research/eur1/batches/arm9_leaf500/search_bit_tests_round17.py'
       - '.github/workflows/research-eur1-round16.yml'
   workflow_dispatch:
 
@@ -29,6 +30,10 @@ jobs:
         run: |
           python3 research/eur1/batches/arm9_leaf500/search_straight_round17.py --out /tmp/st-round17-straight.json
           python3 -c 'import json; j=json.load(open("/tmp/st-round17-straight.json")); assert j["compiled_variants"]>100 and j["eligible_functions"]>70'
+      - name: Compile and test masked ARM bit predicates
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/search_bit_tests_round17.py --out /tmp/st-round17-bits.json
+          python3 -c 'import json; j=json.load(open("/tmp/st-round17-bits.json")); assert j["eligible_functions"]>=20 and j["compiled_variants"]>=100'
       - name: Publish candidate matches
         uses: actions/upload-artifact@v4
         with:
@@ -37,3 +42,4 @@ jobs:
             /tmp/st-round16-conditional.json
             /tmp/st-round16-grouped.json
             /tmp/st-round17-straight.json
+            /tmp/st-round17-bits.json
