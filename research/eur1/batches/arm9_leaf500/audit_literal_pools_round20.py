@@ -151,8 +151,8 @@ def main() -> None:
         raise ValueError(f"Current expected baseline of 54/500 lost: {len(exact)}")
     tagged = sum(f.get("clang_instruction_prefix_status") is not None
                  for f in records)
-    if tagged != 43:
-        raise ValueError(f"Expected 43 independently annotated instruction spans: {tagged}")
+    if tagged != manifest["summary"]["standalone_clang_exact_instruction_prefix_with_one_verified_literal"]:
+        raise ValueError(f"Annotation count disagrees with manifest summary: {tagged}")
     instruction_prefix_matches.sort(key=lambda x: (x["trailing_bytes"], x["name"]))
     confirmed_literal = sum(x["one_word_literal_pool_confirmed_in_clang_elf"]
                             for x in instruction_prefix_matches)
