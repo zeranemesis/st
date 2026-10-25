@@ -402,7 +402,17 @@ uint32_t st_ov000_020A62B8(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 
 /* original module: 0, addr: 0x020A6B70, 36 bytes, BL refs: 2 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov000_020A6B70(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r1 = (0x0u); *((uint32_t*)(uintptr_t)(r0 + (0u))) = (uint32_t)r1; *((uint32_t*)(uintptr_t)(r0 + (4u))) = (uint32_t)r1; *((uint32_t*)(uintptr_t)(r0 + (8u))) = (uint32_t)r1; *((uint8_t*)(uintptr_t)(r0 + (12u))) = (uint8_t)r1; *((uint8_t*)(uintptr_t)(r0 + (13u))) = (uint8_t)r1; *((uint32_t*)(uintptr_t)(r0 + (24u))) = (uint32_t)r1; *((uint32_t*)(uintptr_t)(r0 + (28u))) = (uint32_t)r1; return r0; }
+/* Clang ARMv5TE SHA256 byte-identical candidate confirmed in round 14. */
+uint32_t st_ov000_020A6B70(volatile uint8_t *object) {
+    *(volatile uint32_t *)(object + 0) = 0u;
+    *(volatile uint32_t *)(object + 4) = 0u;
+    *(volatile uint32_t *)(object + 8) = 0u;
+    *(volatile uint8_t *)(object + 12) = 0u;
+    *(volatile uint8_t *)(object + 13) = 0u;
+    *(volatile uint32_t *)(object + 24) = 0u;
+    *(volatile uint32_t *)(object + 28) = 0u;
+    return (uint32_t)(uintptr_t)object;
+}
 
 /* original module: 0, addr: 0x020A7764, 32 bytes, BL refs: 1 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
