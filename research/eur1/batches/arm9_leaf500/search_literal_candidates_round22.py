@@ -63,7 +63,7 @@ def variants_for(line: str, name: str):
             and "uint32_t z" not in body and "{" not in body[:-1]
             and stores.ACCESS.search(body)):
         for i in range(16):
-            out.append(("stores", i, stores.try_variant(body, name+"_store", i)))
+            out.append(("stores", i, stores.try_variant(body, name+"_stores", i)))
     if line.startswith("uint32_t " + name + "("):
         desc = short.detect(line)
         if desc:
