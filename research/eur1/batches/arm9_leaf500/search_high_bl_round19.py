@@ -106,8 +106,10 @@ def main() -> None:
         raw_module=section.split("_",1)[1]
         module="arm9" if raw_module=="arm9" else str(int(raw_module.removeprefix("ov")))
         ref=by_addr.get((module,int(addr,16)))
-        if ref is None or ref["clang_standalone_status"]=="exact_original_machine_bytes":
-            raise ValueError(f"Candidate already matched or missing: {name}")
+        if ref is None:
+            raise ValueError(f"Original candidate missing from manifest: {name}")
+        if ref["clang_standalone_status"]=="exact_original_machine_bytes":
+            continue  # The source was promoted in a later round; do not rediscover it.
         records[name]=ref
     exact={}
     tested=0
@@ -117,6 +119,8 @@ def main() -> None:
             variants=[]
             expected={}
             for name,bodies in RECOVERED.items():
+                if name not in records:
+                    continue
                 for i,body in enumerate(bodies):
                     key=f"{name}_v{qualifier*10+i}"
                     expected[key]=(records[name],body,qualifier*10+i)
@@ -151,7 +155,7 @@ def main() -> None:
     matches=sorted(exact.values(),key=lambda x:x["name"])
     output={
         "scope":"13 prioritized same-size, high-BL functions with human-auditable C",
-        "original_functions":len(RECOVERED),
+        "original_functions":len(records),
         "compiled_variants":tested,
         "new_exact_matches":len(matches),
         "matches":matches,
@@ -159,7 +163,7 @@ def main() -> None:
     }
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(output,indent=2)+"\n",encoding="utf-8")
-    print(f"PASS: {tested} manually reconstructed C variants, {len(RECOVERED)} original candidates")
+    print(f"PASS: {tested} manually reconstructed C variants, {len(records)} still-nonmatching candidates")
     print("EXACT_NEW:",len(matches))
     for row in matches:
         print("EXACT:",row["name"],row["size"],"bytes")
