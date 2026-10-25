@@ -20,7 +20,7 @@ import sys
 import tempfile
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[3]
+ROOT = HERE.parents[2]
 sys.path.insert(0, str(ROOT / "research/eur1/batches/arm9_leaf500"))
 from verify_codewarrior_fifth500 import CW_FLAGS  # noqa: E402
 from test_ui_counter_6590c_integration import load_actual_method, SHIM  # noqa: E402
