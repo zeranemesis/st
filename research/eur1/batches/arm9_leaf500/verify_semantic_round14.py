@@ -54,16 +54,24 @@ def main() -> None:
     if set(code) != expected or len(ADDRESSES) != 26 or len(set(ADDRESSES)) != 26:
         raise ValueError("Expected exactly 26 distinct ARM function sections: " +
                          str(sorted(set(code) ^ expected)))
+    baseline_exact = sum(row["clang_standalone_status"] == "exact_original_machine_bytes"
+                         for row in manifest["functions"])
+    if baseline_exact != 34:
+        raise ValueError("Expected promoted fifth-batch baseline of 34/500")
     rows = []
     for address in ADDRESSES:
         reference = refs.get(("0", int(address, 16)))
-        if not reference or reference["clang_standalone_status"] == "exact_original_machine_bytes":
-            raise ValueError("Target must be a previously NONMATCHING overlay-0 function: " + address)
+        if not reference:
+            raise ValueError("Candidate not in overlay-0 manifest: " + address)
         machine_code = code[".text.st_ov000_" + address]
         identical = (len(machine_code) == reference["size_bytes"] and
                      hashlib.sha256(machine_code).hexdigest() ==
                      reference["original_span_sha256"])
+        already_promoted = reference["clang_standalone_status"] == "exact_original_machine_bytes"
+        if already_promoted and not identical:
+            raise ValueError("Existing exact candidate is no longer byte-matched: " + address)
         rows.append({
+            "was_already_promoted": already_promoted,
             "module": "overlay_000",
             "address": "0x" + address,
             "symbol": "st_ov000_" + address,
@@ -76,6 +84,8 @@ def main() -> None:
                        else "different_instructions"),
         })
     exact = sum(row["clang_standalone_exact"] for row in rows)
+    new_exact = sum(row["clang_standalone_exact"] and not row["was_already_promoted"]
+                    for row in rows)
     for row in rows:
         if row["clang_standalone_exact"]:
             print("EXACT_CLANG:", row["symbol"],
@@ -84,17 +94,19 @@ def main() -> None:
     out = {
         "game": "Zelda Spirit Tracks", "revision": "EUR Rev1",
         "original_batch": "arm9_leaf500",
-        "scope": "26 alternative readable C bodies for existing nonmatching originals",
+        "scope": "26 existing overlay-0 functions, one promoted to exact in fifth batch",
         "compiler": "Clang ARMv5TE -O2 standalone",
-        "candidates": len(rows), "additional_exact_in_this_candidate_set": exact,
-        "unchanged_fifth_batch_original_baseline": "33/500 Clang-exact",
+        "candidates": len(rows), "exact_in_candidate_set": exact,
+        "new_exact_relative_to_updated_manifest": new_exact,
+        "fifth_batch_baseline_after_promotion": f"{baseline_exact}/500 Clang-exact",
         "not_tested": "Nintendo CodeWarrior, complete DS C++ build, runtime semantics",
         "functions": rows,
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     print(f"PASS: {len(rows)}/26 existing targets compiled in ARM mode; "
-          f"{exact}/26 standalone Clang SHA256-exact")
+          f"{exact}/26 standalone Clang SHA256-exact; "
+          f"{new_exact} not yet included in fifth-batch manifest")
     print("Report:", args.out)
 
 
