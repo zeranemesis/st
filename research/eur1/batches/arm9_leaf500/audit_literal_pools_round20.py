@@ -147,8 +147,8 @@ def main() -> None:
             "classification": ("Exact original ARM instruction prefix + referenced one-word Clang literal pool"
                                if is_single_word_literal else "Exact original ARM instruction prefix; trailer not fully classified"),
         })
-    if len(exact) != 82:
-        raise ValueError(f"Current expected baseline of 82/500 lost: {len(exact)}")
+    if len(exact) != 84:
+        raise ValueError(f"Current expected baseline of 84/500 lost: {len(exact)}")
     tagged = sum(f.get("clang_instruction_prefix_status") is not None
                  for f in records)
     if tagged != manifest["summary"]["standalone_clang_exact_instruction_prefix_with_one_verified_literal"]:
