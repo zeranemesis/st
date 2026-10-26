@@ -534,8 +534,10 @@ uint32_t st_ov026_020E7A84(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov026_020EA7FC(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = *((uint32_t*)(uintptr_t)(r0 + (20u))); { uint64_t z = (uint64_t)r2 - (uint64_t)(0x8u); Z = ((uint32_t)z == 0); N = ((uint32_t)z >> 31); C = (r2 >= (0x8u)); V = (((r2 ^ (0x8u)) & (r2 ^ (uint32_t)z) & 0x80000000u) != 0); } if (!C) { r2 = (r0 + ((r2 << 2))); } if (!C) { *((uint32_t*)(uintptr_t)(r2 + (32u))) = (uint32_t)r1; } if (!C) { r1 = *((uint32_t*)(uintptr_t)(r0 + (20u))); } if (!C) { r1 = (r1 + (0x1u)); } if (!C) { *((uint32_t*)(uintptr_t)(r0 + (20u))) = (uint32_t)r1; } return r0; }
 
 /* original module: 26, addr: 0x020EB284, 16 bytes, BL refs: 3 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov026_020EB284(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; { uint64_t z = (uint64_t)r0 - (uint64_t)(r1); Z = ((uint32_t)z == 0); N = ((uint32_t)z >> 31); C = (r0 >= (r1)); V = (((r0 ^ (r1)) & (r0 ^ (uint32_t)z) & 0x80000000u) != 0); } if ((!Z && N == V)) { r0 = (r0 - (r1)); } if ((Z || N != V)) { r0 = (r1 - (r0)); } return r0; }
+/* Round 30: readable C semantics; original ARM signed_compare_absolute_difference_leaf recovered by SHA256; Clang match NOT established. */
+uint32_t st_ov026_020EB284(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+    return (int32_t)r0 > (int32_t)r1 ? (r0 - r1) : (r1 - r0);
+}
 
 /* original module: 26, addr: 0x020EC1C8, 44 bytes, BL refs: 4 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
@@ -649,8 +651,10 @@ return r0;
 uint32_t st_ov026_020F7D84(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r0 = *((uint32_t*)(uintptr_t)(r0 + (8u))); r1 = 0x0000ffffu; r0 = ((r0 << 16)); r0 = ((r0 >> 16)); { uint64_t z = (uint64_t)r0 - (uint64_t)(r1); Z = ((uint32_t)z == 0); N = ((uint32_t)z >> 31); C = (r0 >= (r1)); V = (((r0 ^ (r1)) & (r0 ^ (uint32_t)z) & 0x80000000u) != 0); } if (!Z) { r0 = (0x1u); } if (Z) { r0 = (0x0u); } return r0; }
 
 /* original module: 26, addr: 0x020F903C, 16 bytes, BL refs: 16 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov026_020F903C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; { uint64_t z = (uint64_t)r0 - (uint64_t)(0x0u); Z = ((uint32_t)z == 0); N = ((uint32_t)z >> 31); C = (r0 >= (0x0u)); V = (((r0 ^ (0x0u)) & (r0 ^ (uint32_t)z) & 0x80000000u) != 0); } if (Z) { r0 = (0x3u); } if (!Z) { r0 = (0x1u); } return r0; }
+/* Round 30: readable C semantics; original ARM conditional_immediate_select_leaf recovered by SHA256; Clang match NOT established. */
+uint32_t st_ov026_020F903C(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+    return r0 == 0u ? 3u : 1u;
+}
 
 /* original module: 26, addr: 0x020FA478, 20 bytes, BL refs: 9 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
