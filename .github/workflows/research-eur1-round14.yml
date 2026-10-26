@@ -34,10 +34,10 @@ jobs:
         run: |
           python3 research/eur1/batches/arm9_leaf500/verify_semantic_round14.py --out /tmp/st-round14-arm-hashes.json
           python3 -c 'import json; r=json.load(open("/tmp/st-round14-arm-hashes.json")); assert r["candidates"]==26 and len(r["functions"])==26'
-      - name: Verify all 500 research functions and current 80/500 baseline
+      - name: Verify all 500 research functions and current 82/500 baseline
         run: |
           python3 research/eur1/batches/arm9_leaf500/verify_fifth500_romfree.py --out /tmp/st-fifth500-recheck.json
-          python3 -c 'import json; j=json.load(open("/tmp/st-fifth500-recheck.json")); assert j["compiled_functions"]==500 and j["exact_clang_sha256"]==80'
+          python3 -c 'import json; j=json.load(open("/tmp/st-fifth500-recheck.json")); assert j["compiled_functions"]==500 and j["exact_clang_sha256"]==82'
       - name: Run 26 host semantic regression groups under ASan and UBSan
         run: |
           clang -std=c11 -O1 -g -Wall -Wextra -Werror -fsanitize=address,undefined -fno-omit-frame-pointer research/eur1/batches/arm9_leaf500/test_semantic_round14.c -o /tmp/st-round14-host
