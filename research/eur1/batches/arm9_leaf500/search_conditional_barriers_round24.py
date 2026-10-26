@@ -157,15 +157,28 @@ def main() -> None:
                     by_family[kind] = by_family.get(kind,0)+1
     if len(candidates)<1000 or len(original_names)<50:
         raise ValueError(f"Insufficient conditional candidates: {len(candidates)} / {len(original_names)}")
+    # One giant object can exceed ELF32 section-count limits: each
+    # -ffunction-sections candidate produces its own .text section,
+    # relocation and string-table metadata. Compile in 2,000-function
+    # batches so standard ARM ELF32 readers can inspect every section.
+    compiled={}
+    batch_size=2000
     with tempfile.TemporaryDirectory(prefix="st_round24_conditional_") as tmp:
-        src=Path(tmp)/"conditional.c"
-        obj=Path(tmp)/"conditional.o"
-        src.write_text(HEADER+"\n".join(emitted),encoding="utf-8")
-        proc=subprocess.run([args.clang,*FLAGS,"-c",str(src),"-o",str(obj)],
-                            capture_output=True,text=True,timeout=180)
-        if proc.returncode:
-            raise RuntimeError("Clang candidate compile failed: "+proc.stderr[-5000:])
-        compiled=elf32_sections(obj.read_bytes())
+        for start in range(0,len(emitted),batch_size):
+            end=min(len(emitted),start+batch_size)
+            src=Path(tmp)/f"conditional_{start}.c"
+            obj=Path(tmp)/f"conditional_{start}.o"
+            src.write_text(HEADER+"\n".join(emitted[start:end]),encoding="utf-8")
+            proc=subprocess.run([args.clang,*FLAGS,"-c",str(src),"-o",str(obj)],
+                                capture_output=True,text=True,timeout=180)
+            if proc.returncode:
+                raise RuntimeError("Clang candidate compile failed at batch "+
+                                   f"{start}:{end}: "+proc.stderr[-5000:])
+            sections=elf32_sections(obj.read_bytes())
+            if compiled.keys() & sections.keys():
+                raise ValueError("Duplicate function symbols across batch objects")
+            compiled.update(sections)
+            print(f"COMPILED_BATCH: {end}/{len(emitted)} ARM candidates",flush=True)
     if len(compiled)!=len(candidates):
         raise ValueError(f"Unexpected sections: {len(compiled)}/{len(candidates)}")
     matches={}
