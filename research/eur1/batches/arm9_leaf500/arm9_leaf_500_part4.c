@@ -116,8 +116,11 @@ r1 = *((uint32_t*)(uintptr_t)(r2 + (0u)));
 }
 
 /* original module: 70, addr: 0x02148870, 16 bytes, BL refs: 2 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov070_02148870(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r1 = (uint32_t)(*((uint16_t*)(uintptr_t)(r0 + 110u))); r0 = 0x0214df58u; r0 = *((uint32_t*)(uintptr_t)(r0 + ((r1 << 2)))); return r0; }
+/* Round 30: readable C semantics; original ARM ldrh_global_table_lookup_leaf recovered by SHA256; Clang match NOT established. */
+uint32_t st_ov070_02148870(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+    uint32_t index = *(uint16_t *)(uintptr_t)(r0 + 110u);
+    return *(uint32_t *)(uintptr_t)(0x0214df58u + (index << 2));
+}
 
 /* original module: 70, addr: 0x0214B20C, 36 bytes, BL refs: 2 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
