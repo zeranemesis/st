@@ -56,8 +56,8 @@ def main() -> None:
                          str(sorted(set(code) ^ expected)))
     baseline_exact = sum(row["clang_standalone_status"] == "exact_original_machine_bytes"
                          for row in manifest["functions"])
-    if baseline_exact != 82:
-        raise ValueError("Expected promoted fifth-batch baseline of 82/500")
+    if baseline_exact != 84:
+        raise ValueError("Expected promoted fifth-batch baseline of 84/500")
     rows = []
     for address in ADDRESSES:
         reference = refs.get(("0", int(address, 16)))
