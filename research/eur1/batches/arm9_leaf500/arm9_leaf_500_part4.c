@@ -282,7 +282,7 @@ uint32_t st_ov080_0215A790(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 
 /* original module: 80, addr: 0x0215A7AC, 48 bytes, BL refs: 2 */
 /* Clang ARMv5TE standalone: SHA256 BYTE-EXACT, sparse empty compiler barriers (round 25). */
-void st_ov080_0215A7AC(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+uint32_t st_ov080_0215A7AC(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t r12=0;
 r12 = *((volatile uint32_t*)(uintptr_t)(r0 + (1780u)));
 r3 = *((volatile uint32_t*)(uintptr_t)(r1 + (0u)));
@@ -298,6 +298,7 @@ __asm__ __volatile__("" : "+r"(r0));
 *((volatile uint32_t*)(uintptr_t)(r0 + (2212u))) = (uint32_t)r3;
 *((volatile uint32_t*)(uintptr_t)(r0 + (2216u))) = (uint32_t)r2;
 *((volatile uint32_t*)(uintptr_t)(r0 + (2220u))) = (uint32_t)r1;
+return r0;
 }
 
 /* original module: 80, addr: 0x0215B6B4, 28 bytes, BL refs: 2 */
