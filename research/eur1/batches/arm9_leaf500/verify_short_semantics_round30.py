@@ -2,9 +2,10 @@
 """Host semantic regression checks for round30 readable Spirit Tracks EUR1 C.
 
 The real fifth500 source shards are compiled and linked as ordinary host C,
-then eight address-stride helpers and one 10-bit mask helper are invoked on
-boundary and typical inputs. The MMIO/global-address dereference helper is
-NOT invoked on the host: that would read a Nintendo DS address, not host RAM.
+then eight address-stride helpers, a 10-bit mask, signed comparison,
+conditional constant selection and fixed-point arithmetic are executed on
+boundary inputs. Nintendo DS fixed-address memory dereferences are NOT
+executed on the host.
 This checks arithmetic C behavior, NOT original game execution and NOT a
 Clang ARM instruction SHA256 match. The latter is a distinct CI audit.
 """
@@ -35,7 +36,7 @@ def main() -> None:
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--cc",default="clang")
     args=ap.parse_args()
-    names=[x[0] for x in OPERATIONS]+["st_ov000_0206D32C"]
+    names=[x[0] for x in OPERATIONS]+["st_ov000_0206D32C", "st_ov026_020EB284", "st_ov026_020F903C", "st_ov093_021753BC"]
     lines=[
         "#include <stdint.h>",
         "#include <stdio.h>",
@@ -61,11 +62,36 @@ def main() -> None:
         '  if(got!=expected){fprintf(stderr,"mask error %u\\n",i);return 1;}',
         '  checks++;',
         '}',
-        'printf("PASS: %u host test cases across 9 genuine research C functions (8 strides + 1 bitmask)\\n",checks);',
+        'for (unsigned i=0;i<sizeof(values)/sizeof(values[0]);i++) {',
+        '  uint32_t value=values[i];',
+        '  uint32_t got=st_ov026_020F903C(value,0,0,0);',
+        '  uint32_t expected=value==0u ? 3u : 1u;',
+        '  if(got!=expected){fprintf(stderr,"conditional immediate error %u\n",i);return 1;}',
+        '  checks++;',
+        '}',
+        'for (unsigned i=0;i<sizeof(values)/sizeof(values[0]);i++) {',
+        '  for (unsigned j=0;j<sizeof(values)/sizeof(values[0]);j++) {',
+        '    uint32_t a=values[i],b=values[j];',
+        '    uint32_t expected=(int32_t)a>(int32_t)b ? a-b : b-a;',
+        '    uint32_t got=st_ov026_020EB284(a,b,0,0);',
+        '    if(got!=expected){fprintf(stderr,"signed difference error %u %u\n",i,j);return 1;}',
+        '    checks++;',
+        '  }',
+        '}',
+        'for (unsigned i=0;i<sizeof(values)/sizeof(values[0]);i++) {',
+        '  for (unsigned j=0;j<sizeof(values)/sizeof(values[0]);j++) {',
+        '    uint32_t fixed=values[i]*values[j]+0x800u;',
+        '    uint32_t expected=(uint32_t)((int32_t)fixed>>12);',
+        '    uint32_t got=st_ov093_021753BC(values[i],values[j],0,0);',
+        '    if(got!=expected){fprintf(stderr,"fixed point error %u %u\n",i,j);return 1;}',
+        '    checks++;',
+        '  }',
+        '}',
+        'printf("PASS: %u host test cases across 12 genuine research C functions (8 strides, mask, compare, selector, fixed-point)\n",checks);',
         'return 0;',
         '}',
     ])
-    if len(OPERATIONS)!=8 or len(names)!=9:
+    if len(OPERATIONS)!=8 or len(names)!=12:
         raise ValueError("Round30 host validation set was accidentally modified")
     with tempfile.TemporaryDirectory(prefix="st_round30_host_") as tmp:
         harness=Path(tmp)/"harness.c"
@@ -81,7 +107,7 @@ def main() -> None:
         if run.returncode:
             raise RuntimeError("Host semantic check failed: "+run.stderr[-4000:])
         print(run.stdout.strip())
-    print("MMIO/address-loaded function st_ov023_020E9AE0 not executed on host.")
+    print("Four DS-address memory access routines are intentionally not executed on the host.")
     print("This host test does not establish original DS gameplay semantics.")
 
 
