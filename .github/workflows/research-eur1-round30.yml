@@ -21,7 +21,7 @@ jobs:
       - name: Verify exact original 12/16-byte opcode recovery by SHA256
         run: |
           python3 research/eur1/batches/arm9_leaf500/recover_short_arm_round30.py --out /tmp/st-eur1-short30.json
-          python3 -c 'import json; j=json.load(open("/tmp/st-eur1-short30.json")); assert j["original_short_instruction_sequences_recovered"]==10 and j["not_promoted_to_Clang_matching"] and j["exact_opcode_spans_already_matched_by_Clang_unchanged"]==154'
+          python3 -c 'import json; j=json.load(open("/tmp/st-eur1-short30.json")); assert j["original_short_instruction_sequences_recovered"]==16 and j["not_promoted_to_Clang_matching"] and j["exact_opcode_spans_already_matched_by_Clang_unchanged"]==154'
       - name: Compile real research C and check nine short-function arithmetic semantics
         run: python3 research/eur1/batches/arm9_leaf500/verify_short_semantics_round30.py
       - name: Preserve ROM-free opcode evidence
