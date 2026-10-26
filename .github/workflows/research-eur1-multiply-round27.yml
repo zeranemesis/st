@@ -1,0 +1,26 @@
+name: Spirit Tracks EUR1 multiply-accumulate matching
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/search_multiply_round27.py'
+      - '.github/workflows/research-eur1-multiply-round27.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  match:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile ARM C multiplication arithmetic candidates
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/search_multiply_round27.py --out /tmp/eur1-round27-mul.json
+          python3 -c 'import json; j=json.load(open("/tmp/eur1-round27-mul.json")); assert j["compiled_variants"]>=100 and j["functions_scanned"]>=10'
+      - name: Upload candidate C and ARM matching report
+        uses: actions/upload-artifact@v4
+        with:
+          name: eur1-round27-mul-report
+          path: /tmp/eur1-round27-mul.json
