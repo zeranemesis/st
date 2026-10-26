@@ -7,12 +7,12 @@ This fifth batch adds **500 new C function bodies at direct ARM BL call targets*
 - **500 distinct BL-referenced original ARM9 addresses**, each with at least one direct branch-and-link call recorded in the same module in the decompilation scan
 - **500/500 C bodies compile with Clang ARMv5TE `-O2`**
 - **500/500 original addresses and instruction-byte spans validated with SHA-256** against a user-owned dumped Nintendo DS EUR1 Rev 1 ROM (ROM SHA-1 `dcb221a89acb894503a461c2c7d4cfdad9a06b68`)
-- **80/500 exact complete Clang ARM ELF function sections** (including 3 new round-24 source rewrites), plus 70 additional exact original ARM instruction spans with a one-word Clang literal pool; **420/500 Clang function sections compile but differ in full bytes**
+- **82/500 exact complete Clang ARM ELF function sections** (including 2 new round-25 source rewrites), plus 70 additional exact original ARM instruction spans with a one-word Clang literal pool; **418/500 Clang function sections compile but differ in full bytes**
 - **474/500 reconstructed code spans at least 16 bytes**, compared to prior batches of mostly 4–12-byte returns
 - **74 distinct ARM9 code modules** (ARM9 main and overlays); **15,092 original instruction bytes** represented
 - **0 CodeWarrior checks and 0 integrated original DS source units** from this batch
 
-**Important:** Compilability and algorithmic transcription do not guarantee behavior is correct. The **420 nonmatching C bodies are experimental, low-level translations** and have not been independently checked for runtime semantic equivalence. Do **not** count all 500 as matching/completed game functions. Their C++ owners, true signatures and full control-flow boundaries still need review. This is not a PC port.
+**Important:** Compilability and algorithmic transcription do not guarantee behavior is correct. The **418 nonmatching C bodies are experimental, low-level translations** and have not been independently checked for runtime semantic equivalence. Do **not** count all 500 as matching/completed game functions. Their C++ owners, true signatures and full control-flow boundaries still need review. This is not a PC port.
 
 ## Contents
 
@@ -35,7 +35,7 @@ The `working_code` directory must contain your local `arm9.bin` and the `overlay
 
 ## Subsequent decompilation steps
 
-1. Validate the **420 nonmatching C bodies** with an independent ARM instruction interpreter or emulator and refine their C types/expressions with the original CodeWarrior compiler, starting with functions having the most same-overlay BL references.
+1. Validate the **418 nonmatching C bodies** with an independent ARM instruction interpreter or emulator and refine their C types/expressions with the original CodeWarrior compiler, starting with functions having the most same-overlay BL references.
 2. Trace function boundaries/callers and recover true argument signatures and C++ structures.
 3. Move confirmed functions to their correct original source files and use `ninja arm9_eur1 report_eur1 check_eur1`, `ninja changes_eur1`, and `objdiff` to establish actual decompilation progress.
 
@@ -74,7 +74,7 @@ implementations or integrated game functions**.
 
 ## Seven newly matching typed C rewrites (2026-10-23)
 
-The previous register-simulation bodies at seven existing addresses were replaced by readable C functions with typed, ordered memory writes. All seven produce **exact original instructions under Clang ARMv5TE**, revalidated against the owner's EUR Rev 1 ROM. See [the seven-function audit](MATCHING_REWRITES_7.md). The current round-24 baseline is **80 exact / 420 nonmatching**; the round-23 baseline was **77 exact / 423 nonmatching**; the round-20 baseline was **54 exact / 446 nonmatching**, following two more source rewrites; the earlier round-16 baseline was **52 exact / 448 nonmatching**; the previous round-15 baseline was **48 exact / 452 nonmatching**. At the end of round 14 it was **34 exact / 466 nonmatching**. The earlier snapshot was **33 exact / 138 instruction-different / 329 size-different** before the new exact 0x020A6B70 replacement. The true CodeWarrior dsi/1.2p1 results, ABI/C++ ownership and official DS game build matching are **not established** by this Clang experiment.
+The previous register-simulation bodies at seven existing addresses were replaced by readable C functions with typed, ordered memory writes. All seven produce **exact original instructions under Clang ARMv5TE**, revalidated against the owner's EUR Rev 1 ROM. See [the seven-function audit](MATCHING_REWRITES_7.md). The current round-25 baseline is **82 exact / 418 nonmatching**; the round-24 baseline was **80 exact / 420 nonmatching**; the round-23 baseline was **77 exact / 423 nonmatching**; the round-20 baseline was **54 exact / 446 nonmatching**, following two more source rewrites; the earlier round-16 baseline was **52 exact / 448 nonmatching**; the previous round-15 baseline was **48 exact / 452 nonmatching**. At the end of round 14 it was **34 exact / 466 nonmatching**. The earlier snapshot was **33 exact / 138 instruction-different / 329 size-different** before the new exact 0x020A6B70 replacement. The true CodeWarrior dsi/1.2p1 results, ABI/C++ ownership and official DS game build matching are **not established** by this Clang experiment.
 
 ## 25 October 2026 — 26-function readable-C round
 
@@ -111,3 +111,7 @@ The previous register-simulation bodies at seven existing addresses were replace
 ## 26 October 2026 — round 24: conditional compiler-barrier C matching
 
 [Matching round 24](MATCHING_ROUND24.md) finds **three additional original ARM functions with fully byte-exact Clang ELF sections**, from **43,460** source variants over **353 previously opcode-nonmatching functions**. The original functions at overlay 000 `0x02058FC4` (52 bytes), overlay 090 `0x021687BC` (24 bytes) and overlay 092 `0x02168B54` (20 bytes) now have matching actual C research bodies. GitHub Actions independently recompiles all 500 originals: **80 strict Clang sections**, **70 more exact original ARM instruction spans with a referenced four-byte Clang literal**, giving **150/500 exact original ARM opcode spans** and **350/500 opcode-nonmatching**. This experiment uses Clang extensions, not the original Nintendo compiler or a game rebuild.
+
+## 26 October 2026 — round 25: nonadjacent empty compiler-barrier combinations
+
+[Matching round 25](MATCHING_ROUND25.md) tests **13,924 Clang ARM variants** across 128 previously opcode-nonmatching unbranched C research functions. Two genuine **full-section SHA256-exact** ARM candidates were promoted from the original compiler output evidence to the actual `arm9_leaf_500_part1.c` and `part4.c`: overlay 000 `0x02072D08` (36 bytes), overlay 080 `0x0215A7AC` (48 bytes). GitHub Actions independently confirms **82/500 strict whole-function Clang ARM sections**, plus **70 separately exact ARM opcode spans with one referenced Clang literal**, totaling **152/500 original ARM instruction streams byte-exact**, with **348 opcode-unmatched** and **418 nonmatching whole Clang sections**. These Clang-specific register-optimization matches do not establish original CodeWarrior compilation, DS game reconstruction or a native PC port.
