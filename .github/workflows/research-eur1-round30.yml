@@ -1,0 +1,31 @@
+name: Spirit Tracks EUR1 recovered ARM & readable C regression
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/recover_short_arm_round30.py'
+      - 'research/eur1/batches/arm9_leaf500/verify_short_semantics_round30.py'
+      - 'research/eur1/batches/arm9_leaf500/arm9_leaf_500_part*.c'
+      - 'research/eur1/batches/arm9_leaf500/manifest_fifth500.json'
+      - '.github/workflows/research-eur1-round30.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checked-original-instructions-and-host-c:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact original 12/16-byte opcode recovery by SHA256
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/recover_short_arm_round30.py --out /tmp/st-eur1-short30.json
+          python3 -c 'import json; j=json.load(open("/tmp/st-eur1-short30.json")); assert j["original_short_instruction_sequences_recovered"]==10 and j["not_promoted_to_Clang_matching"] and j["exact_opcode_spans_already_matched_by_Clang_unchanged"]==154'
+      - name: Compile real research C and check nine short-function arithmetic semantics
+        run: python3 research/eur1/batches/arm9_leaf500/verify_short_semantics_round30.py
+      - name: Preserve ROM-free opcode evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: spirit-tracks-eur1-short-arm-recovery-and-host-c
+          path: /tmp/st-eur1-short30.json
