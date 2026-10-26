@@ -145,8 +145,11 @@ uint32_t st_ov093_021719C4(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov093_021719DC(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r0 = *((uint32_t*)(uintptr_t)(r0 + (4u))); r0 = *((uint32_t*)(uintptr_t)(r0 + (72u))); { uint64_t z = (uint64_t)r0 - (uint64_t)(0x1u); Z = ((uint32_t)z == 0); N = ((uint32_t)z >> 31); C = (r0 >= (0x1u)); V = (((r0 ^ (0x1u)) & (r0 ^ (uint32_t)z) & 0x80000000u) != 0); } if (Z) { r0 = (0x1u); } if (!Z) { r0 = (0x0u); } return r0; }
 
 /* original module: 93, addr: 0x021753BC, 16 bytes, BL refs: 3 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov093_021753BC(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r1 = (r0 * r1); r0 = (r1 + (0x800u)); r0 = (((uint32_t)((int32_t)r0 >> 12))); return r0; }
+/* Round 30: readable C semantics; original ARM mul_add_0x800_asr12_leaf recovered by SHA256; Clang match NOT established. */
+uint32_t st_ov093_021753BC(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+    uint32_t scaled = r0 * r1 + 0x800u;
+    return (uint32_t)((int32_t)scaled >> 12);
+}
 
 /* original module: 94, addr: 0x0216F6C4, 36 bytes, BL refs: 1 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
