@@ -9,15 +9,15 @@
     "new_direct_BL_backed_c_bodies": 500,
     "machine_instruction_bytes_in_original_spans": 15092,
     "distinct_code_modules": 74,
-    "standalone_clang_exact": 82,
-    "standalone_clang_nonmatching": 418,
+    "standalone_clang_exact": 84,
+    "standalone_clang_nonmatching": 416,
     "codewarrior_tested": 0,
     "game_cpp_integrated": 0,
     "min_function_size_bytes": 12,
     "nontrivial_at_least_16_bytes": 474,
     "evidence": "at least one same-module BL call to each candidate address",
     "standalone_clang_exact_instruction_prefix_with_one_verified_literal": 70,
-    "standalone_clang_exact_original_instruction_spans_total": 152
+    "standalone_clang_exact_original_instruction_spans_total": 154
   },
   "overlay_sha1": {
     "0": "94a5cc04665bd7687a50dc26011e3e604faf3092",
@@ -416,8 +416,8 @@
       "direct_BL_references": 5,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "void_C_empty_memory_barrier_volatile_load_store_round29",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
@@ -1356,8 +1356,8 @@
       "direct_BL_references": 2,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
-      "clang_standalone_status": "compiles_but_machine_bytes_differ",
+      "c_translation": "void_C_empty_dual_register_readonly_fence_round29",
+      "clang_standalone_status": "exact_original_machine_bytes",
       "original_CodeWarrior": "not_tested",
       "game_Cpp_integration": "not_done"
     },
