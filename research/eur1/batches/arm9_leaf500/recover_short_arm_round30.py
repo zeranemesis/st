@@ -104,6 +104,81 @@ def find_candidates_by_hash(records):
                                                  "pc_literal_offset":off,"stride_register":stride_reg,
                                                  "result_register":out,"multiply_regs":[first,second],
                                                  "accumulate_register":accum})
+    # Four-instruction conditional leaf families. All branches are ARM
+    # condition-coded instructions, NOT guessed source CFG boundaries.
+    for cmpreg in range(4):
+        cmp_zero=0xE3500000|(cmpreg<<16)
+        for base in range(4):
+            for dest in range(4):
+                load_eq=0x05900000|(base<<16)|(dest<<12)|12
+                load_ne=0x15900000|(base<<16)|(dest<<12)|16
+                try_seq("conditional_field_select_leaf",
+                        [cmp_zero,load_eq,load_ne,BX_LR],
+                        {"compared_register":cmpreg,"base_register":base,
+                         "output_register":dest,"field_offsets":[12,16]})
+                for a,b in ((3,1),(1,3)):
+                    mov_eq=0x03A00000|(dest<<12)|a
+                    mov_ne=0x13A00000|(dest<<12)|b
+                    try_seq("conditional_immediate_select_leaf",
+                            [cmp_zero,mov_eq,mov_ne,BX_LR],
+                            {"compared_register":cmpreg,"output_register":dest,
+                             "equal_value":a,"non_equal_value":b})
+
+    # CMP followed by signed-GT and signed-LE conditional SUB.
+    for first in range(4):
+        for second in range(4):
+            compare=0xE1500000|(first<<16)|second
+            for dst in range(4):
+                subgt=0xC0400000|(first<<16)|(dst<<12)|second
+                suble=0xD0400000|(second<<16)|(dst<<12)|first
+                try_seq("signed_compare_absolute_difference_leaf",
+                        [compare,subgt,suble,BX_LR],
+                        {"compare":[first,second],"subtract_output":dst})
+
+    # MOV #24 + MLA (pointer array index) + load word at offset 24.
+    for stride_reg in range(4):
+        mov=0xE3A00018|(stride_reg<<12)
+        for dest in range(4):
+            load=0xE5900018|(dest<<16)|(dest<<12)
+            for x in range(4):
+                for y in range(4):
+                    for accumulate in range(4):
+                        mla=0xE0200090|(dest<<16)|(accumulate<<12)|(y<<8)|x
+                        try_seq("mov_mla_load_word_leaf",
+                                [mov,mla,load,BX_LR],
+                                {"stride":24,"stride_register":stride_reg,
+                                 "multiply":[x,y],"accumulate":accumulate,
+                                 "result_register":dest,"dereference_offset":24})
+
+    # MUL, ADD #0x800, MOV ASR #12, BX LR (scaled fixed-point).
+    for output in range(4):
+        for factor0 in range(4):
+            for factor1 in range(4):
+                mul=0xE0000090|(output<<16)|(factor1<<8)|factor0
+                for add_dst in range(4):
+                    add=0xE2800000|(output<<16)|(add_dst<<12)|0xB02
+                    for shift_dst in range(4):
+                        asr=0xE1A00000|(shift_dst<<12)|(12<<7)|(2<<5)|add_dst
+                        try_seq("mul_add_0x800_asr12_leaf",
+                                [mul,add,asr,BX_LR],
+                                {"multiply":[factor0,factor1],"mul_result":output,
+                                 "add_result":add_dst,"shift_output":shift_dst})
+
+    # LDRH [object+#110], literal base pointer, indexed LDR [base, index<<2].
+    for object_reg in range(4):
+        for idx_reg in range(4):
+            off=110
+            ldrh=0xE1D000B0|(object_reg<<16)|(idx_reg<<12)|((off>>4)<<8)|(off&15)
+            for ptr_reg in range(4):
+                literal=0xE59F0004|(ptr_reg<<12)
+                for load_dst in range(4):
+                    indexed=0xE7900000|(ptr_reg<<16)|(load_dst<<12)|(2<<7)|idx_reg
+                    try_seq("ldrh_global_table_lookup_leaf",
+                            [ldrh,literal,indexed,BX_LR],
+                            {"object_register":object_reg,"index_register":idx_reg,
+                             "literal_pointer_register":ptr_reg,
+                             "destination_register":load_dst,"object_field_offset":110})
+
     return found,tested
 
 def main():
