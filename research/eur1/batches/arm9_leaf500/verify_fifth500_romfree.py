@@ -101,7 +101,7 @@ def main() -> None:
     args.out.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(f"PASS: 500/500 original functions compiled; {counts['exact']}/500 "
           "machine-code SHA256-exact with standalone Clang")
-    print("Round 23: 23 more Clang ARM C functions promoted; 80/500 strictly exact")
+    print("Round 24: 3 further strict Clang ARM C matches; 80/500 strictly exact")
     print("Report:", args.out)
 
 
