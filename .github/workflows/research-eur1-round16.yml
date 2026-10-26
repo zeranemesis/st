@@ -49,7 +49,7 @@ jobs:
       - name: Rank 448 actual mismatching ARM functions for instruction diagnostics
         run: |
           python3 research/eur1/batches/arm9_leaf500/rank_mismatches_round18.py --out /tmp/st-round18-ranked.json
-          python3 -c 'import json; j=json.load(open("/tmp/st-round18-ranked.json")); assert j["compiled_functions"]==500 and j["exact"]==77 and j["not_exact"]==423'
+          python3 -c 'import json; j=json.load(open("/tmp/st-round18-ranked.json")); assert j["compiled_functions"]==500 and j["exact"]==80 and j["not_exact"]==420'
       - name: Check 13 handwritten typed C reconstructions for full ARM matches
         run: |
           python3 research/eur1/batches/arm9_leaf500/search_high_bl_round19.py --out /tmp/st-round19-high-bl.json
