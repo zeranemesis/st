@@ -3,7 +3,7 @@
 **2026-10-23.** This document describes the reproducible standalone compilation
 status, not normal game C++ source/objdiff integration.
 
-> **Mise à jour du 25 octobre 2026 :** le matching **Clang ARMv5TE de section entière est à 77/500**, avec **70 autres flux d'instructions ARM byte-exact comportant un literal pool Clang** (147/500 flux exacts), contre 33/500 lors de la rédaction initiale ci-dessous. Il reste **423 sections Clang strictement nonmatching** et **353 flux d'instructions nonmatching**. Voir [le rapport de la passe 23](MATCHING_ROUND23.md). La table détaillée 33/138/329 ci-dessous est conservée comme **historique du 23 octobre**, pas comme état courant.
+> **Mise à jour du 26 octobre 2026 :** le matching **Clang ARMv5TE de section entière est à 80/500**, avec **70 autres flux d'instructions ARM byte-exact comportant un literal pool Clang** (150/500 flux exacts), contre 33/500 lors de la rédaction initiale ci-dessous. Il reste **420 sections Clang strictement nonmatching** et **350 flux d'instructions nonmatching**. Voir [le rapport de la passe 24](MATCHING_ROUND24.md). La table détaillée 33/138/329 ci-dessous est conservée comme **historique du 23 octobre**, pas comme état courant.
 
 ## Confirmed baseline (local Clang ARMv5TE)
 
