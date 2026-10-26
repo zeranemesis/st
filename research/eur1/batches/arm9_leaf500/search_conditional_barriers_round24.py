@@ -102,8 +102,11 @@ def barriers(source: str, name: str):
         variants.append((label,candidate))
         # Also try LLVM memory clobber (no runtime instructions);
         # unlike adding volatile to all pointers, it preserves types.
-        clobbered = candidate.replace('__asm__ __volatile__("" : "+r"(', '__asm__ __volatile__("" : "+r"(')
-        clobbered = clobbered.replace(')); ', ') : : "memory"); ')
+        clobbered = re.sub(
+            r'__asm__ __volatile__\("" : "\+r"\((r(?:0|1|2|3|12))\)\);',
+            r'__asm__ __volatile__("" : "+r"(\1) : : "memory");',
+            candidate,
+        )
         variants.append((label+"_memory",clobbered))
     return variants
 
