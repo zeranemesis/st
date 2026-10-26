@@ -1,0 +1,26 @@
+name: Spirit Tracks EUR1 conditional ARM barrier search
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/search_conditional_barriers_round24.py'
+      - '.github/workflows/research-eur1-conditional-barriers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  matching:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile conditional C and empty compiler barrier variants
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/search_conditional_barriers_round24.py --out /tmp/eur1-conditional-round24.json
+          python3 -c 'import json; j=json.load(open("/tmp/eur1-conditional-round24.json")); assert j["compiled_variants"]>=1000 and j["candidate_original_functions"]>=50'
+      - name: Upload exact SHA256 match evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: spirit-tracks-eur1-conditional-round24
+          path: /tmp/eur1-conditional-round24.json

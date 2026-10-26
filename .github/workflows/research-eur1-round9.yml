@@ -1,0 +1,39 @@
+name: Spirit Tracks EUR1 round-nine candidates
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/bl50c/semantic_candidates_round9.c'
+      - 'research/eur1/batches/bl50c/verify_semantic_round9.py'
+      - 'research/eur1/batches/bl50c/semantic_candidates_round10.c'
+      - 'research/eur1/batches/bl50c/verify_semantic_round10.py'
+      - 'research/eur1/batches/bl50c/test_semantic_round10.c'
+      - 'research/eur1/batches/bl50c/test_semantic_round9.c'
+      - 'research/eur1/batches/bl50c/manifest_50.json'
+      - '.github/workflows/research-eur1-round9.yml'
+  pull_request:
+    paths:
+      - 'research/eur1/batches/bl50c/**'
+      - '.github/workflows/research-eur1-round9.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  armv5te-candidates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check readable C candidate SHA256 against the original EUR1 manifest
+        run: python3 research/eur1/batches/bl50c/verify_semantic_round9.py --out /tmp/st-round9-hashes.json
+      - name: Verify all 20 existing nonmatching functions have readable C candidates
+        run: python3 research/eur1/batches/bl50c/verify_semantic_round10.py --out /tmp/st-round10-hashes.json
+      - name: Test linked-list candidates with ASan and UBSan
+        run: |
+          clang -std=c11 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Werror research/eur1/batches/bl50c/test_semantic_round10.c -o /tmp/st-round10-test
+          /tmp/st-round10-test
+      - name: Verify host semantics with Clang sanitizers
+        run: |
+          clang -std=c11 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer research/eur1/batches/bl50c/test_semantic_round9.c -o /tmp/st-round9-test
+          /tmp/st-round9-test

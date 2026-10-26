@@ -1,0 +1,26 @@
+name: Spirit Tracks EUR1 register-constraint matching search
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/search_register_constraints_round29.py'
+      - '.github/workflows/research-eur1-register-constraints.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  constraints:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recompile alternative zero-byte register constraints for original ARM hashes
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/search_register_constraints_round29.py --out /tmp/eur1-register-round29.json
+          python3 -c 'import json; j=json.load(open("/tmp/eur1-register-round29.json")); assert j["compiled_variants"] > 5000 and j["original_candidates_scanned"] > 100'
+      - name: Upload exact match candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: eur1-register-round29
+          path: /tmp/eur1-register-round29.json

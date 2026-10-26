@@ -1,0 +1,27 @@
+name: Spirit Tracks EUR1 search 10 new Clang matches
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/search_simple_round15.py'
+      - 'research/eur1/batches/arm9_leaf500/arm9_leaf_500_part*.c'
+      - '.github/workflows/research-eur1-round15.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile typed source candidates and hash against original ARM spans
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/search_simple_round15.py --out /tmp/st-round15-simple-matches.json
+          python3 -c 'import json; x=json.load(open("/tmp/st-round15-simple-matches.json")); assert x["compiled_variants"] >= 100 and x["source_candidate_functions"] >= 50'
+      - name: Publish inspected matching candidate report as CI artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: eur1-round15-simple-matches
+          path: /tmp/st-round15-simple-matches.json

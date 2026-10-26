@@ -1,0 +1,26 @@
+name: Spirit Tracks EUR1 sparse ARM compiler barrier search
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/search_sparse_barriers_round25.py'
+      - '.github/workflows/research-eur1-sparse-barriers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile separated empty asm barriers and check full original ARM SHA256
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/search_sparse_barriers_round25.py --out /tmp/eur1-round25-sparse.json
+          python3 -c 'import json; j=json.load(open("/tmp/eur1-round25-sparse.json")); assert j["compiled_variants"] >= 1000 and j["original_functions_tested"] >= 30'
+      - name: Upload C source match evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: eur1-round25-sparse-results
+          path: /tmp/eur1-round25-sparse.json

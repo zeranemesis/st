@@ -1,0 +1,26 @@
+name: Spirit Tracks EUR1 recover short original ARM instructions
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/recover_short_arm_round30.py'
+      - '.github/workflows/research-eur1-short-arm-recovery.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check constrained ARMv5TE instruction templates against original SHA256
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/recover_short_arm_round30.py --out /tmp/st-short-arm-round30.json
+          python3 -c 'import json; j=json.load(open("/tmp/st-short-arm-round30.json")); assert j["not_promoted_to_Clang_matching"] and j["strict_Clang_full_section_matches_unchanged"]==84 and j["exact_opcode_spans_already_matched_by_Clang_unchanged"]==154 and j["original_short_instruction_sequences_recovered"]==16'
+      - name: Preserve verified original instruction-pattern evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: spirit-tracks-eur1-short-arm-recovery-round30
+          path: /tmp/st-short-arm-round30.json
