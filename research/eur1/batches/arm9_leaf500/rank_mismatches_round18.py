@@ -21,6 +21,7 @@ import subprocess
 import tempfile
 
 from verify_fifth500 import FLAGS, elf32_sections
+from audit_literal_pools_round20 import arm_pc_literal_references
 
 HERE = Path(__file__).resolve().parent
 MANIFEST = HERE / "manifest_fifth500.json"
@@ -136,6 +137,23 @@ def main() -> None:
             continue
         tally["not_exact"] += 1
         tally["same_size" if equal_size else "different_size"] += 1
+        # Crucial separation: a Clang .text section can contain one
+        # referenced four-byte literal pool even if EVERY original ARM
+        # instruction byte is already identical. Do not prioritize
+        # those already matched instruction spans as new decomp targets.
+        original_n = f["size_bytes"]
+        prefix_exact = (
+            len(code) == original_n + 4
+            and hashlib.sha256(code[:original_n]).hexdigest() == f["original_span_sha256"]
+            and any(
+                r["literal_target_offset"] == original_n
+                for r in arm_pc_literal_references(code, original_n)
+            )
+        )
+        annotated = f.get("clang_instruction_prefix_status") is not None
+        if prefix_exact != annotated:
+            raise ValueError(f"Incorrect instruction-prefix annotation: {key}")
+        tally["prefix_opcode_exact" if prefix_exact else "opcode_unmatched"] += 1
         result = {
             "symbol": key.removeprefix(".text."),
             "module": f["module"],
@@ -149,6 +167,7 @@ def main() -> None:
             "original_verified_sha256": f["original_span_sha256"],
             "clang_sha256": hashlib.sha256(code).hexdigest(),
             "clang_byte_exact": False,
+            "original_opcode_stream_exact_with_clang_literal": prefix_exact,
         }
         if originals:
             result.update(compare_words(code, originals[key]))
@@ -158,6 +177,12 @@ def main() -> None:
         tally["not_exact"] != data["summary"]["standalone_clang_nonmatching"]
     ):
         raise ValueError("The full compiled baseline disagrees with the original manifest")
+
+    if (tally["exact"] + tally["prefix_opcode_exact"] !=
+            data["summary"]["standalone_clang_exact_original_instruction_spans_total"]
+            or tally["prefix_opcode_exact"] !=
+            data["summary"]["standalone_clang_exact_instruction_prefix_with_one_verified_literal"]):
+        raise ValueError("ARM instruction-level matching categories inconsistent with manifest")
 
     # Better first: already same-size and high BL-reference demand. When
     # authenticated original bytes are available, prioritize near-exact
@@ -173,6 +198,10 @@ def main() -> None:
         )
 
     rows.sort(key=priority)
+    # Historical full-section nonmatches include the literal-pool cases.
+    # The new opcode list excludes them without altering the previous
+    # fields used by existing CI/report consumers.
+    opcode_unmatched = [r for r in rows if not r["original_opcode_stream_exact_with_clang_literal"]]
     report = {
         "game": "The Legend of Zelda: Spirit Tracks", "revision": "EUR Rev1",
         "compiler": "Clang ARMv5TE -O2 standalone, no CodeWarrior",
@@ -183,6 +212,11 @@ def main() -> None:
         "not_exact": tally["not_exact"],
         "same_size_but_different_code": tally["same_size"],
         "different_size": tally["different_size"],
+        "prefix_opcode_exact": tally["prefix_opcode_exact"],
+        "opcode_unmatched": tally["opcode_unmatched"],
+        "original_opcode_exact_total": tally["exact"] + tally["prefix_opcode_exact"],
+        "top_opcode_unmatched": opcode_unmatched[:args.limit],
+        "all_opcode_unmatched": opcode_unmatched,
         "ranking_heuristic": "Word-level agreement (if original supplied), then same size, then BL refs",
         "top_candidates": rows[:args.limit],
         "all_nonmatching": rows,
@@ -192,8 +226,9 @@ def main() -> None:
     print("PASS: 500/500 true C source bodies compile and match manifest status")
     print(f"EXACT: {tally['exact']}/500; NONMATCHING: {tally['not_exact']}")
     print(f"Same size/different instructions: {tally['same_size']}; different size: {tally['different_size']}")
+    print(f"ARM OPCODES: {tally['exact'] + tally['prefix_opcode_exact']} matched; {tally['opcode_unmatched']} truly unmatched; {tally['prefix_opcode_exact']} Clang literal pool trailers")
     print("Authenticated original working_code:", bool(originals))
-    for candidate in rows[:min(15, args.limit)]:
+    for candidate in opcode_unmatched[:min(15, args.limit)]:
         score = candidate.get("matching_instruction_words")
         print(f"CANDIDATE {candidate['symbol']}: original {candidate['original_size_bytes']}B"
               f", Clang {candidate['clang_size_bytes']}B,"
