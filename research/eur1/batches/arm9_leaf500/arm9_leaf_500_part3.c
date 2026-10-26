@@ -25,16 +25,22 @@ uint32_t st_ov026_020FF520(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
 uint32_t st_ov026_02102A44(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r1 = 0x0213610cu; r0 = (r1 + ((r0 << 6))); return r0; }
 
 /* original module: 26, addr: 0x02102A54, 16 bytes, BL refs: 3 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov026_02102A54(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = 0x0213628cu; r1 = (0x60u); r0 = (r1 * r0 + r2); return r0; }
+/* Round 30: readable C semantics; original ARM literal_mov_mla_leaf recovered by SHA256; Clang match NOT established. */
+uint32_t st_ov026_02102A54(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+    return 0x0213628cu + (96u * r0);
+}
 
 /* original module: 26, addr: 0x02108340, 16 bytes, BL refs: 9 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov026_02108340(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = 0x02133350u; r1 = (0x2cu); r0 = (r1 * r0 + r2); return r0; }
+/* Round 30: readable C semantics; original ARM literal_mov_mla_leaf recovered by SHA256; Clang match NOT established. */
+uint32_t st_ov026_02108340(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+    return 0x02133350u + (44u * r0);
+}
 
 /* original module: 26, addr: 0x02108354, 16 bytes, BL refs: 4 */
-/* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
-uint32_t st_ov026_02108354(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) { uint32_t r4=0, r5=0, r6=0, r7=0, r8=0, r9=0, r10=0, r11=0, r12=0; unsigned Z=0,N=0,C=0,V=0; r2 = 0x021333d4u; r1 = (0xcu); r0 = (r1 * r0 + r2); return r0; }
+/* Round 30: readable C semantics; original ARM literal_mov_mla_leaf recovered by SHA256; Clang match NOT established. */
+uint32_t st_ov026_02108354(uint32_t r0, uint32_t r1, uint32_t r2, uint32_t r3) {
+    return 0x021333d4u + (12u * r0);
+}
 
 /* original module: 26, addr: 0x02108368, 12 bytes, BL refs: 4 */
 /* Clang ARMv5TE standalone: SEMANTIC C ONLY - NOT BYTE-EXACT */
