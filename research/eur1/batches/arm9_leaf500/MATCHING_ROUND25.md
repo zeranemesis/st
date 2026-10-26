@@ -11,7 +11,7 @@ Exactly **two source variants matched the *entire* original machine-code section
 | Overlay 000 | `0x02072D08` | **36/36 bytes** | two nonadjacent barriers on loaded `r0` and `r1`; volatile halfword/word accesses |
 | Overlay 080 | `0x0215A7AC` | **48/48 bytes** | three barriers on intermediate `r3`, `r2`, `r0`; volatile word accesses |
 
-Both use `void` signatures as source-level reconstruction alternatives, and the original signed halfword and 32-bit memory operations remain visible in the C. The **empty `__asm__ __volatile__("" : "+r"(reg))` emits no ARM instructions**, but affects LLVM's register dependencies and optimization decisions. This is a **compiler-specific C extension**, not pure ISO C. The `void` signature remains provisional and is not proof of the game's original C++ function type.
+Both use **`uint32_t` signatures with `return r0`**, copied from the exact matching candidate evidence, and the original signed halfword and 32-bit memory operations remain visible in the C. The **empty `__asm__ __volatile__("" : "+r"(reg))` emits no ARM instructions**, but affects LLVM's register dependencies and optimization decisions. This is a **compiler-specific C extension**, not pure ISO C. The `uint32_t` signature still remains provisional and is not proof of the game's original C++ function type.
 
 **Both actual C implementations are now in the published fifth-batch source shards**, replacing their old ARM register-state simulation bodies:
 
