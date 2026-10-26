@@ -650,10 +650,11 @@
       "direct_BL_references": 6,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
+      "c_translation": "round30_readable_short_C_semantics",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "original_arm_code_sha256_template_recovered": "literal_and_register_leaf"
     },
     {
       "module": 0,
@@ -1135,10 +1136,11 @@
       "direct_BL_references": 8,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
+      "c_translation": "round30_readable_short_C_semantics",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "original_arm_code_sha256_template_recovered": "literal_mov_mla_leaf"
     },
     {
       "module": 0,
@@ -1473,10 +1475,11 @@
       "direct_BL_references": 3,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
+      "c_translation": "round30_readable_short_C_semantics",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "original_arm_code_sha256_template_recovered": "literal_mov_mla_leaf"
     },
     {
       "module": 0,
@@ -1792,10 +1795,11 @@
       "direct_BL_references": 9,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
+      "c_translation": "round30_readable_short_C_semantics",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "original_arm_code_sha256_template_recovered": "literal_mov_mla_leaf"
     },
     {
       "module": 20,
@@ -2059,10 +2063,11 @@
       "direct_BL_references": 5,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
+      "c_translation": "round30_readable_short_C_semantics",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "original_arm_code_sha256_template_recovered": "literal_mov_mla_leaf"
     },
     {
       "module": 21,
@@ -2312,10 +2317,11 @@
       "direct_BL_references": 4,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
+      "c_translation": "round30_readable_short_C_semantics",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "original_arm_code_sha256_template_recovered": "literal_ldrw_leaf"
     },
     {
       "module": 23,
@@ -2877,10 +2883,11 @@
       "direct_BL_references": 3,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
+      "c_translation": "round30_readable_short_C_semantics",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "original_arm_code_sha256_template_recovered": "literal_mov_mla_leaf"
     },
     {
       "module": 26,
@@ -2890,10 +2897,11 @@
       "direct_BL_references": 9,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
+      "c_translation": "round30_readable_short_C_semantics",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "original_arm_code_sha256_template_recovered": "literal_mov_mla_leaf"
     },
     {
       "module": 26,
@@ -2903,10 +2911,11 @@
       "direct_BL_references": 4,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
+      "c_translation": "round30_readable_short_C_semantics",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "original_arm_code_sha256_template_recovered": "literal_mov_mla_leaf"
     },
     {
       "module": 26,
@@ -4522,10 +4531,11 @@
       "direct_BL_references": 6,
       "origin": "original_ROM_ARM9_code",
       "boundary_evidence": "same_module_direct_BL_target",
-      "c_translation": "arm_register_semantic_C_translation",
+      "c_translation": "round30_readable_short_C_semantics",
       "clang_standalone_status": "compiles_but_machine_bytes_differ",
       "original_CodeWarrior": "not_tested",
-      "game_Cpp_integration": "not_done"
+      "game_Cpp_integration": "not_done",
+      "original_arm_code_sha256_template_recovered": "literal_mov_mla_leaf"
     },
     {
       "module": 71,
