@@ -1,0 +1,26 @@
+name: Spirit Tracks EUR1 selective volatile ARM matching
+
+on:
+  push:
+    paths:
+      - 'research/eur1/batches/arm9_leaf500/search_selective_volatile_round26.py'
+      - '.github/workflows/research-eur1-selective-volatile.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  matching:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile selective memory access C variants and compare ARM SHA256
+        run: |
+          python3 research/eur1/batches/arm9_leaf500/search_selective_volatile_round26.py --out /tmp/eur1-round26-volatile.json
+          python3 -c 'import json; j=json.load(open("/tmp/eur1-round26-volatile.json")); assert j["compiled_variants"] >= 500 and j["original_functions_scanned"] >= 70'
+      - name: Preserve candidate C source matches
+        uses: actions/upload-artifact@v4
+        with:
+          name: eur1-round26-selective-volatile-matches
+          path: /tmp/eur1-round26-volatile.json
